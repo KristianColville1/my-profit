@@ -1,9 +1,7 @@
 """My Prof is tool businesses can use to calculate and forecast profits for their products"""
 import time
-import keyring
 from console import clear_console
-from classes import c_print
-
+from rapid_silver.c_print import ColorPrint
 
 def welcome_msg():
     """
@@ -66,7 +64,7 @@ def main():
     """
     Runs the program.
     """
-    color = c_print.ColorPrint()
+    color = ColorPrint()
     print(color.p_red(welcome_msg()))
     input(color.p_yellow('\n\n\n\t\t< Press enter to continue to log in >'))
     login_screen(color)
