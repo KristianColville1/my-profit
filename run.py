@@ -1,7 +1,8 @@
 """My Prof is tool businesses can use to calculate and forecast profits for their products"""
+import time
 from console import clear_console
 from classes import c_print
-import time
+
 
 def welcome_msg():
     """
@@ -25,19 +26,18 @@ def login_screen(color):
         clear_console()
         file = open('login.txt')
         login_msg = file.read()
-        print('\n\n' + color.p_cyan(login_msg))
+        print('\n' + color.p_cyan(login_msg))
     except IOError:
         # in event reading log in message fails
         print('Log in screen')
 
-    print(color.p_yellow("\n\t\t\tHit 's' + Enter to login"))
-    print(color.p_yellow("\t\t\tHit 'm' + Enter to create new account"))
-    print(color.p_yellow("\t\t\tHit 'd' + Enter for instructions"))
+    print(color.p_yellow("\n\t\t\tHit 'e + Enter' to login"))
+    print(color.p_yellow("\t\t\tHit 'd + Enter' to create new account"))
 
     try:
         result = input(color.p_green('\n\t\t\tHere: '))
-        if result not in ('s', 'm', 'd'):
-            print(color.p_red('\t\t\tInvalid input, enter s, m or d'))
+        if result not in ('e', 'd'):
+            print(color.p_red('\t\t\tInvalid input, enter e or d'))
             time.sleep(2.5)
             login_screen(color)
     except ValueError:
@@ -51,7 +51,7 @@ def main():
     """
     color = c_print.ColorPrint()
     print(color.p_red(welcome_msg()))
-    input(color.p_yellow('\n\t\t\t< Press enter to continue to log in >'))
+    input(color.p_yellow('\n\n\n\t\t< Press enter to continue to log in >'))
     result = login_screen(color)
     clear_console()
     print(result)
