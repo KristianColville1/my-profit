@@ -49,15 +49,50 @@ Developer: Kristian Colville
 
 
 ## Project Goals
+
+The goals of this project include:
+
+- Designing a back-end application for users with small to medium sized businesses
+- It should provide users with the ability to store and access user accounts
+- This is a CLI project so the application should work in a terminal
+- Use the [python programming language](https://www.python.org/) to build the application
+
 ### User Goals
+
+- To be able store and access accounts for users of various types
+- Log in or create an account
+- Update, check and monitor products in order to forecast future events
+
 ### Site Owners Goals
 
-[Back to Top](#table-of-contents)
-## User Experience
-### Target Audience
-### User Requirements and Expectations
+- Build a CLI business utility tool for people who are self-employed/freelancers or have small to medium sized businesses
+- Provide the ability for users to log in and create user accounts
+- Design it so a user can set up a mailing list to send emails using the [simple mail transfer protocol](https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol)
+- Build it using a [back-end language](https://en.wikipedia.org/wiki/Frontend_and_backend)
 
 [Back to Top](#table-of-contents)
+
+## User Experience
+### Target Audience
+
+- Any user who needs to use a business utility tool
+- Users who are self-employed or freelancing and need to send large volumes of emails
+- Small to medium sized businesses that need to use payroll software
+- Self starters who would like to set up a business model and structure for a new venture
+
+### User Requirements and Expectations
+
+- Clear navigation through the [CLI](https://en.wikipedia.org/wiki/Command-line_interface)
+- Information provided to help guide users
+- Any errors or actions are handled and work as expected
+- There should be appropriate feedback displayed for the interactions provided
+- Help should be provided where appropriate
+- The user is guided through the program in a logical and meaningful way
+- The user would expect to see log in options for the program
+- Any user would expect the application to have a high degree of security
+
+[Back to Top](#table-of-contents)
+
 ## User Stories
 ### Site User
 ### Site Owner
