@@ -1,10 +1,9 @@
 """Holds the user class for creating user objects"""
 
-class User():
+class User(object):
     """Creates a user object for the current user of the terminal"""
     
-    def __init__(self, name, email, password):
+    def __init__(self, name):
         self.name = name
-        self.email = email
-        self.password = password
+
     
