@@ -77,6 +77,7 @@ Developer: Kristian Colville
 [Back to Top](#table-of-contents)
 ## Logic
 ### Initial Flow
+![Initial Flowchart](assets/images/flowcharts/rapid-silver.drawio.png)
 ### Python Logic
 
 [Back to Top](#table-of-contents)
@@ -137,12 +138,12 @@ To deploy a project using Heroku follow these steps:
     - Click on settings
     - Click on build pack
     - Add your packs as needed (Please be aware that the order matters)
-    - For Tetromino Falls, Python and then NodeJs was selected.
+    - For Rapid Silver, Python and then NodeJs was selected.
 
 - Once these steps are completed
     - Go to the deploy section
     - Select your version control system
-    - For Tetromino Falls, GitHub was selected
+    - For Rapid Silver, GitHub was selected
 
 - Connect your version control system
 - Add your repository
