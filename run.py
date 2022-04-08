@@ -1,5 +1,6 @@
 """My Prof is tool businesses can use to calculate and forecast profits for their products"""
 import time
+import keyring
 from console import clear_console
 from classes import c_print
 
@@ -39,10 +40,26 @@ def login_screen(color):
         if result not in ('e', 'd'):
             print(color.p_red('\t\t\tInvalid input, enter e or d'))
             time.sleep(2.5)
+            clear_console()
             login_screen(color)
     except ValueError:
         login_screen(color)
-    return result
+    if result == 'e':
+        login_user()
+    elif result == 'd':
+        create_account()
+
+
+def login_user():
+    """
+    When called it pulls up the log in screen for the user.
+    """
+
+
+def create_account():
+    """
+    When called it pulls up the log in for creating a user account.
+    """
 
 
 def main():
@@ -52,9 +69,8 @@ def main():
     color = c_print.ColorPrint()
     print(color.p_red(welcome_msg()))
     input(color.p_yellow('\n\n\n\t\t< Press enter to continue to log in >'))
-    result = login_screen(color)
-    clear_console()
-    print(result)
+    login_screen(color)
 
-SIGNED_IN = False
+
+
 main()
