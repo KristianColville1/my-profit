@@ -47,6 +47,62 @@ Developer: Kristian Colville
 * [Credits](#credits)
 * [Acknowledgements](#acknowledgements)
 
+
+## Project Goals
+### User Goals
+### Site Owners Goals
+
+[Back to Top](#table-of-contents)
+## User Experience
+### Target Audience
+### User Requirements and Expectations
+
+[Back to Top](#table-of-contents)
+## User Stories
+### Site User
+### Site Owner
+
+[Back to Top](#table-of-contents)
+## Design
+### Color Scheme
+### Fonts
+### Structure
+### Wireframes
+
+[Back to Top](#table-of-contents)
+## Technologies & Tools
+### Main Tech
+### Python Packages Used
+
+[Back to Top](#table-of-contents)
+## Logic
+### Initial Flow
+### Python Logic
+
+[Back to Top](#table-of-contents)
+## Features
+
+[Back to Top](#table-of-contents)
+## Data Model
+
+[Back to Top](#table-of-contents)
+## Testing
+### Testing User Stories
+
+[Back to Top](#table-of-contents)
+## Validation
+### HTML Validation
+### CSS Validation
+### JavaScript Validation
+### Python validation
+#### PEP8 validation
+#### Linters
+### LightHouse
+
+[Back to Top](#table-of-contents)
+## Bugs
+
+[Back to Top](#table-of-contents)
 ## Deployment
 ### Version Control
 I used [Visual Studio Code](https://code.visualstudio.com/) as a local repository and IDE & [GitHub](https://github.com/) as a remote repository.
