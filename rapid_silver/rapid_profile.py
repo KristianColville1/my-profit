@@ -1,19 +1,15 @@
-import gspread
-from google.oauth2.service_account import Credentials
+"""Holds the Rapid Silver user Class for the python application Rapid silver"""
+from rapid_silver.user import User
+from rapid_silver.password import Password
 
-SCOPE = [
-    "https://www.googleapis.com/auth/spreadsheets",
-    "https://www.googleapis.com/auth/drive.file",
-    "https://www.googleapis.com/auth/drive"
-    ]
-
-
-CREDS = Credentials.from_service_account_file('creds.json')
-SCOPED_CREDS = CREDS.with_scopes(SCOPE)
-GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
-SHEET = GSPREAD_CLIENT.open('rapid_silver')
-
-user_names = SHEET.worksheet('rapid_silver')
-data = user_names.get_all_values()
-print(data)
-
+class RapidUser( User, Password):
+    """
+    Rapid Profile is a subclass of user and password.
+    It holds the holds the information. It inherits all the 
+    functionality of company and user.
+    """
+    def __init__(self, username, email, password):
+        User(RapidUser).__init__(username)
+        self.username = username
+        self.email = email
+        self.password = password
