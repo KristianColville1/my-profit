@@ -20,5 +20,32 @@ class ColorPrint:
     def __init__(self):
         self.name = 'Color Printer'
 
+
     def print_blue(self, text):
         """Prints text blue and then returns to normal text"""
+
+        return self.blue + text + self.reset
+
+
+    def print_cyan(self, text):
+        """Prints text cyan  and then returns to normal text"""
+
+        return self.cyan + text + self.reset
+
+
+    def print_green(self, text):
+        """Prints text green and then returns to normal text"""
+
+        return self.green + text + self.reset
+
+
+    def print_red(self, text):
+        """Prints text red  and then returns to normal text"""
+
+        return self.red + text + self.reset
+
+
+    def print_yellow(self, text):
+        """Prints text yellow and then returns to normal text"""
+
+        return self.yellow + text + self.reset
