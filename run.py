@@ -2,7 +2,7 @@
 Rapid Silver is a mini business utility tool for users who are self-employed,
 freelancers, or for small to medium sized businesses users. They can use this
 tool too calculate and forecast profits for their products,
-create mailing lists, send emails, create an organisation structure,
+create mailing lists, send emails, create an organization structure,
 design employee spread sheets
 etc.
 """
@@ -10,7 +10,11 @@ import time
 from console import clear_console
 from rapid_silver.c_print import ColorPrint
 from rapid_silver.rapid_profile import RapidUser
+from rapid_silver.art import TextArt
 
+
+# class instances
+COLOR = ColorPrint()
 
 def welcome_msg():
     """
@@ -31,19 +35,18 @@ def login_screen():
     """
     When called it displays the log in screen to the terminal.
     """
-    color = ColorPrint()
     try:
         clear_console()
         file = open('login.txt')
         login_msg = file.read()
         file.close()
-        print('\n' + color.p_cyan(login_msg))
+        print('\n' + COLOR.p_cyan(login_msg))
     except IOError:
         # in event reading log in message fails
         print('Log in screen')
 
-    print(color.p_yellow("\n\t\t\tHit 'e + Enter' to login"))
-    print(color.p_yellow("\t\t\tHit 'd + Enter' to create new account"))
+    print(COLOR.p_yellow("\n\t\t\tHit 'e + Enter' to login"))
+    print(COLOR.p_yellow("\t\t\tHit 'd + Enter' to create new account"))
 
 
 def login_user():
@@ -59,21 +62,20 @@ def create_account():
     When called it pulls up the log in for creating a user account.
     """
     clear_console()
-    color = ColorPrint()
     try:
         file = open('new_account.txt', encoding='utf8')
         option_screen = file.read()
         file.close()
-        print('\n\n' + color.p_yellow(option_screen) + '\n\n')
+        print('\n\n' + COLOR.p_yellow(option_screen) + '\n\n')
     except IOError:
-        print(color.p_yellow('\t\t\tOptions\n\n\n\n'))
+        print(COLOR.p_yellow('\t\t\tOptions\n\n\n\n'))
 
     try:
-        name = input(str(color.p_green('Enter your name here: ')))
+        name = input(str(COLOR.p_green('Enter your name here: ')))
         if len(name) < 3 or len(name) > 15:
             raise ValueError()
     except ValueError:
-        print(color.p_red('Name must be more than 3 characters and max 15'))
+        print(COLOR.p_red('Name must be more than 3 characters and max 15'))
         time.sleep(3)
         clear_console()
         create_account()
@@ -88,14 +90,13 @@ def get_options():
     CLI application.
     """
     clear_console()
-    color = ColorPrint()
     try:
         file = open('options.txt', encoding='utf8')
         option_screen = file.read()
         file.close()
-        print('\n\n' + color.p_yellow(option_screen) + '\n\n')
+        print('\n\n' + COLOR.p_yellow(option_screen) + '\n\n')
     except IOError:
-        print(color.p_yellow('\t\t\tOptions\n\n\n\n'))
+        print(COLOR.p_yellow('\t\t\tOptions\n\n\n\n'))
     # TODO: add options here for user
 
 
@@ -105,11 +106,10 @@ def get_user_type():
     logs in returning users. Calls login_user() or create_account()
     and assigns it to variable user.
     """
-    color = ColorPrint()
     try:
-        result = input(color.p_green('\n\t\t\tHere: '))
+        result = input(COLOR.p_green('\n\t\t\tHere: '))
         if result not in ('e', 'd'):
-            print(color.p_red('\t\t\tInvalid input, enter e or d'))
+            print(COLOR.p_red('\t\t\tInvalid input, enter e or d'))
             time.sleep(2.5)
             clear_console()
             login_screen()
@@ -126,9 +126,8 @@ def main():
     """
     Runs the program.
     """
-    color = ColorPrint()
-    print(color.p_red(welcome_msg()))
-    input(color.p_yellow('\n\n\n\t\t< Press enter to continue to log in >'))
+    print(COLOR.p_red(welcome_msg()))
+    input(COLOR.p_yellow('\n\n\n\t\t< Press enter to continue to log in >'))
     login_screen()
     # gets or sets up a user profile
     user = get_user_type()
