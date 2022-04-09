@@ -20,10 +20,10 @@ class TextArt(ColorPrint):
         """
 
         text = 'Loading'
-        for _ in range(25):
+        for _ in range(20):
             text += self.p_cyan(self.dot_sym)
             print(f'{text}\r', end='')
-            time.sleep(0.3)
+            time.sleep(0.1)
 
 
     def hash_loading(self):
@@ -34,10 +34,10 @@ class TextArt(ColorPrint):
         """
 
         text = 'Loading'
-        for _ in range(25):
+        for _ in range(20):
             text += self.p_yellow(self.hash_sym)
             print(f'{text}\r', end='')
-            time.sleep(0.3)
+            time.sleep(0.1)
 
 
     def money_loading(self):
@@ -48,7 +48,7 @@ class TextArt(ColorPrint):
         """
 
         text = 'Loading'
-        for _ in range(25):
+        for _ in range(20):
             text += self.p_green(self.money_sym)
             print(f'{text}\r', end='')
-            time.sleep(0.3)
+            time.sleep(0.1)
