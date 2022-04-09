@@ -1,4 +1,11 @@
-"""My Prof is tool businesses can use to calculate and forecast profits for their products"""
+"""
+Rapid Silver is a mini business utility tool for users who are self-employed,
+freelancers, or for small to medium sized businesses users. They can use this
+tool too calculate and forecast profits for their products,
+create mailing lists, send emails, create an organisation structure,
+design employee spread sheets
+etc.
+"""
 import time
 from console import clear_console
 from rapid_silver.c_print import ColorPrint
@@ -43,7 +50,7 @@ def login_user():
     """
     When called it pulls up the log in screen for the user.
     """
-    # TODO: create log in code for user and return user after account creation code finished
+    # TODO: create log in code for user and return user
     return ''
 
 
@@ -57,7 +64,7 @@ def create_account():
         file = open('new_account.txt', encoding='utf8')
         option_screen = file.read()
         file.close()
-        print('\n\n'+ color.p_yellow(option_screen) + '\n\n')
+        print('\n\n' + color.p_yellow(option_screen) + '\n\n')
     except IOError:
         print(color.p_yellow('\t\t\tOptions\n\n\n\n'))
 
@@ -66,7 +73,7 @@ def create_account():
         if len(name) < 3 or len(name) > 15:
             raise ValueError()
     except ValueError:
-        print(color.p_red('WARNING: Name must be more than 3 characters and max 15'))
+        print(color.p_red('Name must be more than 3 characters and max 15'))
         time.sleep(3)
         clear_console()
         create_account()
@@ -86,7 +93,7 @@ def get_options():
         file = open('options.txt', encoding='utf8')
         option_screen = file.read()
         file.close()
-        print('\n\n'+ color.p_yellow(option_screen) + '\n\n')
+        print('\n\n' + color.p_yellow(option_screen) + '\n\n')
     except IOError:
         print(color.p_yellow('\t\t\tOptions\n\n\n\n'))
     # TODO: add options here for user
