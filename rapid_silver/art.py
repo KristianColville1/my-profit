@@ -2,6 +2,7 @@
 import time
 from rapid_silver.c_print import ColorPrint
 
+
 class TextArt(ColorPrint):
     """
     Creates text art objects for the terminal.
@@ -25,7 +26,6 @@ class TextArt(ColorPrint):
             print(f'{text}\r', end='')
             time.sleep(0.1)
 
-
     def hash_loading(self):
         """
         Uses carriage return to make a basic animation for hash symbols.
@@ -38,7 +38,6 @@ class TextArt(ColorPrint):
             text += self.p_yellow(self.hash_sym)
             print(f'{text}\r', end='')
             time.sleep(0.1)
-
 
     def money_loading(self):
         """
