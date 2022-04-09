@@ -1,5 +1,5 @@
 <body>
-    <div id="background">
+    <div class="background">
         <div class="container-center">
             <div id="terminal"></div>
             <button onclick="window.location.reload()">Run Program</button>
@@ -8,8 +8,8 @@
 
     <script>
         var term = new Terminal({
-            cols: 107,
-            rows: 30
+            cols: 80,
+            rows: 24
         });
         term.open(document.getElementById('terminal'));
         term.writeln('Running startup command: python3 run.py');
