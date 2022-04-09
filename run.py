@@ -38,25 +38,13 @@ def login_screen():
     print(color.p_yellow("\n\t\t\tHit 'e + Enter' to login"))
     print(color.p_yellow("\t\t\tHit 'd + Enter' to create new account"))
 
-    try:
-        result = input(color.p_green('\n\t\t\tHere: '))
-        if result not in ('e', 'd'):
-            print(color.p_red('\t\t\tInvalid input, enter e or d'))
-            time.sleep(2.5)
-            clear_console()
-            login_screen()
-    except ValueError:
-        login_screen()
-    if result == 'e':
-        login_user()
-    elif result == 'd':
-        create_account()
-
 
 def login_user():
     """
     When called it pulls up the log in screen for the user.
     """
+    # TODO: create log in code for user and return user after account creation code finished
+    return ''
 
 
 def create_account():
@@ -66,7 +54,7 @@ def create_account():
     clear_console()
     color = ColorPrint()
     try:
-        file = open('options.txt', encoding='utf8')
+        file = open('new_account.txt', encoding='utf8')
         option_screen = file.read()
         file.close()
         print('\n\n'+ color.p_yellow(option_screen) + '\n\n')
@@ -83,10 +71,15 @@ def create_account():
         clear_console()
         create_account()
 
-    current_user = RapidUser(name)
+    user = RapidUser(name)
+    return user
 
 
 def get_options():
+    """
+    Displays available options to the user for the Rapid Silver
+    CLI application.
+    """
     clear_console()
     color = ColorPrint()
     try:
@@ -98,6 +91,30 @@ def get_options():
         print(color.p_yellow('\t\t\tOptions\n\n\n\n'))
     # TODO: add options here for user
 
+
+def get_user_type():
+    """
+    Gets the user type. Sets up a new account for new users and
+    logs in returning users. Calls login_user() or create_account()
+    and assigns it to variable user.
+    """
+    color = ColorPrint()
+    try:
+        result = input(color.p_green('\n\t\t\tHere: '))
+        if result not in ('e', 'd'):
+            print(color.p_red('\t\t\tInvalid input, enter e or d'))
+            time.sleep(2.5)
+            clear_console()
+            login_screen()
+    except ValueError:
+        login_screen()
+    if result == 'e':
+        user = login_user()
+    elif result == 'd':
+        user = create_account()
+    return user
+
+
 def main():
     """
     Runs the program.
@@ -106,7 +123,8 @@ def main():
     print(color.p_red(welcome_msg()))
     input(color.p_yellow('\n\n\n\t\t< Press enter to continue to log in >'))
     login_screen()
-
+    # gets or sets up a user profile
+    user = get_user_type()
 
 
 main()
