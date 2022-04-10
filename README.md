@@ -29,6 +29,8 @@ Developer: Kristian Colville
     * [Python Logic](#python-logic)
 * [Features](#features)
 * [Data Model](#data-model)
+    * [Class Overview](#class-overview)
+    * [Database Overview](#database-overview)
 * [Testing](#testing)
     * [Testing User Stories](#testing-user-stories)
 * [Validation](#validation)
@@ -121,6 +123,21 @@ The goals of this project include:
 
 [Back to Top](#table-of-contents)
 ## Data Model
+
+### Class Overview
+Object Orientated programming was used throughout the project. The CLI application consists of 5 classes and 3 subclasses.
+
+- User
+    - RapidUser
+    - Employee
+- PasswordManager
+- ColorPrint
+    - TextPrint
+- Company
+- Product
+
+### Database Overview
+
 
 [Back to Top](#table-of-contents)
 ## Testing
