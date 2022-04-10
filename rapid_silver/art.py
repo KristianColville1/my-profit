@@ -1,6 +1,6 @@
 """Holds text art class for Rapid Silver"""
 import time
-from rapid_silver.c_print import ColorPrint
+from rapid_silver.color import ColorPrint
 
 
 class TextArt(ColorPrint):
@@ -12,42 +12,40 @@ class TextArt(ColorPrint):
     hash_sym = '#'
     dot_sym = '.'
     money_sym = '$'
+    star_sym = '*'
 
-    def dot_loading(self):
+    def dot_loading(self, text):
         """
         Uses carriage return to make a basic animation for dot symbols.
         Used to add more visually pleasing terminal. Acts as a time delay
         between getting and setting data.
         """
 
-        text = 'Loading'
         for _ in range(15):
-            text += self.p_cyan(self.dot_sym)
+            text += self.cyan_fore(self.dot_sym)
             print(f'{text}\r', end='')
             time.sleep(0.1)
 
-    def hash_loading(self):
+    def hash_loading(self, text):
         """
         Uses carriage return to make a basic animation for hash symbols.
         Used to add more visually pleasing terminal. Acts as a time delay
         between getting and setting data.
         """
 
-        text = 'Loading'
         for _ in range(15):
-            text += self.p_yellow(self.hash_sym)
+            text += self.yellow_fore(self.hash_sym)
             print(f'{text}\r', end='')
             time.sleep(0.1)
 
-    def money_loading(self):
+    def money_loading(self, text):
         """
         Uses carriage return to make a basic animation for money symbols.
         Used to add more visually pleasing terminal. Acts as a time delay
         between getting and setting data.
         """
 
-        text = 'Loading'
         for _ in range(15):
-            text += self.p_green(self.money_sym)
+            text += self.green_fore(self.money_sym)
             print(f'{text}\r', end='')
             time.sleep(0.1)
