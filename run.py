@@ -17,6 +17,9 @@ from rapid_silver.art import TextArt
 COLOR = ColorPrint()
 LOADING = TextArt()
 
+# global variables
+INVALID = False
+
 def welcome_msg():
     """
     Prints welcome text to the terminal. Helps direct the user and lead
@@ -41,13 +44,13 @@ def login_screen():
         file = open('login.txt')
         login_msg = file.read()
         file.close()
-        print('\n' + COLOR.p_cyan(login_msg))
+        print('\n' + COLOR.cyan_fore(login_msg))
     except IOError:
         # in event reading log in message fails
         print('Log in screen')
 
-    print(COLOR.p_yellow("\n\t\t\tHit 'e + Enter' to login"))
-    print(COLOR.p_yellow("\t\t\tHit 'd + Enter' to create new account"))
+    print(COLOR.yellow_fore("\n\t\t\tHit 'e + Enter' to login"))
+    print(COLOR.yellow_fore("\t\t\tHit 'd + Enter' to create new account"))
 
 
 def login_user():
@@ -62,29 +65,44 @@ def create_account():
     """
     When called it pulls up the log in for creating a user account.
     """
-    user = RapidUser()
-    
     clear_console()
-    LOADING.dot_loading()
+    LOADING.money_loading()
     clear_console()
-    try:
-        file = open('new_account.txt', encoding='utf8')
-        option_screen = file.read()
-        file.close()
-        print('\n\n' + COLOR.p_yellow(option_screen) + '\n\n')
-    except IOError:
-        print(COLOR.p_yellow('\t\t\tOptions\n\n\n\n'))
 
     try:
-        name = input(str(COLOR.p_green('Enter your name here: ')))
-        if len(name) < 3 or len(name) > 15:
-            raise ValueError()
+        file = open('new_account.txt', encoding='utf8')
+        welcome_new_user = file.read()
+        file.close()
+        print('\n\n' + COLOR.yellow_fore(welcome_new_user) + '\n\n')
+    except IOError:
+        print(COLOR.yellow_fore('\t\t\tOptions\n\n\n\n'))
+
+    try:
+        email = INVALID
+        while email is INVALID:
+            user_email_input = input(str(COLOR.cyan_fore('\nEnter your email here: ')))
+            if '@' not in user_email_input:
+                print(COLOR.red_fore('You must enter a valid email with a @ symbol'))
+                clear_console()
+            elif '.' not in user_email_input:
+                print(COLOR.red_fore('You must enter a valid email with a domain i.e .com'))
+                clear_console()
+            else:
+                email = user_email_input
+
+        name = INVALID
+        while name is INVALID:
+            name = input(str(COLOR.green_fore('Enter your name here: ')))
+            if len(name) < 3 or len(name) > 15:
+                raise ValueError()
+
     except ValueError:
-        print(COLOR.p_red('Name must be more than 3 characters and max 15'))
+        print(COLOR.red_fore('Name must be more than 3 characters and max 15'))
+        print(COLOR.red_fore('Let us try that again..'))
         time.sleep(3)
         create_account() # recursive call to get valid input
 
-    user = RapidUser()
+    user = RapidUser(name, email)
     return user
 
 
@@ -98,9 +116,9 @@ def get_options():
         file = open('options.txt', encoding='utf8')
         option_screen = file.read()
         file.close()
-        print('\n\n' + COLOR.p_yellow(option_screen) + '\n\n')
+        print('\n\n' + COLOR.yellow_fore(option_screen) + '\n\n')
     except IOError:
-        print(COLOR.p_yellow('\t\t\tOptions\n\n\n\n'))
+        print(COLOR.yellow_fore('\t\t\tOptions\n\n\n\n'))
     # TODO: add options here for user
 
 
@@ -111,9 +129,9 @@ def get_user_type():
     and assigns it to variable user.
     """
     try:
-        result = input(COLOR.p_green('\n\t\t\tHere: '))
+        result = input(COLOR.green_fore('\n\t\t\tHere: '))
         if result not in ('e', 'd'):
-            print(COLOR.p_red('\t\t\tInvalid input, enter e or d'))
+            print(COLOR.red_fore('\t\t\tInvalid input, enter e or d'))
             time.sleep(2.5)
             clear_console()
             login_screen()
@@ -135,20 +153,20 @@ def load_details():
     time.sleep(0.5)
     print('\n\n\n\n\n\t\t\t\r')
     LOADING.dot_loading()
-    print(COLOR.p_blue('\n\nFetching resources......'))
+    print(COLOR.blue_fore('\n\nFetching resources......'))
     time.sleep(0.5)
-    print(COLOR.p_cyan('\nAccessing internal database now.\n'))
+    print(COLOR.cyan_fore('\nAccessing internal database now.\n'))
     LOADING.hash_loading()
     time.sleep(0.3)
     clear_console()
-    print(COLOR.p_red('\n\t\t\tWelcome to Rapid Silver\n\n'))
+    print(COLOR.red_fore('\n\t\t\tWelcome to Rapid Silver\n\n'))
     try:
         file = open('rapid_details.txt', encoding='utf8')
         details = file.read()
-        print(COLOR.p_yellow(details))
+        print(COLOR.yellow_fore(details))
         input('\n\n\nHit enter to continue')
     except IOError:
-        print(COLOR.p_red('\n\nOops.. fetching details failed, trying again.'))
+        print(COLOR.red_fore('\n\nOops.. fetching details failed, trying again.'))
         time.sleep(2.5)
         clear_console()
         load_details()
@@ -158,13 +176,14 @@ def main():
     """
     Runs the program.
     """
-    print(COLOR.p_red(welcome_msg()))
-    
-    input(COLOR.p_yellow('\n\n\n\t\t< Press enter to continue to log in >'))
+    print(COLOR.red_fore(welcome_msg()))
+
+    input(COLOR.yellow_fore('\n\n\n\t\t< Press enter to continue to log in >'))
     load_details()
     login_screen()
     # gets or sets up a user profile
     user = get_user_type()
+    print(user.name)
 
 
 main()
