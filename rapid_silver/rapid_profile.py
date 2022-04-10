@@ -1,15 +1,16 @@
 """Holds the Rapid Silver user Class for the python application Rapid silver"""
 from rapid_silver.user import User
-from rapid_silver.password import Password
 
-class RapidUser( User, Password):
+
+class RapidUser(User):
     """
-    Rapid Profile is a subclass of user and password.
-    It holds the holds the information. It inherits all the 
-    functionality of company and user.
+    Rapid Profile is a subclass of User.
+    It inherits all the functionality of User.
     """
-    def __init__(self, username, email, password):
-        User(RapidUser).__init__(username)
-        self.username = username
-        self.email = email
-        self.password = password
+    def _check_user_database(self, name):
+        """
+        Checks database for name conflicts and returns True
+        or False if name already exists.
+        """
+        data = name
+        return data
