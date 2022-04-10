@@ -67,8 +67,14 @@ class User(object):
         return ''
 
     def get_company_name(self):
-        """Gets and validates the users companies name"""
+        """Gets and validates the user company name"""
         return ''
     
     def incremental_string_checker(self, to_test):
-        return to_test
+        data = to_test
+        letters_tested = ''
+        for char in data:
+            letters_tested += char
+            if profanity.contains_profanity(letters_tested):
+                return True
+        return False
