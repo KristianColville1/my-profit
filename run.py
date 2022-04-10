@@ -20,18 +20,18 @@ LOADING = TextArt()
 # global variables
 INVALID = False
 
+
 def welcome_msg():
     """
     Prints welcome text to the terminal. Helps direct the user and lead
     on to navigation options.
     """
     try:
-        file = open('welcome.txt', encoding='utf8')
+        file = open('assets/text/welcome.txt', encoding='utf8')
         welcome = file.read()
         file.close()
     except IOError:
-        # in the event an error occurs
-        return "Welcome to MyProf"
+        return "Welcome to MyProf"  # in the event an error occurs
     return welcome
 
 
@@ -41,15 +41,14 @@ def login_screen():
     """
     try:
         clear_console()
-        file = open('login.txt')
+        file = open('assets/text/login.txt')
         login_msg = file.read()
         file.close()
         print('\n' + COLOR.cyan_fore(login_msg))
     except IOError:
-        # in event reading log in message fails
-        print('Log in screen')
+        print('Log in screen')  # in event reading log in message fails
 
-    print(COLOR.yellow_fore("\n\t\t\tHit 'e + Enter' to login"))
+    print(COLOR.green_fore("\n\t\t\tHit 'e + Enter' to login"))
     print(COLOR.yellow_fore("\t\t\tHit 'd + Enter' to create new account"))
 
 
@@ -69,7 +68,7 @@ def create_account():
     clear_console()
 
     try:
-        file = open('new_account.txt', encoding='utf8')
+        file = open('assets/text/new_account.txt', encoding='utf8')
         welcome_new_user = file.read()
         file.close()
         print('\n\n' + COLOR.yellow_fore(welcome_new_user) + '\n\n')
@@ -79,17 +78,19 @@ def create_account():
     try:
         email = INVALID
         while email is INVALID:
-            user_email_input = input(str(COLOR.cyan_fore('\nEnter your email here: ')))
-            if '@' not in user_email_input:
-                print(COLOR.red_fore('You must enter a valid email with a @ symbol'))
+            email_input = input(COLOR.cyan_fore('\nEnter your email here: '))
+            if '@' not in email_input:
+                print(COLOR.red_fore("""
+                \n\nYou must enter a valid email with a '@' symbol"""))
                 time.sleep(2)
                 clear_console()
-            elif '.' not in user_email_input:
-                print(COLOR.red_fore("You must enter a valid email with a domain i.e '.com'"))
+            elif '.' not in email_input:
+                print(COLOR.red_fore("""
+                \n\nYou must enter a valid email with a domain i.e '.com'"""))
                 time.sleep(2)
                 clear_console()
             else:
-                email = user_email_input
+                email = email_input
 
         name = INVALID
         while name is INVALID:
@@ -101,7 +102,7 @@ def create_account():
         print(COLOR.red_fore('Name must be more than 3 characters and max 15'))
         print(COLOR.red_fore('Let us try that again..'))
         time.sleep(3)
-        create_account() # recursive call to get valid input
+        create_account()  # recursive call to get valid input
 
     user = RapidUser(name, email)
     return user
@@ -114,7 +115,7 @@ def get_options():
     """
     clear_console()
     try:
-        file = open('options.txt', encoding='utf8')
+        file = open('assets/text/options.txt', encoding='utf8')
         option_screen = file.read()
         file.close()
         print('\n\n' + COLOR.yellow_fore(option_screen) + '\n\n')
@@ -140,9 +141,10 @@ def get_user_type():
         login_screen()
     if result == 'e':
         user = login_user()
+        return user
     elif result == 'd':
         user = create_account()
-    return user
+        return user
 
 
 def load_details():
@@ -152,22 +154,23 @@ def load_details():
     """
     clear_console()
     time.sleep(0.5)
-    print('\n\n\n\n\n\t\t\t\r')
-    LOADING.dot_loading('Please wait ')
-    print(COLOR.blue_fore('\n\nFetching resources......'))
+    print('\n\n\n\n\n')
+    LOADING.dot_loading('\t\t\tPlease wait ')
+    print(COLOR.blue_fore('\n\n\t\t\tFetching resources......'))
     time.sleep(0.5)
-    print(COLOR.cyan_fore('\nAccessing internal database now.\n'))
-    LOADING.star_loading('Loading results ')
+    print(COLOR.cyan_fore('\n\t\t\tAccessing internal database now.\n'))
+    LOADING.star_loading('\t\t\tLoading results ')
     time.sleep(0.3)
     clear_console()
     print(COLOR.red_fore('\n\t\t\tWelcome to Rapid Silver\n\n'))
     try:
-        file = open('rapid_details.txt', encoding='utf8')
+        file = open('assets/text/rapid_details.txt', encoding='utf8')
         details = file.read()
         print(COLOR.yellow_fore(details))
         input('\n\n\nHit enter to continue')
     except IOError:
-        print(COLOR.red_fore('\n\nOops.. fetching details failed, trying again.'))
+        print(COLOR.red_fore("""
+        \n\nOops.. fetching details failed, trying again."""))
         time.sleep(2.5)
         clear_console()
         load_details()
