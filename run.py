@@ -8,7 +8,7 @@ etc.
 """
 import time
 from console import clear_console
-from rapid_silver.c_print import ColorPrint
+from rapid_silver.color import ColorPrint
 from rapid_silver.rapid_profile import RapidUser
 from rapid_silver.art import TextArt
 
@@ -65,8 +65,7 @@ def create_account():
     """
     When called it pulls up the log in for creating a user account.
     """
-    clear_console()
-    LOADING.money_loading()
+    LOADING.star_loading(COLOR.purple_back(' Account creation enabled '))
     clear_console()
 
     try:
@@ -83,9 +82,11 @@ def create_account():
             user_email_input = input(str(COLOR.cyan_fore('\nEnter your email here: ')))
             if '@' not in user_email_input:
                 print(COLOR.red_fore('You must enter a valid email with a @ symbol'))
+                time.sleep(2)
                 clear_console()
             elif '.' not in user_email_input:
-                print(COLOR.red_fore('You must enter a valid email with a domain i.e .com'))
+                print(COLOR.red_fore("You must enter a valid email with a domain i.e '.com'"))
+                time.sleep(2)
                 clear_console()
             else:
                 email = user_email_input
@@ -152,11 +153,11 @@ def load_details():
     clear_console()
     time.sleep(0.5)
     print('\n\n\n\n\n\t\t\t\r')
-    LOADING.dot_loading()
+    LOADING.dot_loading('Please wait ')
     print(COLOR.blue_fore('\n\nFetching resources......'))
     time.sleep(0.5)
     print(COLOR.cyan_fore('\nAccessing internal database now.\n'))
-    LOADING.hash_loading()
+    LOADING.star_loading('Loading results ')
     time.sleep(0.3)
     clear_console()
     print(COLOR.red_fore('\n\t\t\tWelcome to Rapid Silver\n\n'))
