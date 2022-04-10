@@ -13,19 +13,19 @@ class ColorPrint:
     # text colors
     blue_text = Fore.BLUE
     cyan_text = Fore.CYAN
-    green_text = Fore.BLUE
-    red_text = Fore.BLUE
+    green_text = Fore.GREEN
+    red_text = Fore.RED
     purple_text = Fore.MAGENTA
-    yellow_text = Fore.BLUE
+    yellow_text = Fore.YELLOW
     reset_text = Fore.RESET
 
     # background colors
     blue_bg = Back.BLUE
     cyan_bg = Back.CYAN
-    green_bg = Back.BLUE
-    red_bg = Back.BLUE
+    green_bg = Back.GREEN
+    red_bg = Back.RED
     purple_bg = Back.MAGENTA
-    yellow_bg = Back.BLUE
+    yellow_bg = Back.YELLOW
     reset_bg = Back.RESET
 
     def __init__(self):
