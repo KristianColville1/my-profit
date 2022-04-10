@@ -21,7 +21,7 @@ class TextArt(ColorPrint):
         between getting and setting data.
         """
         text = str(text)
-        for _ in range(15):
+        for _ in range(20):
             text += self.cyan_fore(self.dot_sym)
             print(f'{text}\r', end='')
             time.sleep(0.1)
@@ -33,7 +33,7 @@ class TextArt(ColorPrint):
         between getting and setting data.
         """
         text = str(text)
-        for _ in range(15):
+        for _ in range(20):
             text += self.yellow_fore(self.hash_sym)
             print(f'{text}\r', end='')
             time.sleep(0.1)
@@ -45,7 +45,7 @@ class TextArt(ColorPrint):
         between getting and setting data.
         """
         text = str(text)
-        for _ in range(15):
+        for _ in range(20):
             text += self.green_fore(self.money_sym)
             print(f'{text}\r', end='')
             time.sleep(0.1)
@@ -57,7 +57,7 @@ class TextArt(ColorPrint):
         between getting and setting data.
         """
         text = str(text)
-        for _ in range(15):
+        for _ in range(20):
             text += self.red_fore(self.star_sym)
             print(f'{text}\r', end='')
             time.sleep(0.1)
