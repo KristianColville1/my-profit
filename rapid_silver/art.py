@@ -20,7 +20,7 @@ class TextArt(ColorPrint):
         Used to add more visually pleasing terminal. Acts as a time delay
         between getting and setting data.
         """
-
+        text = str(text)
         for _ in range(15):
             text += self.cyan_fore(self.dot_sym)
             print(f'{text}\r', end='')
@@ -32,7 +32,7 @@ class TextArt(ColorPrint):
         Used to add more visually pleasing terminal. Acts as a time delay
         between getting and setting data.
         """
-
+        text = str(text)
         for _ in range(15):
             text += self.yellow_fore(self.hash_sym)
             print(f'{text}\r', end='')
@@ -44,8 +44,20 @@ class TextArt(ColorPrint):
         Used to add more visually pleasing terminal. Acts as a time delay
         between getting and setting data.
         """
-
+        text = str(text)
         for _ in range(15):
             text += self.green_fore(self.money_sym)
+            print(f'{text}\r', end='')
+            time.sleep(0.1)
+
+    def star_loading(self, text):
+        """
+        Uses carriage return to make a basic animation for dot symbols.
+        Used to add more visually pleasing terminal. Acts as a time delay
+        between getting and setting data.
+        """
+        text = str(text)
+        for _ in range(15):
+            text += self.red_fore(self.star_sym)
             print(f'{text}\r', end='')
             time.sleep(0.1)
