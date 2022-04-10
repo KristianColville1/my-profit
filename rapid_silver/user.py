@@ -1,5 +1,11 @@
 """Holds the user class for creating user objects"""
 import random
+from profanity import profanity
+from rapid_silver.color import ColorPrint
+
+# instance variables
+color = ColorPrint()
+
 
 class User(object):
     """
@@ -16,23 +22,53 @@ class User(object):
         'h':['D', 'A', 'Y']
     }
 
-    keys = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
+    character_keys = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
 
 
     def __init__(self):
-        self.name = ''
+        self.first_name = self.get_first_name()
+        self.last_name = self.get_last_name()
+        self.email = self.get_email()
+        self.company_name = self.get_company_name()
 
-    def create_rand_name(self):
+    def create_user_code_name(self):
         """
-        Gives the user an option for generating a
-        random username to use.
         """
         rand_name = ''
 
-        while len(rand_name) < 12:
-            rand_key = self.keys[random.randrange(4)]
+        while len(rand_name) < 8:
+            rand_key = self.character_keys[random.randrange(4)]
             arr = self.character_dict[rand_key]
             rand_name += arr[random.randrange(len(arr))]
 
         return rand_name
 
+    def get_first_name(self):
+        """Gets and validates the users first name"""
+        first_name = ''
+        try:
+            fname_input = input('Enter your first name')
+            if len(fname_input) < 2 or len(fname_input) > 12:
+                raise ValueError(
+                    'First name must be between 3 and 12 characters'
+                    )
+            if profanity.contains_profanity(fname_input):
+                raise ValueError(
+                    'PROFANITY DETECTED'
+                )
+        return ''
+
+    def get_last_name(self):
+        """Gets and validates the users last name"""
+        return ''
+
+    def get_email(self):
+        """Gets and validates the users email"""
+        return ''
+
+    def get_company_name(self):
+        """Gets and validates the users companies name"""
+        return ''
+    
+    def incremental_string_checker(self, to_test):
+        return to_test
