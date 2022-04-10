@@ -5,7 +5,7 @@ from rapid_silver.c_print import ColorPrint
 
 class TextArt(ColorPrint):
     """
-    Creates text art objects for the terminal.
+    Creates text art objects for the terminal. Subclass of ColorPrint.
     Provides simple text animations for loading and updating content etc.
     """
 
@@ -21,7 +21,7 @@ class TextArt(ColorPrint):
         """
 
         text = 'Loading'
-        for _ in range(20):
+        for _ in range(15):
             text += self.p_cyan(self.dot_sym)
             print(f'{text}\r', end='')
             time.sleep(0.1)
@@ -34,7 +34,7 @@ class TextArt(ColorPrint):
         """
 
         text = 'Loading'
-        for _ in range(20):
+        for _ in range(15):
             text += self.p_yellow(self.hash_sym)
             print(f'{text}\r', end='')
             time.sleep(0.1)
@@ -47,7 +47,7 @@ class TextArt(ColorPrint):
         """
 
         text = 'Loading'
-        for _ in range(20):
+        for _ in range(15):
             text += self.p_green(self.money_sym)
             print(f'{text}\r', end='')
             time.sleep(0.1)
