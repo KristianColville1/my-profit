@@ -1,0 +1,5 @@
+Create an organization model
+Set up products/customers
+Set up mailing lists
+Analyze products/customers/employees data
+Create/Update inventory
