@@ -1,51 +1,82 @@
 """Holds the print class for MyProf"""
-
-from colorama import Fore
+from colorama import Fore, Back
 
 
 class ColorPrint:
     """
     When created it allows calls to its various methods for
     printing in different colors of text to the terminal.
-    Provides a more visually appealing program.
+    Provides a more visually appealing program. Base class for
+    TextPrint class.
     """
 
-    blue = Fore.BLUE
-    cyan = Fore.CYAN
-    green = Fore.GREEN
-    red = Fore.RED
-    yellow = Fore.YELLOW
-    reset = Fore.RESET
+    # text colors
+    blue_text = Fore.BLUE
+    cyan_text = Fore.CYAN
+    green_text = Fore.BLUE
+    red_text = Fore.BLUE
+    purple_text = Fore.MAGENTA
+    yellow_text = Fore.BLUE
+    reset_text = Fore.RESET
+
+    # background colors
+    blue_bg = Back.BLUE
+    cyan_bg = Back.CYAN
+    green_bg = Back.BLUE
+    red_bg = Back.BLUE
+    purple_bg = Back.MAGENTA
+    yellow_bg = Back.BLUE
+    reset_bg = Back.RESET
 
     def __init__(self):
-        self.name = 'Color Printer'
+        self.name = 'Color Print Object'
 
-
-    def p_blue(self, text):
+    # text methods
+    def blue_fore(self, text):
         """Prints text blue and then returns to normal text"""
+        return self.blue_text + text + self.reset_text
 
-        return self.blue + text + self.reset
+    def cyan_fore(self, text):
+        """Prints text cyan and then returns to normal text"""
+        return self.cyan_text + text + self.reset_text
 
-
-    def p_cyan(self, text):
-        """Prints text cyan  and then returns to normal text"""
-
-        return self.cyan + text + self.reset
-
-
-    def p_green(self, text):
+    def green_fore(self, text):
         """Prints text green and then returns to normal text"""
+        return self.green_text + text + self.reset_text
 
-        return self.green + text + self.reset
+    def red_fore(self, text):
+        """Prints red text  and then returns to normal text"""
+        return self.red_text + text + self.reset_text
 
+    def purple_fore(self, text):
+        """Prints purple text and then returns to normal text"""
+        return self.purple_text + text + self.reset_bg
 
-    def p_red(self, text):
-        """Prints text red  and then returns to normal text"""
+    def yellow_fore(self, text):
+        """Prints yellow text and then returns to normal text"""
+        return self.yellow_text + text + self.reset_text
 
-        return self.red + text + self.reset
+    # background methods
+    def blue_back(self, text):
+        """Prints blue and then returns to normal text"""
+        return self.blue_bg + text + self.reset_bg
 
+    def cyan_back(self, text):
+        """Prints cyan  and then returns to normal text"""
+        return self.cyan_bg + text + self.reset_bg
 
-    def p_yellow(self, text):
-        """Prints text yellow and then returns to normal text"""
+    def green_back(self, text):
+        """Prints green and then returns to normal text"""
+        return self.green_bg + text + self.reset_bg
 
-        return self.yellow + text + self.reset
+    def red_back(self, text):
+        """Prints red and then returns to normal text"""
+        return self.red_bg + text + self.reset_bg
+
+    def purple_back(self, text):
+        """Prints purple and then returns to normal text"""
+        return self.purple_bg + text + self.reset_bg
+
+    def yellow_back(self, text):
+        """Prints yellow and then returns to normal text"""
+        return self.yellow_bg + text + self.reset_bg
