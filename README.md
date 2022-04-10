@@ -114,6 +114,7 @@ The goals of this project include:
 ### Initial Flow
 ![Initial Flowchart](assets/images/flowcharts/rapid-silver.drawio.png)
 ### Python Logic
+![Python Logic one](assets/images/flowcharts/python-logic.png)
 
 [Back to Top](#table-of-contents)
 ## Features
