@@ -15,6 +15,7 @@ from rapid_silver.art import TextArt
 
 # class instances
 COLOR = ColorPrint()
+LOADING = TextArt()
 
 def welcome_msg():
     """
@@ -61,6 +62,10 @@ def create_account():
     """
     When called it pulls up the log in for creating a user account.
     """
+    user = RapidUser()
+    
+    clear_console()
+    LOADING.dot_loading()
     clear_console()
     try:
         file = open('new_account.txt', encoding='utf8')
@@ -77,10 +82,9 @@ def create_account():
     except ValueError:
         print(COLOR.p_red('Name must be more than 3 characters and max 15'))
         time.sleep(3)
-        clear_console()
-        create_account()
+        create_account() # recursive call to get valid input
 
-    user = RapidUser(name)
+    user = RapidUser()
     return user
 
 
@@ -122,12 +126,42 @@ def get_user_type():
     return user
 
 
+def load_details():
+    """
+    At the beginning of the program this describes the purpose of the CLI
+    application and what the intended functionality is.
+    """
+    clear_console()
+    time.sleep(0.5)
+    print('\n\n\n\n\n\t\t\t\r')
+    LOADING.dot_loading()
+    print(COLOR.p_blue('\n\nFetching resources......'))
+    time.sleep(0.5)
+    print(COLOR.p_cyan('\nAccessing internal database now.\n'))
+    LOADING.hash_loading()
+    time.sleep(0.3)
+    clear_console()
+    print(COLOR.p_red('\n\t\t\tWelcome to Rapid Silver\n\n'))
+    try:
+        file = open('rapid_details.txt', encoding='utf8')
+        details = file.read()
+        print(COLOR.p_yellow(details))
+        input('\n\n\nHit enter to continue')
+    except IOError:
+        print(COLOR.p_red('\n\nOops.. fetching details failed, trying again.'))
+        time.sleep(2.5)
+        clear_console()
+        load_details()
+
+
 def main():
     """
     Runs the program.
     """
     print(COLOR.p_red(welcome_msg()))
+    
     input(COLOR.p_yellow('\n\n\n\t\t< Press enter to continue to log in >'))
+    load_details()
     login_screen()
     # gets or sets up a user profile
     user = get_user_type()
