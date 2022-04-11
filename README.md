@@ -14,8 +14,8 @@ Developer: Kristian Colville
     * [Target Audience](#target-audience)
     * [User Requirements and Expectations](#user-requirements-and-expectations)
 * [User Stories](#user-stories)
-    * [Site User](#site-user)
-    * [Site Owner](#site-owner)
+    * [CLI App User](#cli-app-user)
+    * [CLI App Owner](#cli-app-owner)
 * [Design](#design)
     * [Color Scheme](#color-scheme)
     * [Fonts](#color-scheme)
@@ -96,8 +96,26 @@ The goals of this project include:
 [Back to Top](#table-of-contents)
 
 ## User Stories
-### Site User
-### Site Owner
+### CLI App User
+
+1. I want to understand how to use this CLI application
+2. I want the ability to log in and out of the application
+3. I want to set up an organization model
+4. I want the application to look professional for my organization
+5. I want to set up mailing lists
+6. I want to be able to store email addresses securely
+7. I want to use a secure application
+8. I want to update/set up product analyzing
+9. I want to keep track of my inventory
+10. I want to know my data is secure and that I can trust this application
+### CLI App Owner
+
+11. I want my application to be visually pleasing
+12. I want my users to access the app securely
+13. I want users to have options
+14. I want visually pleasing product/customer/user etc analysis
+15. I want adaptable data structuring to meet different user needs
+16. I want users to feel safe while using my application
 
 [Back to Top](#table-of-contents)
 ## Design
