@@ -3,10 +3,10 @@ from pymongo import MongoClient
 
 try:
     
-    en_read = os.environ.get('MONGOPASSWORD')
+    en_read = os.environ.get('mongopassword')
     password = en_read['password']
 except Exception:
-    print('no luck')
+    print('no luck testing')
 
 
 cluster = MongoClient(f"mongodb+srv://rapid_silver_educate:{password}@rapidsilver.h5hbo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
