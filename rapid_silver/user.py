@@ -1,13 +1,15 @@
 """Holds the user class for creating user objects"""
 import random
-from profanity import profanity
-from rapid_silver.color import ColorPrint
+import time
+from better_profanity import profanity
+from rapid_silver.art import TextArt
 from rapid_silver.password import PasswordManager
 from console import clear_console
 
 # instance variables
-color = ColorPrint()
 
+color = TextArt()
+loading = color  # used to differentiate semantics
 
 class User(object):
     """
@@ -114,7 +116,7 @@ class User(object):
             clear_console()
             print(color.red_fore(f'{error}'))
             self.set_email()
-        email = email_input
+        email = str(email_input)  # wrapped in string as not showing otherwise
         return email
 
     def set_company_name(self):
@@ -134,7 +136,7 @@ class User(object):
         except ValueError as error:
             clear_console()
             print(color.red_fore(f'{error}'))
-            self.set_last_name()
+            self.set_company_name()
         company_name = company_input
         return company_name
 
@@ -151,7 +153,16 @@ class User(object):
         to_input = color.red_fore('Are these are all correct? y/n :')
         result = input(to_input)
         if result in ('n', 'N'):
-            self.check_if_all_correct()
+            print('Not to worry lets try that again.')
+            time.sleep(1.5)
+            clear_console()
+            self.__init__('new')  # redo init if wrong
         if result in ('y', 'Y'):
+            clear_console()
             print('Thank you')
+            loading.star_loading('Storing your details for later')
+        else:
+            self.check_if_all_correct()  # incase user enters something else
+            
+            
     # TODO: complete getter methods on data hookup
