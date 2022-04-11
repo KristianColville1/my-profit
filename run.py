@@ -1,10 +1,10 @@
 import os
 
 from pymongo import MongoClient
-from boto.s3.connection import S3Connection
+# from boto.s3.connection import S3Connection
 
 
-password = S3Connection(os.environ['MONGOPASSWORD'])
+password = os.environ['MONGOPASSWORD']
 
 
 cluster = MongoClient(f"mongodb+srv://rapid_silver_educate:{password}@rapidsilver.h5hbo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
