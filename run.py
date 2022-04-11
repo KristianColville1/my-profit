@@ -1,17 +1,10 @@
 import os
-# import pymongo
-import json
+
 from pymongo import MongoClient
 from boto.s3.connection import S3Connection
 
-try:
-    file = open('mypassword.json', encoding='utf8')
-    file_password = file.read()
-    password = file_password['mongopassword']
-except FileNotFoundError:
-    password = S3Connection(os.environ['MONGOPASSWORD'])
-except IOError:
-    password = S3Connection(os.environ['MONGOPASSWORD'])
+
+password = S3Connection(os.environ['MONGOPASSWORD'])
 
 
 cluster = MongoClient(f"mongodb+srv://rapid_silver_educate:{password}@rapidsilver.h5hbo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
