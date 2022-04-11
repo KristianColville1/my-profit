@@ -29,14 +29,14 @@ class User(object):
     character_keys = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
 
     def __init__(self, account_type):
-        if account_type is 'new':
+        if account_type == 'new':
             self.first_name = self.set_first_name()
             self.last_name = self.set_last_name()
             self.email = self.set_email()
             self.company_name = self.set_company_name()
             self.check_if_all_correct()
             PasswordManager(account_type)  # activates the password manager
-        elif account_type is 'old':
+        elif account_type == 'old':
             PasswordManager(account_type)  # activates the password manager
 
     def create_user_code_name(self):
@@ -163,6 +163,5 @@ class User(object):
             loading.star_loading('Storing your details for later')
         else:
             self.check_if_all_correct()  # incase user enters something else
-            
-            
+
     # TODO: complete getter methods on data hookup
