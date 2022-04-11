@@ -31,11 +31,12 @@ class User(object):
             self.last_name = self.set_last_name()
             self.email = self.set_email()
             self.company_name = self.set_company_name()
-        elif account_type == 'old':
-            self.first_name = self.get_first_name()
-            self.last_name = self.get_last_name()
-            self.email = self.get_email()
-            self.company_name = self.get_company_name()
+            self.check_if_all_correct()
+        # elif account_type == 'old':
+            # self.first_name = self.get_first_name()
+            # self.last_name = self.get_last_name()
+            # self.email = self.get_email()
+            # self.company_name = self.get_company_name()
 
     def create_user_code_name(self):
         """
@@ -54,7 +55,8 @@ class User(object):
         """Gets and validates the users first name"""
         first_name = ''
         try:
-            fname_input = input('Enter your first name')
+            text = color.yellow_fore('\nEnter your first name: ')
+            fname_input = input(text)
             if len(fname_input) < 2 or len(fname_input) > 12:
                 raise ValueError(
                     'First name must be between 3 and 12 characters'
@@ -72,13 +74,83 @@ class User(object):
 
     def set_last_name(self):
         """Gets and validates the users last name"""
-        return ''
+        last_name = ''
+        try:
+            text = color.yellow_fore('\nEnter your last name: ')
+            lname_input = input(text)
+            if len(lname_input) < 2 or len(lname_input) > 12:
+                raise ValueError(
+                    'Last name must be between 3 and 12 characters'
+                    )
+            if profanity.contains_profanity(lname_input):
+                raise ValueError(
+                    'PROFANITY DETECTED. Try again.'
+                )
+        except ValueError as error:
+            clear_console()
+            print(color.red_fore(f'{error}'))
+            self.set_last_name()
+        last_name = lname_input
+        return last_name
 
     def set_email(self):
         """Gets and validates the users email"""
-        return ''
+        email = ''
+        try:
+            text = color.cyan_fore('\nEnter your email: ')
+            email_input = input(text)
+            if '@' not in email_input:
+                raise ValueError(
+                    "You must have a '@' in your email address"
+                    )
+            if '.' not in email_input:
+                raise ValueError(
+                    "You must have a domain in your email i.e '.com'"
+                    )
+            if profanity.contains_profanity(email_input):
+                raise ValueError(
+                    'PROFANITY DETECTED. Try a different email address.'
+                )
+        except ValueError as error:
+            clear_console()
+            print(color.red_fore(f'{error}'))
+            self.set_email()
+        email = email_input
+        return email
 
     def set_company_name(self):
         """Gets and validates the user company name"""
-        return ''
-
+        company_name = ''
+        try:
+            text = color.yellow_fore('\nEnter your company name: ')
+            company_input = input(text)
+            if len(company_input) < 2 or len(company_input) > 12:
+                raise ValueError(
+                    'Company name must be between 3 and 12 characters'
+                    )
+            if profanity.contains_profanity(company_input):
+                raise ValueError(
+                    'PROFANITY DETECTED. Try again.'
+                )
+        except ValueError as error:
+            clear_console()
+            print(color.red_fore(f'{error}'))
+            self.set_last_name()
+        company_name = company_input
+        return company_name
+    
+    def check_if_all_correct(self):
+        """
+        Displays the details to the user to confirm.
+        """
+        clear_console()
+        print('Here are the details you provided: \n')
+        print(self.first_name)
+        print(self.last_name)
+        print(self.email)
+        print(self.company_name)
+        result = input(color.red_fore('Can you confirm these are all correct? y/n :'))
+        if result in ('n', 'N'):
+            self.check_if_all_correct()
+        if result in ('y', 'Y'):
+            print('Thank you')
