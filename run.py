@@ -1,8 +1,11 @@
-import heroku
+import os
 from pymongo import MongoClient
 
-
-password = heroku.from_key('mongopassword')
+try:
+    
+    password = os.environ('MONGOPASSWORD')
+except Exception:
+    print('no luck')
 
 
 cluster = MongoClient(f"mongodb+srv://rapid_silver_educate:{password}@rapidsilver.h5hbo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
