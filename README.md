@@ -100,22 +100,25 @@ The goals of this project include:
 
 1. I want to understand how to use this CLI application
 2. I want the ability to log in and out of the application
-3. I want to set up an organization model
-4. I want the application to look professional for my organization
-5. I want to set up mailing lists
-6. I want to be able to store email addresses securely
-7. I want to use a secure application
-8. I want to update/set up product analyzing
-9. I want to keep track of my inventory
-10. I want to know my data is secure and that I can trust this application
+3. I want the ability to reset my password if I forget it
+4. I want the ability to update my password
+5. I want to set up an organization model
+6. I want the application to look professional for my organization
+7. I want to set up mailing lists
+8. I want to be able to store email addresses securely
+9. I want to use a secure application
+10. I want to update/set up product analyzing
+11. I want to keep track of my inventory
+12. I want to know my data is secure from theft and that I can trust this application
+
 ### CLI App Owner
 
-11. I want my application to be visually pleasing
-12. I want my users to access the app securely
-13. I want users to have options
-14. I want visually pleasing product/customer/user etc analysis
-15. I want adaptable data structuring to meet different user needs
-16. I want users to feel safe while using my application
+13. I want my application to be visually pleasing
+14. I want my users to access the app securely
+15. I want users to have options
+16. I want visually pleasing product/customer/user etc analysis
+17. I want adaptable data structuring to meet different user needs
+18. I want users to feel safe while using my application
 
 [Back to Top](#table-of-contents)
 ## Design
