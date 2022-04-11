@@ -2,6 +2,7 @@
 import random
 from profanity import profanity
 from rapid_silver.color import ColorPrint
+from console import clear_console
 
 # instance variables
 color = ColorPrint()
@@ -24,15 +25,21 @@ class User(object):
 
     character_keys = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
 
-
-    def __init__(self):
-        self.first_name = self.get_first_name()
-        self.last_name = self.get_last_name()
-        self.email = self.get_email()
-        self.company_name = self.get_company_name()
+    def __init__(self, account_type):
+        if account_type == 'new':
+            self.first_name = self.set_first_name()
+            self.last_name = self.set_last_name()
+            self.email = self.set_email()
+            self.company_name = self.set_company_name()
+        elif account_type == 'old':
+            self.first_name = self.get_first_name()
+            self.last_name = self.get_last_name()
+            self.email = self.get_email()
+            self.company_name = self.get_company_name()
 
     def create_user_code_name(self):
         """
+        Gives the user a Rapid user name code
         """
         rand_name = ''
 
@@ -43,7 +50,7 @@ class User(object):
 
         return rand_name
 
-    def get_first_name(self):
+    def set_first_name(self):
         """Gets and validates the users first name"""
         first_name = ''
         try:
@@ -54,27 +61,24 @@ class User(object):
                     )
             if profanity.contains_profanity(fname_input):
                 raise ValueError(
-                    'PROFANITY DETECTED'
+                    'PROFANITY DETECTED. Try again.'
                 )
-        return ''
+        except ValueError as error:
+            clear_console()
+            print(color.red_fore(f'{error}'))
+            self.set_first_name()
+        first_name = fname_input
+        return first_name
 
-    def get_last_name(self):
+    def set_last_name(self):
         """Gets and validates the users last name"""
         return ''
 
-    def get_email(self):
+    def set_email(self):
         """Gets and validates the users email"""
         return ''
 
-    def get_company_name(self):
+    def set_company_name(self):
         """Gets and validates the user company name"""
         return ''
-    
-    def incremental_string_checker(self, to_test):
-        data = to_test
-        letters_tested = ''
-        for char in data:
-            letters_tested += char
-            if profanity.contains_profanity(letters_tested):
-                return True
-        return False
+
