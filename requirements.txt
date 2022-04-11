@@ -1,2 +1,13 @@
+astroid==2.11.2
 colorama==0.4.4
+dill==0.3.4
+dnspython==2.2.1
+isort==5.10.1
+lazy-object-proxy==1.7.1
+mccabe==0.7.0
+platformdirs==2.5.1
+pylint==2.13.5
 pymongo==4.1.0
+tomli==2.0.1
+typing-extensions==4.1.1
+wrapt==1.14.0
