@@ -1,10 +1,8 @@
-import os
-
+import heroku
 from pymongo import MongoClient
-# from boto.s3.connection import S3Connection
 
 
-password = os.environ['MONGOPASSWORD']
+password = heroku.from_key('mongopassword')
 
 
 cluster = MongoClient(f"mongodb+srv://rapid_silver_educate:{password}@rapidsilver.h5hbo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
