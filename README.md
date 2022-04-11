@@ -174,6 +174,14 @@ Object Orientated programming was used throughout the project. The CLI applicati
 [Back to Top](#table-of-contents)
 ## Bugs
 
+| Bug | Fix |
+| --- | --- |
+| Environment variable for mongo password not being accessed, keep getting a NameError | *(in progress)* |
+| 1 | 2 |
+| 1 | 2 |
+| 1 | 2 |
+| 1 | 2 |
+
 [Back to Top](#table-of-contents)
 ## Deployment
 ### Version Control
