@@ -164,6 +164,187 @@ Object Orientated programming was used throughout the project. The CLI applicati
 ## Testing
 ### Testing User Stories
 
+1. I want to understand how to use this CLI application
+
+| Feature | Action | Expected Result | Actual Result |
+| --- | --- | --- | --- |
+| 1 | 2 | 3 | 4 |
+
+<details>
+<summary>See screenshot</summary>
+</details>
+
+2. I want the ability to log in and out of the application
+
+| Feature | Action | Expected Result | Actual Result |
+| --- | --- | --- | --- |
+| 1 | 2 | 3 | 4 |
+
+<details>
+<summary>See screenshot</summary>
+</details>
+
+3. I want the ability to reset my password if I forget it
+
+| Feature | Action | Expected Result | Actual Result |
+| --- | --- | --- | --- |
+| 1 | 2 | 3 | 4 |
+
+<details>
+<summary>See screenshot</summary>
+</details>
+
+4. I want the ability to update my password
+
+| Feature | Action | Expected Result | Actual Result |
+| --- | --- | --- | --- |
+| 1 | 2 | 3 | 4 |
+
+<details>
+<summary>See screenshot</summary>
+</details>
+
+5. I want to set up an organization model
+
+| Feature | Action | Expected Result | Actual Result |
+| --- | --- | --- | --- |
+| 1 | 2 | 3 | 4 |
+
+<details>
+<summary>See screenshot</summary>
+</details>
+
+6. I want the application to look professional for my organization
+
+| Feature | Action | Expected Result | Actual Result |
+| --- | --- | --- | --- |
+| 1 | 2 | 3 | 4 |
+
+<details>
+<summary>See screenshot</summary>
+</details>
+
+7. I want to set up mailing lists
+
+| Feature | Action | Expected Result | Actual Result |
+| --- | --- | --- | --- |
+| 1 | 2 | 3 | 4 |
+
+<details>
+<summary>See screenshot</summary>
+</details>
+
+8. I want to be able to store email addresses securely
+
+| Feature | Action | Expected Result | Actual Result |
+| --- | --- | --- | --- |
+| 1 | 2 | 3 | 4 |
+
+<details>
+<summary>See screenshot</summary>
+</details>
+
+9. I want to use a secure application
+
+| Feature | Action | Expected Result | Actual Result |
+| --- | --- | --- | --- |
+| 1 | 2 | 3 | 4 |
+
+<details>
+<summary>See screenshot</summary>
+</details>
+
+10. I want to update/set up product analyzing
+
+| Feature | Action | Expected Result | Actual Result |
+| --- | --- | --- | --- |
+| 1 | 2 | 3 | 4 |
+
+<details>
+<summary>See screenshot</summary>
+</details>
+
+11. I want to keep track of my inventory
+
+| Feature | Action | Expected Result | Actual Result |
+| --- | --- | --- | --- |
+| 1 | 2 | 3 | 4 |
+
+<details>
+<summary>See screenshot</summary>
+</details>
+
+12. I want to know my data is secure from theft and that I can trust this application
+
+| Feature | Action | Expected Result | Actual Result |
+| --- | --- | --- | --- |
+| 1 | 2 | 3 | 4 |
+
+<details>
+<summary>See screenshot</summary>
+</details>
+
+13. I want my application to be visually pleasing
+
+| Feature | Action | Expected Result | Actual Result |
+| --- | --- | --- | --- |
+| 1 | 2 | 3 | 4 |
+
+<details>
+<summary>See screenshot</summary>
+</details>
+
+14. I want my users to access the app securely
+
+| Feature | Action | Expected Result | Actual Result |
+| --- | --- | --- | --- |
+| 1 | 2 | 3 | 4 |
+
+<details>
+<summary>See screenshot</summary>
+</details>
+
+15. I want users to have options
+
+| Feature | Action | Expected Result | Actual Result |
+| --- | --- | --- | --- |
+| 1 | 2 | 3 | 4 |
+
+<details>
+<summary>See screenshot</summary>
+</details>
+
+16. I want visually pleasing product/customer/user etc analysis
+
+| Feature | Action | Expected Result | Actual Result |
+| --- | --- | --- | --- |
+| 1 | 2 | 3 | 4 |
+
+<details>
+<summary>See screenshot</summary>
+</details>
+
+17. I want adaptable data structuring to meet different user needs
+
+| Feature | Action | Expected Result | Actual Result |
+| --- | --- | --- | --- |
+| 1 | 2 | 3 | 4 |
+
+<details>
+<summary>See screenshot</summary>
+</details>
+
+18. I want users to feel safe while using my application
+
+| Feature | Action | Expected Result | Actual Result |
+| --- | --- | --- | --- |
+| 1 | 2 | 3 | 4 |
+
+<details>
+<summary>See screenshot</summary>
+</details>
+
+
 [Back to Top](#table-of-contents)
 ## Validation
 ### HTML Validation
