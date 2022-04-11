@@ -3,7 +3,8 @@ from pymongo import MongoClient
 
 try:
     
-    password = os.environ('MONGOPASSWORD')
+    en_read = os.environ('MONGOPASSWORD')
+    password = en_read['password']
 except Exception:
     print('no luck')
 
