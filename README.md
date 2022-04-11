@@ -176,7 +176,7 @@ Object Orientated programming was used throughout the project. The CLI applicati
 
 | Bug | Fix |
 | --- | --- |
-| Environment variable for mongo password not being accessed, keep getting a NameError | *(in progress)* |
+| Environment variable for MongoDB password not being accessed, keep getting a NameError | Found the issue online and realized that the config variable was wrong, I removed the quotes and got access to the password for MongoDB |
 | 1 | 2 |
 | 1 | 2 |
 | 1 | 2 |
