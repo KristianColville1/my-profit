@@ -1,5 +1,4 @@
 """Holds the user class for creating user objects"""
-import random
 import time
 from better_profanity import profanity
 from rapid_silver.art import TextArt
@@ -28,17 +27,6 @@ class User():
         elif account_type == 'old':
             # only gets data if needed from user from password manager
             PasswordManager(account_type)  # activates the password manager
-
-    def create_user_code_name(self):
-        """
-        Gives the user a Rapid user name code
-        """
-        rand_name = ''
-
-        while len(rand_name) < 8:
-
-
-        return rand_name
 
     def set_first_name(self):
         """Gets and validates the users first name"""

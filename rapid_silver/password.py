@@ -1,5 +1,6 @@
 """Hold the password class for Rapid Silver"""
 import os
+import time
 import random
 from pymongo import MongoClient
 from getpass import getpass
@@ -24,6 +25,7 @@ class PasswordManager():
 
     character_keys = ['a', 'b']
 
+    special_chars = ['!', '@', '#', '$', '%', '&', '*']
     profile_dict = {
         "USERNAME": "",
         "PASSWORD": "",
@@ -62,7 +64,28 @@ class PasswordManager():
         result = input(color.cyan_fore('Enter here: '))
         if result in ('Y', 'y'):
             self.username = self._generate_username()
-        return 'None'
+        elif result in ('N', 'n'):
+            clear_console()
+            try:
+                advice = color.yellow_fore('Please include (A-Z & a-z) and at least 1 number')
+                print(advice)
+                username = input('Please enter a username: ')
+                if len(username) < 8:
+                    raise ValueError('Username must be at least 8 characters')
+                if len(username) > 40:
+                    raise ValueError('Username must be less than 40 characters')
+                validation = self.check_characters_valid()
+                if validation is False:
+                    raise ValueError('You must include at least one number')
+                # TODO: check database for conflicts in username here also
+            except ValueError as error:
+                print(color.red_fore(error))
+                time.sleep(1.5)
+                self._set_username()
+        else:
+            print("INVALID Input received.")
+            self._set_username()
+        return self.username
 
     def _generate_username(self):
         self.username = ''
@@ -79,6 +102,13 @@ class PasswordManager():
         return ''
     def _get_login_details(self):
         return ''
+    def _check_characters_valid(self, to_check):
+        if to_check == 'username':
+            # do this
+            pass
+        elif to_check == 'password':
+            # do this
+            pass
     # TODO: Create salt, pepper and hashing
     # TODO: Store inside a database
     # TODO: block user password from being stored anywhere in plain text
