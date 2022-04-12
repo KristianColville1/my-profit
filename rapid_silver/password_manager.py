@@ -24,7 +24,7 @@ class PasswordManager():
     character_keys = ['a', 'b']
     alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
     special_chars = ['!', '@', '#', '$', '%', '&', '*']
-    profile_dict = {
+    user_mongo_dict = {
         "USERNAME": "",
         "PASSWORD": "",
         "COMPANY": ""
@@ -53,10 +53,8 @@ class PasswordManager():
             self._get_login_details()
             self._log_in_user()
 
-        self.mongo_link = f"""
-        mongodb+srv://rapid_silver_educate:{self._mongopass}@rapidsilver.h5hbo.
-        mongodb.net/myFirstDatabase?retryWrites=true&w=majority"""
-        self.cluster = MongoClient(self.mongo_link)
+        # line long but link wont work without it formatted like this
+        self.cluster = MongoClient(f"mongodb+srv://rapid_silver_educate:{self._mongopass}@rapidsilver.h5hbo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority""")
         self.database = self.cluster['RapidSilver']
         self.collection = self.database['users']
 
@@ -70,7 +68,7 @@ class PasswordManager():
         result = input(color.cyan_fore('Enter here: '))
 
         if result in ('Y', 'y'):
-            self.username = self._generate_username()
+            self._username = self._generate_username()
 
         elif result in ('N', 'n'):
 
@@ -93,7 +91,8 @@ class PasswordManager():
 
                 self._username = username_input
             except ValueError as error:
-                print(color.red_fore(error))
+                error = color.red_fore(error)
+                print(error)
                 time.sleep(1.5)
                 self._set_username()
 
@@ -102,21 +101,21 @@ class PasswordManager():
             time.sleep(1.5)
             self._set_username()
 
-        return self.username
+        return self._username
 
     def _generate_username(self):
         """
         Generates a username for the user, a combination of letters
         and numbers.
         """
-        self._username = ''
+        username = ''
         rand_key = self.character_keys[random.randrange(1)]
 
         for _ in range(8):
             rand_key = self.character_keys[random.randrange(2)]
             arr = self.character_dict[rand_key]
-            self.username += arr[random.randrange(len(arr))]
-        return self._username
+            username += arr[random.randrange(len(arr))]
+        return username
 
     def _set_user_password(self):
         return ''
