@@ -1,8 +1,8 @@
 """Holds the user class for creating user objects"""
 import time
 from better_profanity import profanity
-from rapid_silver.art import TextArt
-from rapid_silver.password import PasswordManager
+from rapid_silver.text_art import TextArt
+from rapid_silver.password_manager import PasswordManager
 from console import clear_console
 
 # instance variables
@@ -94,12 +94,13 @@ class User():
                 )
             # checks if correct otherwise uses recursion
             self.check_if_correct(self.set_email, email_input)
+            self.email = [f'{email_input}']
         except ValueError as error:
             clear_console()
             print(color.red_fore(f'{error}'))
             self.set_email()
-        email = [email_input]  # wrapped in string as not showing otherwise
-        return email
+          # wrapped in string as not showing otherwise
+        return self.email
 
     def set_company_name(self):
         """Gets and validates the user company name"""
