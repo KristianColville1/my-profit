@@ -3,14 +3,14 @@ import os
 import time
 import random
 from getpass import getpass
-from webbrowser import get
+import bcrypt
 from pymongo import MongoClient
 from console import clear_console
 from rapid_silver.text_art import TextArt
 
 # instance created
 color = TextArt()
-
+loader = color
 
 class PasswordManager():
     """
@@ -28,42 +28,24 @@ class PasswordManager():
     alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
     special_chars = ['!', '@', '#', '$', '%', '&', '*']
     user_mongo_dict = {
-        "USERNAME": "",
-        "PASSWORD": "",
-        "COMPANY": ""
+        "_id": "",
+        "password": "",
     }
 
+    _mongopass = os.environ.get('MONGOPASSWORD')
+    _cluster = MongoClient(f"mongodb+srv://rapid_silver_educate:{_mongopass}@rapidsilver.h5hbo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+    _database = _cluster['RapidSilver']
+    _collection = _database['users']
+
     def __init__(self, account_type):
-
-        # temporary catch claus for local development and
-        # live terminal development
-        try:
-            self._mongopass = os.environ.get('MONGOPASSWORD')
-        except NameError:
-            file = open('mongodb.txt', encoding='utf8')
-            self._mongopass = file.read()
-            file.close()
-        except AttributeError:
-            file = open('mongodb.txt', encoding='utf8')
-            self._mongopass = file.read()
-            file.close()
-
         # decides which route to take for the account type
         if account_type == 'new':
             self._username = self._set_username()
-            self.password = self._set_user_password()
-            # self._log_in_user()
+            self._password = self._set_user_password()
+            self._save_user_credentials()
         elif account_type == 'old':
             self._get_login_details()
             self._log_in_user()
-
-        # line long but link wont work without it formatted like this
-        line_a = f'mongodb+srv://rapid_silver_educate:{self._mongopass}'
-        line_b = '@rapidsilver.h5hbo.mongodb.net/myFirstDatabase?retryWrites'
-        line_c = '=true&w=majority'
-        self.cluster = MongoClient(line_a + line_b + line_c)
-        self.database = self.cluster['RapidSilver']
-        self.collection = self.database['users']
 
     def _set_username(self):
         clear_console()
@@ -171,6 +153,23 @@ class PasswordManager():
             print('Password too short, please try again')
 
         return password
+
+    def _save_user_credentials(self):
+        """
+        Saves a new users hashed password to a Mongo Database so
+        the user can choose the login route for returning users.
+        A new hash and salt are generated for each user. Increasing
+        the security of the data.
+        """
+        self.user_mongo_dict['_id'] = self._username
+        self._password = b'{self._password}'
+        salt = bcrypt.gensalt()
+        hashed = bcrypt.hashpw(self._password, salt)
+        self.user_mongo_dict['password'] = f'{salt}:{hashed}'
+        post = self.user_mongo_dict
+        self._collection.insert_one(post)
+        loader.hash_loading('Storing user credentials')
+
 
     def _log_in_user(self):
         return ''
