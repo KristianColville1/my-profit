@@ -2,6 +2,8 @@
 import os
 import time
 import random
+from getpass import getpass
+from webbrowser import get
 from pymongo import MongoClient
 from console import clear_console
 from rapid_silver.text_art import TextArt
@@ -47,8 +49,8 @@ class PasswordManager():
         # decides which route to take for the account type
         if account_type == 'new':
             self._username = self._set_username()
-            self._set_user_password()
-            self._log_in_user()
+            self.password = self._set_user_password()
+            # self._log_in_user()
         elif account_type == 'old':
             self._get_login_details()
             self._log_in_user()
@@ -118,7 +120,41 @@ class PasswordManager():
         return username
 
     def _set_user_password(self):
+        clear_console()
+
+        print('\n\n\n\nNow lets set a password for you.')
+        print(color.cyan_fore('Please make sure to have the following: '))
+        print('You need a password of at least 10 characters')
+        print(color.red_fore('It must contain at least 1 number'))
+        print(color.red_fore('It must also contain at least 1 capital letter'))
+        print(color.red_fore('It must contain at least 1 of the special symbols below'))
+        print(f'\n{self.special_chars}')
+        print(color.yellow_fore('\n\t**Please note for your protection password input is hidden**'))
+        password_one = getpass('\n\nEnter your password here: ')
+        password_two = getpass('Enter your password again to confirm: ')
+
+        if password_one == password_two:
+            password = password_one
+        else:
+            print(color.red_fore('PASSWORDS NOT MATCHING, try again.'))
+            time.sleep(2)
+            self._set_user_password()
+        checker = True
+        for char in password:
+            if char not in self.alphabet and char not in self.special_chars:
+                if char not in self.character_dict['a']:
+                    checker = False
+                    break
+        if checker is False:
+            print(color.red_fore('\n INVALID password chosen, try again'))
+            time.sleep(2.5)
+            self._set_user_password()  # used recursion until valid password
+        if len(password) < 10:
+            print('Password too short, please try again')
+
+        print(password)
         return ''
+
     def _log_in_user(self):
         return ''
     def _get_login_details(self):
