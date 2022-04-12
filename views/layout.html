@@ -12,19 +12,26 @@
     <style>
         /* google fonts ***********/
         @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+        :root {
+            --indigo-dye: #00487cff;
+            --blue-jeans: #4bb3fdff;
+            --nyanza: #e4fde1ff;
+            --dodger-blue: #0496ffff;
+            --amber: #ffbf00ff;
+        }
         body {
             background-image: url(https://raw.githubusercontent.com/KristianColville1/rapid-silver/main/assets/images/background.jpg);
             background-position: 0%;
             background-size: 100%;
             background-attachment: fixed;
-            background-color: #056AB3;
+            background-color: var(--blue-jeans);
             background-blend-mode: soft-light;
             overflow: hidden;
         }
 
         h1 {
             width: 100%;
-            color: #1098F7;
+            color: var(--nyanza);
             text-shadow: 8px 8px 16px #022F4F;
             font-size: 6rem;
             font-family: 'Anton', sans-serif;
@@ -173,7 +180,7 @@
         }
 
         .container-center {
-            box-shadow: 8px 8px 16px #7A7A7A;
+            box-shadow: 8px 8px 16px var(--indigo-dye);
             border: 15px solid black;
             border-radius: 8px;
             position: absolute;
@@ -185,11 +192,11 @@
         button {
             width: 300px;
             height: 40px;
-            color: #FFD23F;
+            color: var(--amber);
             font-family: 'Anton', sans-serif;
             font-size: 1.3rem;
-            background-color: #1098F9;
-            box-shadow: 4px 3px 8px #7A7A7A;
+            background-color: var(--nyanza);
+            box-shadow: 4px 3px 8px var(--indigo-dye);
             border: 1px solid grey;
 
             text-transform: uppercase;
@@ -220,12 +227,12 @@
 
         .float-left {
             float: left;
-            color: #056AB3;
+            color: var(--amber);
         }
 
         i {
             font-size: 2rem;
-            color: #056AB3;
+            color: var(--amber);
             cursor: pointer;
         }
 
