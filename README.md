@@ -129,7 +129,18 @@ The goals of this project include:
 
 [Back to Top](#table-of-contents)
 ## Technologies & Tools
-### Main Tech
+### Languages Used
+
+- [HTML](https://en.wikipedia.org/wiki/HTML)
+- [CSS](https://en.wikipedia.org/wiki/CSS)
+- [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+- [Python](https://en.wikipedia.org/wiki/Python)
+
+### Frameworks, Libraries & Tools
+
+- Coolors to get some colors for the HTML in the website
+- Chrome Developer Tools for checking and debugging the site in the browser
+- Font Awesome for the footer icons 
 ### Python Packages Used
 
 [Back to Top](#table-of-contents)
@@ -173,6 +184,7 @@ Object Orientated programming was used throughout the project. The CLI applicati
 <details>
 <summary>See screenshot</summary>
 </details>
+<br>
 
 2. I want the ability to log in and out of the application
 
@@ -183,6 +195,7 @@ Object Orientated programming was used throughout the project. The CLI applicati
 <details>
 <summary>See screenshot</summary>
 </details>
+<br>
 
 3. I want the ability to reset my password if I forget it
 
@@ -193,6 +206,7 @@ Object Orientated programming was used throughout the project. The CLI applicati
 <details>
 <summary>See screenshot</summary>
 </details>
+<br>
 
 4. I want the ability to update my password
 
@@ -203,6 +217,7 @@ Object Orientated programming was used throughout the project. The CLI applicati
 <details>
 <summary>See screenshot</summary>
 </details>
+<br>
 
 5. I want to set up an organization model
 
@@ -213,6 +228,7 @@ Object Orientated programming was used throughout the project. The CLI applicati
 <details>
 <summary>See screenshot</summary>
 </details>
+<br>
 
 6. I want the application to look professional for my organization
 
@@ -223,6 +239,7 @@ Object Orientated programming was used throughout the project. The CLI applicati
 <details>
 <summary>See screenshot</summary>
 </details>
+<br>
 
 7. I want to set up mailing lists
 
@@ -233,6 +250,7 @@ Object Orientated programming was used throughout the project. The CLI applicati
 <details>
 <summary>See screenshot</summary>
 </details>
+<br>
 
 8. I want to be able to store email addresses securely
 
@@ -243,6 +261,7 @@ Object Orientated programming was used throughout the project. The CLI applicati
 <details>
 <summary>See screenshot</summary>
 </details>
+<br>
 
 9. I want to use a secure application
 
@@ -253,6 +272,7 @@ Object Orientated programming was used throughout the project. The CLI applicati
 <details>
 <summary>See screenshot</summary>
 </details>
+<br>
 
 10. I want to update/set up product analyzing
 
@@ -263,6 +283,7 @@ Object Orientated programming was used throughout the project. The CLI applicati
 <details>
 <summary>See screenshot</summary>
 </details>
+<br>
 
 11. I want to keep track of my inventory
 
@@ -273,6 +294,7 @@ Object Orientated programming was used throughout the project. The CLI applicati
 <details>
 <summary>See screenshot</summary>
 </details>
+<br>
 
 12. I want to know my data is secure from theft and that I can trust this application
 
@@ -283,6 +305,7 @@ Object Orientated programming was used throughout the project. The CLI applicati
 <details>
 <summary>See screenshot</summary>
 </details>
+<br>
 
 13. I want my application to be visually pleasing
 
@@ -293,6 +316,7 @@ Object Orientated programming was used throughout the project. The CLI applicati
 <details>
 <summary>See screenshot</summary>
 </details>
+<br>
 
 14. I want my users to access the app securely
 
@@ -303,6 +327,7 @@ Object Orientated programming was used throughout the project. The CLI applicati
 <details>
 <summary>See screenshot</summary>
 </details>
+<br>
 
 15. I want users to have options
 
@@ -313,6 +338,7 @@ Object Orientated programming was used throughout the project. The CLI applicati
 <details>
 <summary>See screenshot</summary>
 </details>
+<br>
 
 16. I want visually pleasing product/customer/user etc analysis
 
@@ -323,6 +349,7 @@ Object Orientated programming was used throughout the project. The CLI applicati
 <details>
 <summary>See screenshot</summary>
 </details>
+<br>
 
 17. I want adaptable data structuring to meet different user needs
 
@@ -333,6 +360,7 @@ Object Orientated programming was used throughout the project. The CLI applicati
 <details>
 <summary>See screenshot</summary>
 </details>
+<br>
 
 18. I want users to feel safe while using my application
 
@@ -343,6 +371,7 @@ Object Orientated programming was used throughout the project. The CLI applicati
 <details>
 <summary>See screenshot</summary>
 </details>
+<br>
 
 
 [Back to Top](#table-of-contents)
