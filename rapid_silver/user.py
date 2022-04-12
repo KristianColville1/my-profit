@@ -11,22 +11,11 @@ from console import clear_console
 color = TextArt()
 loading = color  # used to differentiate semantics
 
+
 class User():
     """
     Base class for users of Rapid Silver.
     """
-    character_dict = {
-        'a': ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
-        'b': ['R', 'A', 'P', 'I', 'D'],
-        'c': ['S', 'I', 'L', 'V', 'E', 'R'],
-        'd': ['M', 'O', 'N', 'E', 'Y'],
-        'e': ['M', 'A', 'K', 'E', 'R'],
-        'f': ['C', 'O', 'D', 'E'],
-        'g': ['E', 'V', 'E', 'R', 'Y'],
-        'h': ['D', 'A', 'Y']
-    }
-
-    character_keys = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
 
     def __init__(self, account_type):
         if account_type == 'new':
@@ -37,6 +26,7 @@ class User():
             self.check_if_all_correct()
             PasswordManager(account_type)  # activates the password manager
         elif account_type == 'old':
+            # only gets data if needed from user from password manager
             PasswordManager(account_type)  # activates the password manager
 
     def create_user_code_name(self):
@@ -46,9 +36,7 @@ class User():
         rand_name = ''
 
         while len(rand_name) < 8:
-            rand_key = self.character_keys[random.randrange(4)]
-            arr = self.character_dict[rand_key]
-            rand_name += arr[random.randrange(len(arr))]
+
 
         return rand_name
 
@@ -171,7 +159,6 @@ class User():
             for_recursion()
         return None
 
-
     def check_if_all_correct(self):
         """
         Displays all the details to the user to confirm if all their
@@ -196,5 +183,3 @@ class User():
             loading.star_loading('Storing your details for later')
         else:
             self.check_if_all_correct()  # incase user enters something else
-
-    # TODO: complete getter methods on data hookup
