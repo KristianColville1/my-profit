@@ -8,8 +8,8 @@ etc.
 """
 import time
 from console import clear_console
-from rapid_silver.rapid_profile import RapidUser
-from rapid_silver.art import TextArt
+from rapid_silver.rapid_user import RapidUser
+from rapid_silver.text_art import TextArt
 
 
 # class instances
