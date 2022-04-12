@@ -11,7 +11,7 @@ from console import clear_console
 color = TextArt()
 loading = color  # used to differentiate semantics
 
-class User(object):
+class User():
     """
     Base class for users of Rapid Silver.
     """
@@ -66,6 +66,8 @@ class User(object):
                 raise ValueError(
                     'PROFANITY DETECTED. Try again.'
                 )
+            # checks if correct otherwise uses recursion
+            self.check_if_correct(self.set_first_name, fname_input)
         except ValueError as error:
             clear_console()
             print(color.red_fore(f'{error}'))
@@ -87,6 +89,8 @@ class User(object):
                 raise ValueError(
                     'PROFANITY DETECTED. Try again.'
                 )
+            # checks if correct otherwise uses recursion
+            self.check_if_correct(self.set_last_name, lname_input)
         except ValueError as error:
             clear_console()
             print(color.red_fore(f'{error}'))
@@ -112,11 +116,13 @@ class User(object):
                 raise ValueError(
                     'PROFANITY DETECTED. Try a different email address.'
                 )
+            # checks if correct otherwise uses recursion
+            self.check_if_correct(self.set_email, email_input)
         except ValueError as error:
             clear_console()
             print(color.red_fore(f'{error}'))
             self.set_email()
-        email = str(email_input)  # wrapped in string as not showing otherwise
+        email = [email_input]  # wrapped in string as not showing otherwise
         return email
 
     def set_company_name(self):
@@ -133,6 +139,8 @@ class User(object):
                 raise ValueError(
                     'PROFANITY DETECTED. Try again.'
                 )
+            # checks if correct otherwise uses recursion
+            self.check_if_correct(self.set_company_name, company_input)
         except ValueError as error:
             clear_console()
             print(color.red_fore(f'{error}'))
@@ -140,9 +148,34 @@ class User(object):
         company_name = company_input
         return company_name
 
+    def check_if_correct(self, caller, user_input):
+        """
+        Checks individual statements to see if user wants to correct
+        their input.
+        """
+        clear_console()
+        for_recursion = caller
+        result = input(color.purple_fore(f'\nIs {user_input} correct? y/n'))
+        if result in ('y', 'Y'):
+            print(color.green_fore('\nThank you'))
+            time.sleep(0.7)
+            clear_console()
+            return None
+        if result in ('n', 'N'):
+            print(color.yellow_fore('\nOkay try again'))
+            time.sleep(0.7)
+            clear_console()
+            for_recursion()
+        if result not in ('y', 'Y', 'n', 'N'):
+            print(color.red_fore('Invalid input given.'))
+            for_recursion()
+        return None
+
+
     def check_if_all_correct(self):
         """
-        Displays the details to the user to confirm.
+        Displays all the details to the user to confirm if all their
+        inputs are correct before moving on with the program.
         """
         clear_console()
         print('Here are the details you provided: \n')
