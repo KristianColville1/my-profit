@@ -12,6 +12,7 @@ from rapid_silver.text_art import TextArt
 color = TextArt()
 loader = color
 
+
 class PasswordManager():
     """
     Handles the password information for the user of
@@ -44,7 +45,6 @@ class PasswordManager():
             self._password = self._set_user_password()
             self._save_user_credentials()
         elif account_type == 'old':
-            self._get_login_details()
             self._log_in_user()
 
     def _set_username(self):
@@ -170,12 +170,38 @@ class PasswordManager():
         self._collection.insert_one(post)
         loader.hash_loading('Storing user credentials')
 
-
     def _log_in_user(self):
-        return ''
+        """
+        Logs the user into Rapid Silver.
+        """
+        try:
+            clear_console()
+            self._username = input(color.blue_fore(
+                'Enter your username here: '
+                ))
+            post = self._collection.find_one({"_id": f"{self._username}"})
 
-    def _get_login_details(self):
-        return ''
+            print(color.cyan_fore(
+                '\n\t**Your password input is hidden**'
+                ))
+            self._password = getpass('Please enter your password here: ')
+            check_pass = self._check_user_password_matches(
+                post, self._password)
+            if post is None:
+                raise ValueError(
+                    'Sorry username or passord incorrect'
+                )
+            if check_pass is None:
+                raise ValueError(
+                    'Sorry username or passord incorrect'
+                )
+        except ValueError as error:
+            # Message is the same if username or password is incorrect
+            print(f'INVALID: {error}..')
+            time.sleep(5)
+            self._log_in_user()
+        print(color.purple_fore(
+            'You are now logged in'))
 
     def _check_characters_valid_in(self, to_check, input_type):
         result = True
@@ -183,18 +209,30 @@ class PasswordManager():
             for char in input_type:
                 if char in self.special_chars:
                     return False
-        elif to_check == 'password':
-            # for char in input_type:
-            #     if char not in self.special_chars:
-            #         return False
-            #     if char not in ():
-            #         return False
-            pass
         return result
-    # TODO: Create salt, pepper and hashing
-    # TODO: Store inside a database
-    # TODO: block user password from being stored anywhere in plain text
-    # TODO: get all code and structure it properly
 
-# post = { user_name:password, "data":"company"}
-# collection.insert_one(post)
+    def _check_user_password_matches(self, post, user_pass_input):
+        key = post['password']
+        hashed_list = key.split(':')
+
+        # using string method replace to remove the chars for encoding properly
+        salt = hashed_list[0]
+        salt = salt.replace("b'", "")
+        salt = salt.replace("'", "")
+        salt = bytes(salt, 'utf-8')
+        hashes = hashed_list[1]
+        hashes = hashes.replace("b'", "")
+        hashes = hashes.replace("'", "")
+        hashes = bytes(hashes, 'utf-8')
+
+        user_pass_input = b'{user_pass_input}'
+        to_check = bcrypt.hashpw(user_pass_input, salt)
+        result = bcrypt.checkpw(user_pass_input, to_check)
+        if result is False:
+            return None
+        if result is True:
+            print("You are now logged in")
+            time.sleep(50)
+            return True
+        return None
+    # TODO: get all code and structure it properly
