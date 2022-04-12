@@ -30,7 +30,7 @@ def welcome_msg():
         welcome = file.read()
         file.close()
     except IOError:
-        return "Welcome to MyProf"  # in the event an error occurs
+        return "Welcome to Rapid Silver"  # in the event an error occurs
     return welcome
 
 
@@ -46,7 +46,7 @@ def open_login_portal():
         file = open('assets/text/login.txt', encoding='utf8')
         login_msg = file.read()
         file.close()
-        print('\n' + COLOR.cyan_fore(login_msg))
+        print('\n' + COLOR.blue_fore(login_msg))
     except IOError:
         print('Log in screen')  # in event reading log in message fails
 
@@ -141,7 +141,7 @@ def main():
     """
     print(COLOR.red_fore(welcome_msg()))
 
-    input(COLOR.purple_fore('\n\n\n\t\t\t<Press enter to continue to log in>'))
+    input(COLOR.cyan_fore('\n\n\n\t\t\t<Press enter to continue to log in>'))
     load_details()
 
     # gets or sets up a user profile

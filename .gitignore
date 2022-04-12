@@ -8,8 +8,11 @@ node_modules/
 .github/
 test.py
 test2.py
+test3.py
 .venv
-creds.json
+googlecred.json
+mypepper.json
+mypassword.json
 api_details.py
 design.txt
 mongo_test.py
