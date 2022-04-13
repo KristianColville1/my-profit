@@ -8,6 +8,7 @@ etc.
 """
 import time
 from console import clear_console
+from rapid_silver.password_manager import PasswordManager
 from rapid_silver.user import User
 from rapid_silver.text_art import TextArt
 
@@ -61,14 +62,14 @@ def open_login_portal():
             clear_console()
             open_login_portal()
         if result == 'e':
-            user = login_user()
-            return user
+            login = login_user()
+            return login
         if result == 'd':
-            user = create_account()
-            return user
+            login = create_account()
+            return login
     except ValueError:
         open_login_portal()  # uses recursion until valid login input
-    return None
+    return login
 
 
 def login_user():
@@ -79,8 +80,8 @@ def login_user():
     print('\n\n')
     LOADING.money_loading('\t\tOpening login now')
     clear_console()
-    user = User('old')  # rapid user runs route for returning user
-    return user
+    to_login = PasswordManager('old')  # runs route for new user
+    return to_login 
 
 
 def create_account():
@@ -90,8 +91,8 @@ def create_account():
     print('\n\n')
     LOADING.money_loading('\t\tAccount creation enabled')
     clear_console()
-    user = User('new')  # rapid user runs route for new user
-    return user
+    to_login = PasswordManager('new')  # runs route for new user
+    return to_login 
 
 
 def load_details():
@@ -151,8 +152,12 @@ def main():
     clear_console()
     LOADING.star_loading('Opening login portal now')
     # gets or sets up a user profile
-    user = open_login_portal()
-    
+    login_portal = PasswordManager('')
+    clear_console()
+    if login_portal.logged_in is True:
+        print('Successfully got new route')
+        print(login_portal.username)
+        time.sleep(5)
 
 
 main()
