@@ -165,7 +165,7 @@ class PasswordManager():
         the security of the data.
         """
         self.user_mongo_dict['_id'] = self._username
-        self._password = b'{self._password}'
+        self._password = bytes(self._password, 'utf-8')  # convert password to bytes
         salt = bcrypt.gensalt()
         hashed = bcrypt.hashpw(self._password, salt)
         self.user_mongo_dict['password'] = f'{salt}:{hashed}'
@@ -223,7 +223,7 @@ class PasswordManager():
         hashes = hashes.replace("b'", "")
         hashes = hashes.replace("'", "")
         hashed = bytes(hashes, 'utf-8')
-        
+
         user_pass_input = bytes(user_pass_input, 'utf-8')
         print(user_pass_input)
         print(hashed)
