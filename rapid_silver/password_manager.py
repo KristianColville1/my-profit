@@ -225,16 +225,16 @@ class PasswordManager():
         hashed = bytes(hashes, 'utf-8')
 
         user_pass_input = bytes(user_pass_input, 'utf-8')
-        print(user_pass_input)
-        print(hashed)
         if bcrypt.checkpw(user_pass_input, hashed):
 
-            print("You are now logged in")
-            time.sleep(6)
+            print("\n\nYou are now logged in")
+            time.sleep(1)
             return True
         else:
-            print('Wrong credentials')
-            time.sleep(6)
+            print('\n\nUsername or password incorrect, try again')
+            time.sleep(3)
+            clear_console()
+            self.__init__('old')  # use recursion to check log in details
 
         return None
     # TODO: get all code and structure it properly
