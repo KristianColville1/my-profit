@@ -113,13 +113,20 @@ class PasswordManager():
             username += arr[random.randrange(len(arr))]
 
         loader.star_loading('Generating username now..')
-        print('\n\nPlease make note of your generated username')
-        print(f'\n\nUSERNAME: {username}')
+        print(color.red_back(
+            '\n\nPlease make note of your generated username for logging in'))
+        print(color.green_fore(
+            f'\n\nUSERNAME: {username}'))
         result = input('\n\n\t\tAre you happy with this username? y/n :')
         if result in ('Y', 'y'):
             print(color.green_fore('Thank you'))
             time.sleep(2)
             clear_console()
+        if result in ('N', 'n'):
+            print(color.purple_fore(
+                '\n\nSorry about that, let us try that again for you'))
+            time.sleep(2)
+            self._generate_username()
         return username
 
     def _set_user_password(self):
