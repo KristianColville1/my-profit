@@ -104,12 +104,14 @@ def create_account():
 def pull_up_data_protection():
     """
     Opens data protection information for the user to look at.
+    Reassures user of entering sensitive information and logging in.
     """
     try:
+        clear_console()
         file = open('assets/text/data_protection.txt', encoding='utf8')
         data_protection = file.read()
         file.close()
-        print(COLOR.blue_back(
+        print(COLOR.purple_back(
             COLOR.yellow_fore(data_protection)
         ))
         print(COLOR.reset_bg)
@@ -117,8 +119,7 @@ def pull_up_data_protection():
         print("ERROR: reading dataprotection failed..")
         print('We are GDPR compliant')
 
-    input('Hit enter to go back to log in portal')
-    clear_console()
+    input(COLOR.red_fore('\t\tHit enter to go back to log in portal'))
     
 def load_details():
     """

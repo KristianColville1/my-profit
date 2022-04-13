@@ -1,9 +1,9 @@
-                ________       ________         __________       __________      
-               /  _____/       \______ \        \______   \      \______   \     
-              /   \  ___        |    |  \        |     ___/       |       _/     
-              \    \_\  \       |    `   \       |    |           |    |   \     
-               \______  /  /\  /_______  /  /\   |____|      /\   |____|_  /  /\ 
-                      \/   \/          \/   \/               \/          \/   \/ 
+  ________________ ____________________ 
+ /  _____/\______ \\______   \______   \
+/   \  ___ |    |  \|     ___/|       _/
+\    \_\  \|    `   \    |    |    |   \
+ \______  /_______  /____|    |____|_  /
+        \/        \/                 \/ 
 Here at Rapid Silver we take your privacy seriously.                         
 Your passwords are stored safely away within our Mongo Database which is     
 trusted by millions of businesses worldwide.                                
