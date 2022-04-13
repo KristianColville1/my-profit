@@ -38,10 +38,11 @@ class PasswordManager():
     _database = _cluster['RapidSilver']
     _collection = _database['users']
 
+    logged_in = False
     def __init__(self, account_type):
         # decides which route to take for the account type
         if account_type == 'new':
-            self._username = self._set_username()
+            self.username = self._set_username()
             self._password = self._set_user_password()
             self._save_user_credentials()
         elif account_type == 'old':
@@ -57,7 +58,7 @@ class PasswordManager():
         result = input(color.cyan_fore('Enter here: '))
 
         if result in ('Y', 'y'):
-            self._username = self._generate_username()
+            self.username = self._generate_username()
 
         elif result in ('N', 'n'):
 
@@ -111,8 +112,14 @@ class PasswordManager():
             arr = self.character_dict[rand_key]
             username += arr[random.randrange(len(arr))]
 
-        loader.money_loading('Generating username now..')
-        print(f'USERNAME: {username}')
+        loader.star_loading('Generating username now..')
+        print('\n\nPlease make note of your generated username')
+        print(f'\n\nUSERNAME: {username}')
+        result = input('\n\n\t\tAre you happy with this username? y/n :')
+        if result in ('Y', 'y'):
+            print(color.green_fore('Thank you'))
+            time.sleep(2)
+            clear_console()
         return username
 
     def _set_user_password(self):
@@ -228,6 +235,7 @@ class PasswordManager():
         if bcrypt.checkpw(user_pass_input, hashed):
 
             print("\n\nYou are now logged in")
+            self.logged_in = True
             time.sleep(1)
             return True
         else:

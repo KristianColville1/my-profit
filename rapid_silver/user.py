@@ -2,7 +2,6 @@
 import time
 from better_profanity import profanity
 from rapid_silver.text_art import TextArt
-from rapid_silver.password_manager import PasswordManager
 from console import clear_console
 
 # instance variables
@@ -16,18 +15,12 @@ class User():
     Base class for users of Rapid Silver.
     """
 
-    # instance variables initially set to None
-    first_name = None
-    last_name = None
-    email = None
-    company_name = None
-
-    def __init__(self, account_type):
-        if account_type == 'new':
-            self.validation = PasswordManager(account_type)  # activates the password manager
-        elif account_type == 'old':
-            # only gets data if needed from user from password manager
-            self.validation = PasswordManager(account_type)  # activates the password manager
+    def __init__(self):
+        self.first_name = None
+        self.last_name = None
+        self.email = None
+        self.company_name = None
+        self.details = None
 
     def set_first_name(self):
         """Gets and validates the users first name"""
@@ -147,28 +140,3 @@ class User():
             print(color.red_fore('Invalid input given.'))
             for_recursion()
         return None
-
-    def check_if_all_correct(self):
-        """
-        Displays all the details to the user to confirm if all their
-        inputs are correct before moving on with the program.
-        """
-        clear_console()
-        print('Here are the details you provided: \n')
-        print(self.first_name)
-        print(self.last_name)
-        print(self.email)
-        print(self.company_name)
-        to_input = color.red_fore('Are these are all correct? y/n :')
-        result = input(to_input)
-        if result in ('n', 'N'):
-            print('Not to worry lets try that again.')
-            time.sleep(1.5)
-            clear_console()
-            self.__init__('new')  # redo init if wrong
-        if result in ('y', 'Y'):
-            clear_console()
-            print('Thank you')
-            loading.star_loading('Storing your details for later')
-        else:
-            self.check_if_all_correct()  # incase user enters something else
