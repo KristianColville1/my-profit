@@ -32,9 +32,8 @@ class PasswordManager():
         "_id": "",
         "password": "",
     }
-
     _mongo_link = os.environ.get('MONGOLINK')
-    _cluster = MongoClient(f"mongodb+srv://{_mongo_link}retryWrites=true&w=majority")
+    _cluster = MongoClient(f"mongodb+srv://rapid_silver_educate:{_mongo_link}@rapidsilver.h5hbo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
     _database = _cluster['RapidSilver']
     _collection = _database['users']
     logged_in = False
