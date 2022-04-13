@@ -77,7 +77,6 @@ class User():
 
     def set_email(self):
         """Gets and validates the users email"""
-        email = ''
         try:
             text = color.cyan_fore('\nEnter your email: ')
             email_input = input(text)

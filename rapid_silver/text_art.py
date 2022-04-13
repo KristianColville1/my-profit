@@ -61,3 +61,14 @@ class TextArt(ColorPrint):
             text += self.purple_fore(self.star_sym)
             print(f'{text}\r', end='')
             time.sleep(0.05)
+
+    def color_background(self, length, color):
+        """
+        Prints blank space to background but with color background for
+        the length and color specified.
+        """
+        space = ''
+        for _ in range(length):
+            space += color('#')
+            print(f'{space}\r', end='')
+            time.sleep(0.02)
