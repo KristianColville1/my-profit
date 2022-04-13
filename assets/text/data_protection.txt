@@ -1,0 +1,22 @@
+                ________________ ____________________ 
+               /  _____/\______ \\______   \______   \
+              /   \  ___ |    |  \|     ___/|       _/
+              \    \_\  \|    `   \    |    |    |   \
+               \______  /_______  /____|    |____|_  /
+                      \/        \/                 \/ 
+
+Here at Rapid Silver we take your privacy seriously.
+Your passwords are stored safely away within our Mongo Database which is
+trusted by millions of businesses worldwide.
+
+We don't store your passwords in plain text and we don't make it easy for
+malicious users to try and access. We have taken several steps to ensure your
+privacy is maintained. All passwords are encrypted using relevant tools and
+technologies.
+
+We create a unique algorithm for each piece of sensitive information you provide
+that no malicious users can break.
+When you create an account with us you can be rest assured that your data is
+safe.
+
+EU GDPR compliant | UK GDPR  compliant | ISACA compliant
