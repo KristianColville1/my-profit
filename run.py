@@ -52,16 +52,16 @@ def open_login_portal():
         print('Log in screen')  # in event reading log in message fails
 
     print(COLOR.yellow_fore(
-        "\n\t\t\tHit [ e ] + Enter to login"))
+        "\n\t\tHit [ e ] + Enter to login"))
     print(COLOR.yellow_fore(
-        "\t\t\tHit [ d ] + Enter to create new account"))
-    print(COLOR.purple_fore(
-        "\t\t\tHit [ b ] + Enter to read how your data is stored"))
+        "\t\tHit [ d ] + Enter to create new account"))
+    print(COLOR.yellow_fore(
+        "\t\tHit [ b ] + Enter to read how your data is stored"))
 
     try:
-        result = input(COLOR.green_fore('\n\t\t\tHere: '))
+        result = input(COLOR.green_fore('\n\t\tHere: '))
         if result not in ('e', 'd', 'b'):
-            print(COLOR.red_fore('\t\t\tInvalid input, enter e or d'))
+            print(COLOR.red_fore('\t\tInvalid input, enter e or d'))
             time.sleep(2)
             clear_console()
             open_login_portal()
@@ -109,8 +109,8 @@ def pull_up_data_protection():
         file = open('assets/text/data_protection.txt', encoding='utf8')
         data_protection = file.read()
         file.close()
-        print(COLOR.yellow_back(
-            COLOR.blue_fore(data_protection)
+        print(COLOR.blue_back(
+            COLOR.yellow_fore(data_protection)
         ))
         print(COLOR.reset_bg)
     except IOError:
