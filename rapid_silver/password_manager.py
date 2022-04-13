@@ -34,11 +34,12 @@ class PasswordManager():
     }
 
     _mongopass = os.environ.get('MONGOPASSWORD')
-    _cluster = MongoClient(f"mongodb+srv://rapid_silver_educate:{_mongopass}@rapidsilver.h5hbo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+    _mongo_link = os.environ.get('MONGOLINK')
+    _cluster = MongoClient(_mongo_link)
     _database = _cluster['RapidSilver']
     _collection = _database['users']
-
     logged_in = False
+
     def __init__(self, account_type):
         # decides which route to take for the account type
         if account_type == 'new':
@@ -49,52 +50,71 @@ class PasswordManager():
             self._log_in_user()
 
     def _set_username(self):
-        clear_console()
-        for _ in range(8):
-            print('\n')
-        text = 'Would you like to set a username'
-        text += ' or have a username generated? y/n'
-        print(f'{text}')
-        result = input(color.cyan_fore('Enter here: '))
-
-        if result in ('Y', 'y'):
-            self.username = self._generate_username()
-
-        elif result in ('N', 'n'):
-
+        """
+        Checks if the user wishes to either create a username
+        or have one assigned to them.
+        """
+        try:
             clear_console()
-            try:
+            for _ in range(8):
+                print('\n')
+            print(color.purple_fore(
+                'Hit [ e ] + Enter to create a username'))
+            print(color.purple_fore(
+                'Hit [ d ] + Enter to auto assign a username to yourself'))
+            result = input(color.green_fore('\nEnter here: '))
 
-                advice = color.yellow_fore('Please include (A-Z & a-z)')
-                advice += color.cyan_fore('and at least 1 number')
-                print(advice)
-                username_input = input('Please enter a username: ')
+            print(color.cyan_fore('/nChecking username now'))
+            loader.color_background(40, color.blue_back)
+            print(color.reset_bg)
 
-                if len(username_input) < 8:
-                    raise ValueError(
-                        'Username must be at least 8 characters'
-                        )
-                if len(username_input) > 40:
-                    raise ValueError(
-                        'Username must be less than 40 characters'
-                        )
-                user = username_input
-                input_type = 'username'
-                validation = self._check_characters_valid_in(input_type, user)
-                if validation is False:
-                    raise ValueError('You must include at least one number')
-                # TODO: check database for conflicts in username here also
+            if result in ('D', 'd'):
+                self.username = self._generate_username()
 
-                self.username = username_input
-            except ValueError as error:
-                error = color.red_fore(error)
-                print(error)
+            elif result in ('e', 'E'):
+
+                clear_console()
+                try:
+
+                    advice = color.yellow_fore('Please include (A-Z & a-z)')
+                    advice += color.cyan_fore('and at least 1 number')
+                    print(advice)
+                    username_input = input('Please enter a username: ')
+
+                    if len(username_input) < 8:
+                        raise ValueError(
+                            'Username must be at least 8 characters'
+                            )
+                    if len(username_input) > 40:
+                        raise ValueError(
+                            'Username must be less than 40 characters'
+                            )
+                    user = username_input
+                    input_type = 'username'
+                    validation = self._check_characters_valid_in(
+                        input_type, user)
+                    if validation is False:
+                        raise ValueError(
+                            'You must include at least one number')
+                    # TODO: check database for conflicts in username here also
+
+                    self.username = username_input
+                except ValueError as error:
+                    error = color.red_fore(error)
+                    print(error)
+                    time.sleep(1.5)
+                    self._set_username()
+                except TypeError:
+                    time.sleep(1.5)
+                    self._set_username()
+
+            else:
+                print("INVALID Input received.")
                 time.sleep(1.5)
                 self._set_username()
-
-        else:
-            print("INVALID Input received.")
-            time.sleep(1.5)
+        except TypeError:
+            print('Sorry something went wrong. Let us try that again.')
+            time.sleep(3)
             self._set_username()
 
         return self.username
@@ -179,7 +199,8 @@ class PasswordManager():
         the security of the data.
         """
         self.user_mongo_dict['_id'] = self.username
-        self._password = bytes(self._password, 'utf-8')  # convert password to bytes
+        self._password = bytes(
+            self._password, 'utf-8')  # convert password to bytes
         salt = bcrypt.gensalt()
         hashed = bcrypt.hashpw(self._password, salt)
         self.user_mongo_dict['password'] = f'{salt}:{hashed}'
