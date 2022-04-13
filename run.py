@@ -8,7 +8,7 @@ etc.
 """
 import time
 from console import clear_console
-from rapid_silver.rapid_user import RapidUser
+from rapid_silver.user import User
 from rapid_silver.text_art import TextArt
 
 
@@ -50,8 +50,8 @@ def open_login_portal():
     except IOError:
         print('Log in screen')  # in event reading log in message fails
 
-    print(COLOR.green_fore("\n\t\t\tHit 'e + Enter' to login"))
-    print(COLOR.yellow_fore("\t\t\tHit 'd + Enter' to create new account"))
+    print(COLOR.yellow_fore("\n\t\t\tHit [ e ] + Enter to login"))
+    print(COLOR.yellow_fore("\t\t\tHit [ d ] + Enter to create new account"))
 
     try:
         result = input(COLOR.green_fore('\n\t\t\tHere: '))
@@ -79,7 +79,7 @@ def login_user():
     print('\n\n')
     LOADING.money_loading('\t\tOpening login now')
     clear_console()
-    user = RapidUser('old')  # rapid user runs route for returning user
+    user = User('old')  # rapid user runs route for returning user
     return user
 
 
@@ -90,7 +90,7 @@ def create_account():
     print('\n\n')
     LOADING.money_loading('\t\tAccount creation enabled')
     clear_console()
-    user = RapidUser('new')  # rapid user runs route for new user
+    user = User('new')  # rapid user runs route for new user
     return user
 
 
@@ -134,18 +134,25 @@ def get_options():
         print(COLOR.yellow_fore('\t\t\tOptions\n\n\n\n'))
     # TODO: add options here for user
 
-
 def main():
     """
     Runs the program.
     """
+    # Add some new lines before loader
+    for _ in range(5):
+        print('\n')
+    LOADING.hash_loading('\t\tLoading terminal for Rapid Silver')
+    clear_console()
+
+    # Load welcome message and login screen
     print(COLOR.red_fore(welcome_msg()))
-
     input(COLOR.cyan_fore('\n\n\n\t\t\t<Press enter to continue to log in>'))
-    load_details()
 
+    clear_console()
+    LOADING.star_loading('Opening login portal now')
     # gets or sets up a user profile
     user = open_login_portal()
+    
 
 
 main()
