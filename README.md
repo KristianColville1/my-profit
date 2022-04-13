@@ -14,8 +14,9 @@ Developer: Kristian Colville
     * [Target Audience](#target-audience)
     * [User Requirements and Expectations](#user-requirements-and-expectations)
 * [User Stories](#user-stories)
-    * [CLI App User](#cli-app-user)
-    * [CLI App Owner](#cli-app-owner)
+    * [New User](#new-user)
+    * [Returning User](#returning-user)
+    * [Owner](#owner)
 * [Design](#design)
     * [Color Scheme](#color-scheme)
     * [Fonts](#color-scheme)
@@ -96,29 +97,23 @@ The goals of this project include:
 [Back to Top](#table-of-contents)
 
 ## User Stories
-### CLI App User
+### New User
 
-1. I want to understand how to use this CLI application
-2. I want the ability to log in and out of the application
-3. I want the ability to reset my password if I forget it
-4. I want the ability to update my password
-5. I want to set up an organization model
-6. I want the application to look professional for my organization
-7. I want to set up mailing lists
-8. I want to be able to store email addresses securely
-9. I want to use a secure application
-10. I want to update/set up product analyzing
-11. I want to keep track of my inventory
-12. I want to know my data is secure from theft and that I can trust this application
+1. As a new user I want to understand how to use this CLI application
+2. As a new user I want to create an account to store my personal information
+3. As a new user I want to be able store and analyze some form of data
 
-### CLI App Owner
+### Returning User
 
-13. I want my application to be visually pleasing
-14. I want my users to access the app securely
-15. I want users to have options
-16. I want visually pleasing product/customer/user etc analysis
-17. I want adaptable data structuring to meet different user needs
-18. I want users to feel safe while using my application
+4. As a returning user I want to be able to log into the application
+5. As a returning user I want to be able to update inventory/customers/products etc.
+6. As a returning user I want to see available options
+
+### Owner
+
+7. As the owner I want my users data to be stored safely
+8. As the owner I want my users passwords uniquely encrypted in the database for extra protection
+9. As the owner I want users to see sample data and understand how to use the program
 
 [Back to Top](#table-of-contents)
 ## Design
@@ -175,7 +170,8 @@ Object Orientated programming was used throughout the project. The CLI applicati
 ## Testing
 ### Testing User Stories
 
-1. I want to understand how to use this CLI application
+
+1. As a new user I want to understand how to use this CLI application
 
 | Feature | Action | Expected Result | Actual Result |
 | --- | --- | --- | --- |
@@ -186,7 +182,7 @@ Object Orientated programming was used throughout the project. The CLI applicati
 </details>
 <br>
 
-2. I want the ability to log in and out of the application
+2. As a new user I want to create an account to store my personal information
 
 | Feature | Action | Expected Result | Actual Result |
 | --- | --- | --- | --- |
@@ -197,7 +193,7 @@ Object Orientated programming was used throughout the project. The CLI applicati
 </details>
 <br>
 
-3. I want the ability to reset my password if I forget it
+3. As a new user I want to be able store and analyze some form of data
 
 | Feature | Action | Expected Result | Actual Result |
 | --- | --- | --- | --- |
@@ -208,7 +204,7 @@ Object Orientated programming was used throughout the project. The CLI applicati
 </details>
 <br>
 
-4. I want the ability to update my password
+4. As a returning user I want to be able to log into the application
 
 | Feature | Action | Expected Result | Actual Result |
 | --- | --- | --- | --- |
@@ -219,7 +215,7 @@ Object Orientated programming was used throughout the project. The CLI applicati
 </details>
 <br>
 
-5. I want to set up an organization model
+5. As a returning user I want to be able to update inventory/customers/products etc.
 
 | Feature | Action | Expected Result | Actual Result |
 | --- | --- | --- | --- |
@@ -230,7 +226,7 @@ Object Orientated programming was used throughout the project. The CLI applicati
 </details>
 <br>
 
-6. I want the application to look professional for my organization
+6. As a returning user I want to see available options
 
 | Feature | Action | Expected Result | Actual Result |
 | --- | --- | --- | --- |
@@ -241,7 +237,7 @@ Object Orientated programming was used throughout the project. The CLI applicati
 </details>
 <br>
 
-7. I want to set up mailing lists
+7. As the owner I want my users data to be stored safely
 
 | Feature | Action | Expected Result | Actual Result |
 | --- | --- | --- | --- |
@@ -252,7 +248,7 @@ Object Orientated programming was used throughout the project. The CLI applicati
 </details>
 <br>
 
-8. I want to be able to store email addresses securely
+8. As the owner I want my users passwords uniquely encrypted in the database for extra protection
 
 | Feature | Action | Expected Result | Actual Result |
 | --- | --- | --- | --- |
@@ -263,7 +259,7 @@ Object Orientated programming was used throughout the project. The CLI applicati
 </details>
 <br>
 
-9. I want to use a secure application
+9. As the owner I want users to see sample data and understand how to use the program
 
 | Feature | Action | Expected Result | Actual Result |
 | --- | --- | --- | --- |
@@ -273,108 +269,9 @@ Object Orientated programming was used throughout the project. The CLI applicati
 <summary>See screenshot</summary>
 </details>
 <br>
-
-10. I want to update/set up product analyzing
-
-| Feature | Action | Expected Result | Actual Result |
-| --- | --- | --- | --- |
-| 1 | 2 | 3 | 4 |
-
-<details>
-<summary>See screenshot</summary>
-</details>
-<br>
-
-11. I want to keep track of my inventory
-
-| Feature | Action | Expected Result | Actual Result |
-| --- | --- | --- | --- |
-| 1 | 2 | 3 | 4 |
-
-<details>
-<summary>See screenshot</summary>
-</details>
-<br>
-
-12. I want to know my data is secure from theft and that I can trust this application
-
-| Feature | Action | Expected Result | Actual Result |
-| --- | --- | --- | --- |
-| 1 | 2 | 3 | 4 |
-
-<details>
-<summary>See screenshot</summary>
-</details>
-<br>
-
-13. I want my application to be visually pleasing
-
-| Feature | Action | Expected Result | Actual Result |
-| --- | --- | --- | --- |
-| 1 | 2 | 3 | 4 |
-
-<details>
-<summary>See screenshot</summary>
-</details>
-<br>
-
-14. I want my users to access the app securely
-
-| Feature | Action | Expected Result | Actual Result |
-| --- | --- | --- | --- |
-| 1 | 2 | 3 | 4 |
-
-<details>
-<summary>See screenshot</summary>
-</details>
-<br>
-
-15. I want users to have options
-
-| Feature | Action | Expected Result | Actual Result |
-| --- | --- | --- | --- |
-| 1 | 2 | 3 | 4 |
-
-<details>
-<summary>See screenshot</summary>
-</details>
-<br>
-
-16. I want visually pleasing product/customer/user etc analysis
-
-| Feature | Action | Expected Result | Actual Result |
-| --- | --- | --- | --- |
-| 1 | 2 | 3 | 4 |
-
-<details>
-<summary>See screenshot</summary>
-</details>
-<br>
-
-17. I want adaptable data structuring to meet different user needs
-
-| Feature | Action | Expected Result | Actual Result |
-| --- | --- | --- | --- |
-| 1 | 2 | 3 | 4 |
-
-<details>
-<summary>See screenshot</summary>
-</details>
-<br>
-
-18. I want users to feel safe while using my application
-
-| Feature | Action | Expected Result | Actual Result |
-| --- | --- | --- | --- |
-| 1 | 2 | 3 | 4 |
-
-<details>
-<summary>See screenshot</summary>
-</details>
-<br>
-
 
 [Back to Top](#table-of-contents)
+
 ## Validation
 ### HTML Validation
 ### CSS Validation
