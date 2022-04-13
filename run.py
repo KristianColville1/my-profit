@@ -152,7 +152,7 @@ def main():
     clear_console()
     LOADING.star_loading('Opening login portal now')
     # gets or sets up a user profile
-    login_portal = PasswordManager('')
+    login_portal = open_login_portal()
     clear_console()
     if login_portal.logged_in is True:
         print('Successfully got new route')
