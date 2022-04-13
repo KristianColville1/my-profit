@@ -215,27 +215,25 @@ class PasswordManager():
         return result
 
     def _check_user_password_matches(self, post, user_pass_input):
-        key = post['password']
-        hashed_list = key.split(':')
+        pass_dict = post['password']
+        hashed_list = pass_dict.split(':')
 
         # using string method replace to remove the chars for encoding properly
-        salt = hashed_list[0]
-        salt = salt.replace("b'", "")
-        salt = salt.replace("'", "")
-        salt = bytes(salt, 'utf-8')
         hashes = hashed_list[1]
         hashes = hashes.replace("b'", "")
         hashes = hashes.replace("'", "")
-        hashes = bytes(hashes, 'utf-8')
-
+        hashed = bytes(hashes, 'utf-8')
+        
         user_pass_input = b'{user_pass_input}'
-        to_check = bcrypt.hashpw(user_pass_input, salt)
-        result = bcrypt.checkpw(user_pass_input, to_check)
-        if result is False:
-            return None
-        if result is True:
+
+        if bcrypt.checkpw(user_pass_input, hashed):
+
             print("You are now logged in")
-            time.sleep(50)
+            time.sleep(6)
             return True
+        else:
+            print('Wrong credentials')
+            time.sleep(6)
+
         return None
     # TODO: get all code and structure it properly
