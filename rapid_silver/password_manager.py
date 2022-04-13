@@ -33,7 +33,6 @@ class PasswordManager():
         "password": "",
     }
 
-    _mongopass = os.environ.get('MONGOPASSWORD')
     _mongo_link = os.environ.get('MONGOLINK')
     _cluster = MongoClient(_mongo_link)
     _database = _cluster['RapidSilver']
@@ -198,15 +197,19 @@ class PasswordManager():
         A new hash and salt are generated for each user. Increasing
         the security of the data.
         """
-        self.user_mongo_dict['_id'] = self.username
-        self._password = bytes(
-            self._password, 'utf-8')  # convert password to bytes
-        salt = bcrypt.gensalt()
-        hashed = bcrypt.hashpw(self._password, salt)
-        self.user_mongo_dict['password'] = f'{salt}:{hashed}'
-        post = self.user_mongo_dict
-        self._collection.insert_one(post)
-        loader.hash_loading('Storing user credentials')
+        try:
+            self.user_mongo_dict['_id'] = self.username
+            self._password = bytes(
+                self._password, 'utf-8')  # convert password to bytes
+            salt = bcrypt.gensalt()
+            hashed = bcrypt.hashpw(self._password, salt)
+            self.user_mongo_dict['password'] = f'{salt}:{hashed}'
+            post = self.user_mongo_dict
+            self._collection.insert_one(post)
+            loader.hash_loading('Storing user credentials')
+        except TimeoutError:
+            print('Issues contacting database.. please wait')
+            self._save_user_credentials()
 
     def _log_in_user(self):
         """
