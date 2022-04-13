@@ -110,6 +110,9 @@ class PasswordManager():
             rand_key = self.character_keys[random.randrange(2)]
             arr = self.character_dict[rand_key]
             username += arr[random.randrange(len(arr))]
+
+        loader.money_loading('Generating username now..')
+        print(f'USERNAME: {username}')
         return username
 
     def _set_user_password(self):

@@ -16,17 +16,18 @@ class User():
     Base class for users of Rapid Silver.
     """
 
+    # instance variables initially set to None
+    first_name = None
+    last_name = None
+    email = None
+    company_name = None
+
     def __init__(self, account_type):
         if account_type == 'new':
-            self.first_name = self.set_first_name()
-            self.last_name = self.set_last_name()
-            self.email = self.set_email()
-            self.company_name = self.set_company_name()
-            self.check_if_all_correct()
-            PasswordManager(account_type)  # activates the password manager
+            self.validation = PasswordManager(account_type)  # activates the password manager
         elif account_type == 'old':
             # only gets data if needed from user from password manager
-            PasswordManager(account_type)  # activates the password manager
+            self.validation = PasswordManager(account_type)  # activates the password manager
 
     def set_first_name(self):
         """Gets and validates the users first name"""
