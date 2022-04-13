@@ -34,7 +34,7 @@ class PasswordManager():
     }
 
     _mongo_link = os.environ.get('MONGOLINK')
-    _cluster = MongoClient(_mongo_link)
+    _cluster = MongoClient(f"{_mongo_link}")
     _database = _cluster['RapidSilver']
     _collection = _database['users']
     logged_in = False

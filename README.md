@@ -317,7 +317,7 @@ Object Orientated programming was used throughout the project. The CLI applicati
 | --- | --- |
 | Environment variable for MongoDB password not being accessed, keep getting a NameError | Found the issue online and realized that the config variable was wrong, I removed the quotes and got access to the password for MongoDB |
 | User not able to log into rapid silver | Discovered the issue was with the encoding for the password |
-| 1 | 2 |
+| Set mongo link as config var but not letting me create new accounts | 2 |
 | 1 | 2 |
 | 1 | 2 |
 
