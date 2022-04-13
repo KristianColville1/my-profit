@@ -118,8 +118,37 @@ The goals of this project include:
 [Back to Top](#table-of-contents)
 ## Design
 ### Color Scheme
+
+Although not a requirement for the CLI application some colors were chosen for the website containing the terminal. I chose to use Coolers to make a palette for the website. 
+
+![Coolers colors](assets/images/rapid-silver.png)
 ### Fonts
+
+As I mentioned above, the site itself was not a requirement for this project but fonts were chosen for the site containing the terminal.
+
+I chose 'Anton', sans-serif as my website font. I got it from Google Fonts.
+
 ### Structure
+
+The structure of the terminal application was designed to be easily navigated and in order of importance. The terminal consists of 80 columns and 24 rows. Each menu of navigation appears when needed.
+
+- The application contains the following menus:
+    - Welcome Menu with a prompt for the user to press enter so that the next menu can be printed to the terminal
+    - Leading on from the welcome menu is another menu reminding the user of available options to them and prompting for the user to click enter again
+    - After the user clicks enter on the reminder of options, the log in portal menu is shown and the user can either create a new account or log in as a returning user. This provides the user with flexibility to store and access their data.
+    - Entering from the account creation route the next screens involve username and password validation and checking for conflicts in the database
+    - From the login side for returning users the user is welcomed back.
+    - Coming back to the main route in the main route menu which can be navigated seamlessly to and from the various options within
+
+- From the main menu for the different selections the user has options for:
+    - Setting up products
+    - Setting up mailing lists
+    - Setting up employee lists
+    - Storing inventory/ updating inventory
+    - Analyzing inventory data
+    - Information on data protection
+    - How data is stored and protected
+
 ### Wireframes
 
 [Back to Top](#table-of-contents)
