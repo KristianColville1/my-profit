@@ -225,7 +225,8 @@ class PasswordManager():
         hashed = bytes(hashes, 'utf-8')
         
         user_pass_input = b'{user_pass_input}'
-
+        print(user_pass_input)
+        print(hashed)
         if bcrypt.checkpw(user_pass_input, hashed):
 
             print("You are now logged in")
