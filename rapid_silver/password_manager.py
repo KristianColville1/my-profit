@@ -178,7 +178,7 @@ class PasswordManager():
         A new hash and salt are generated for each user. Increasing
         the security of the data.
         """
-        self.user_mongo_dict['_id'] = self._username
+        self.user_mongo_dict['_id'] = self.username
         self._password = bytes(self._password, 'utf-8')  # convert password to bytes
         salt = bcrypt.gensalt()
         hashed = bcrypt.hashpw(self._password, salt)
