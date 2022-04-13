@@ -1,11 +1,9 @@
 Rapid Silver is business utility tool that allows you to be more productive.
-Users who are self-employed or have small to medium sized businesses
-will benefit from this the most.
 
-        You can log in and create user accounts
-
-        Set up a model for your organization.
-
-        Create mailing lists.
-
-        You can analyze your product data and forecast profits.
+    > Setting up products
+    > Setting up  a mailing list
+    > Setting up employee lists
+    > Storing inventory/ updating inventory
+    > Analyzing inventory data
+    > Information on data protection
+    > How data is stored and protected
