@@ -55,8 +55,8 @@ Developer: Kristian Colville
 
 The goals of this project include:
 
-- Designing a back-end application for users with small to medium sized businesses
-- It should provide users with the ability to store and access user accounts
+- Designing a back-end application for users with in need of a software utility tool for business
+- It should provide users with the ability to store and access data
 - This is a CLI project so the application should work in a terminal
 - Use the [python programming language](https://www.python.org/) to build the application
 
@@ -68,9 +68,9 @@ The goals of this project include:
 
 ### Site Owners Goals
 
-- Build a CLI business utility tool for people who are self-employed/freelancers or have small to medium sized businesses
+- Build a software utility tool for small business users
 - Provide the ability for users to log in and create user accounts
-- Design it so a user can set up a mailing list to send emails using the [simple mail transfer protocol](https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol)
+- Design it so a user can set up a data in ways that are unique to them
 - Build it using a [back-end language](https://en.wikipedia.org/wiki/Frontend_and_backend)
 
 [Back to Top](#table-of-contents)
@@ -78,10 +78,10 @@ The goals of this project include:
 ## User Experience
 ### Target Audience
 
-- Any user who needs to use a business utility tool
-- Users who are self-employed or freelancing and need to send large volumes of emails
-- Small to medium sized businesses that need to use payroll software
-- Self starters who would like to set up a business model and structure for a new venture
+- Any user who needs to use a software utility tool to analyze some form data
+- Users who are self-employed or freelancing or run small businesses
+- Users who may need to manage and update inventories of some form like employees/customers/products
+- People starting new ventures in need to managing their new companies
 
 ### User Requirements and Expectations
 
