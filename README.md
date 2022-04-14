@@ -318,6 +318,8 @@ Object Orientated programming was used throughout the project. The CLI applicati
 | Environment variable for MongoDB password not being accessed, keep getting a NameError | Found the issue online and realized that the config variable was wrong, I removed the quotes and got access to the password for MongoDB |
 | User not able to log into rapid silver | Discovered the issue was with the encoding for the password |
 | Set mongo link as config var but not letting me create new accounts | Found the issue, unfortunately a typo was inserted into the environment variables name on Heroku, link was fixed |
+| Type error being caught on account creation when user enters valid input, stuck on loop in menu | 2 |
+| 1 | 2 |
 | 1 | 2 |
 | 1 | 2 |
 
