@@ -33,13 +33,15 @@ class PasswordManager():
         "password": "",
     }
 
+
     mongo_link = os.environ.get('MONGOLINK')
     _cluster = MongoClient(f"{mongo_link}")
     _database = _cluster['RapidSilver']
     _collection = _database['users']
-    logged_in = False
 
     def __init__(self, account_type):
+        self.username = None
+        self._password = None
         # decides which route to take for the account type
         if account_type == 'new':
             self.username = self._set_username()
@@ -121,6 +123,7 @@ class PasswordManager():
             time.sleep(3)
             self._set_username()
 
+        user = self.username
         return self.username
 
     def _generate_username(self):
@@ -304,7 +307,6 @@ class PasswordManager():
         if bcrypt.checkpw(user_pass_input, hashed):
 
             print("\n\nYou are now logged in")
-            self.logged_in = True
             time.sleep(1)
             return True
         else:

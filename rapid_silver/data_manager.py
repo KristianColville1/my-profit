@@ -20,15 +20,15 @@ class DataManager():
     with the PasswordManagers credentials for the logged in user.
     """
 
-    monogo_link = os.environ.get('MONGOLINK')
-    _cluster = MongoClient(f"{monogo_link}")
+    mongo_link = os.environ.get('MONGOLINK')
+    _cluster = MongoClient(f"{mongo_link}")
     _database = _cluster['RapidSilver']
     _user_details_collection = _database['users-details']
 
     def __init__(self, user_id):
         self.username = user_id
-
-        if self.check_user_details() is None:
+        self.results = self.check_user_details()
+        if self.results is None:
             self.user = User()
             self.add_details_to_database(self.username, self.user.user_details)
         else:
