@@ -164,18 +164,6 @@ def get_options():
     except IOError:
         print(COLOR.yellow_fore('\t\t\tOptions\n\n\n\n'))
 
-    try:
-        file = open('assets/text/rapid_details.txt', encoding='utf8')
-        messages = file.read()
-        file.close()
-        print(
-            COLOR.green_fore(messages)
-        )
-    except IOError:
-        print('Reading options failed.. Trying again.')
-        time.sleep(1.5)
-        get_options()
-
 
 def open_selection_menu(validated_user):
     """
@@ -193,7 +181,12 @@ def open_selection_menu(validated_user):
     )
     print(
         COLOR.yellow_fore(
-            '\t\tHit [ a ] + Enter for > Setting up products'
+            '\t\t\n\nHit [ q ] + Enter for > Set up user profile'
+        )
+    )
+    print(
+        COLOR.yellow_fore(
+            '\t\t\n\nHit [ a ] + Enter for > Setting up products'
         )
     )
     print(
@@ -218,14 +211,53 @@ def open_selection_menu(validated_user):
     )
     print(
         COLOR.yellow_fore(
-            '\t\tHit [ f ] + Enter for > Information on data protection'
+            '\t\tHit [ h ] + Enter for > Information on data protection'
         )
     )
     print(
         COLOR.yellow_fore(
-            '\t\tHit [ g ] + Enter for > How data is stored and protected'
+            '\t\tHit [ i ] + Enter for > How data is stored and protected'
         )
     )
+    try:
+        result = input(
+            COLOR.green_fore('\nEnter here: ')
+        )
+        if result not in ('q', 'a', 's', 'd', 'f', 'g', 'h', 'i'):
+            raise ValueError(
+                'INVALID INPUT. Try again.'
+            )
+        if result is TypeError:
+            raise TypeError(
+                'INVALID INPUT. Try again.'
+            )
+    except ValueError as error:
+        print(
+            COLOR.red_back(f'{error}')
+        )
+        open_selection_menu(validated_user)  # recursion until valid
+    except TypeError as error:
+        print(
+            COLOR.red_back(f'{error}')
+        )
+        open_selection_menu(validated_user)  # recursion until valid
+    
+    if result == 'q':
+        set_up_profile(validated_user)
+    elif result == 'a':
+        set_up_products_for(validated_user)
+    elif result == 's':
+        set_up_mail_for(validated_user)
+    if result == 'd':
+        set_up_employee_for(validated_user)
+    elif result == 'f':
+        store_update_stock_for(validated_user)
+    elif result == 'g':
+        check_inventory_for(validated_user)
+    elif result == 'h':
+        open_data_protection_for(validated_user)
+    elif result == 'i':
+        explain_data_storage_to(validated_user)
 
 
 def main():
