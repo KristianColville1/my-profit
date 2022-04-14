@@ -44,6 +44,7 @@ class PasswordManager():
             self.username = self._set_username()
             self._password = self._set_user_password()
             self._save_user_credentials()
+            self._log_in_user()
         elif account_type == 'old':
             self._log_in_user()
 
@@ -94,7 +95,13 @@ class PasswordManager():
                     if validation is False:
                         raise ValueError(
                             'You must include at least one number')
-                    # TODO: check database for conflicts in username here also
+                    name_checker = self.check_database_usernames(username_input)
+                    if name_checker is not None:
+                        print(color.red_fore(
+                            '\n\nUsername is already taken'))
+                        print('\n\nPlease try again!')
+                        time.sleep(2.5)
+                        self._set_username()  # if name taken use recursion
 
                     self.username = username_input
                 except ValueError as error:
@@ -148,6 +155,11 @@ class PasswordManager():
         return username
 
     def _set_user_password(self):
+        """
+        When called it sets the users password and validates the selected
+        password for the given criteria. If the password is not valid it
+        uses recursion in order to get a valid input.
+        """
         clear_console()
 
         print('\n\n\n\nNow lets set a password for you.')
@@ -215,6 +227,17 @@ class PasswordManager():
         Logs the user into Rapid Silver.
         """
         try:
+            file = open('assets/text/logging_in.txt', encoding='utf8')
+            message = file.read()
+            file.close()
+            print(
+                color.cyan_fore(message)
+            )
+        except IOError:
+            print(
+                color.red_fore('Welcome user')
+            )
+        try:
             clear_console()
             self._username = input(color.blue_fore(
                 'Enter your username here: '
@@ -252,6 +275,10 @@ class PasswordManager():
         return result
 
     def _check_user_password_matches(self, post, user_pass_input):
+        """
+        Checks to see if password hash matches stored hashed password
+        in MonogoDB. Returns true if a match and none otherwise.
+        """
         pass_dict = post['password']
         hashed_list = pass_dict.split(':')
 
@@ -275,4 +302,10 @@ class PasswordManager():
             self.__init__('old')  # use recursion to check log in details
 
         return None
-    # TODO: get all code and structure it properly
+    
+    def check_database_usernames(self, username):
+        """
+        Checks to see if name is available to the user.
+        """
+        result = self._collection.find_one({"_id":username})
+        return result
