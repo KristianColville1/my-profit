@@ -38,6 +38,7 @@ class PasswordManager():
     _collection = _database['users']
     logged_in = False
 
+
     def __init__(self, account_type):
         # decides which route to take for the account type
         if account_type == 'new':
@@ -47,6 +48,7 @@ class PasswordManager():
             self._log_in_user()
         elif account_type == 'old':
             self._log_in_user()
+
 
     def _set_username(self):
         """
@@ -121,6 +123,7 @@ class PasswordManager():
 
         return self.username
 
+
     def _generate_username(self):
         """
         Generates a username for the user, a combination of letters
@@ -150,6 +153,7 @@ class PasswordManager():
             time.sleep(2)
             self._generate_username()
         return username
+
 
     def _set_user_password(self):
         """
@@ -193,10 +197,11 @@ class PasswordManager():
             time.sleep(2.5)
             self._set_user_password()  # used recursion until valid password
 
-        if len(password) < 10:
+        if len(password_one) < 10:
             print('Password too short, please try again')
 
-        return password
+        return password_one
+
 
     def _save_user_credentials(self):
         """
@@ -218,6 +223,7 @@ class PasswordManager():
         except TimeoutError:
             print('Issues contacting database.. please wait')
             self._save_user_credentials()
+
 
     def _log_in_user(self):
         """
@@ -263,6 +269,7 @@ class PasswordManager():
         print(color.purple_fore(
             'You are now logged in'))
 
+
     def _check_characters_valid_in(self, to_check, input_type):
         result = True
         if to_check == 'username':
@@ -270,6 +277,7 @@ class PasswordManager():
                 if char in self.special_chars:
                     return False
         return result
+
 
     def _check_user_password_matches(self, post, user_pass_input):
         """
@@ -299,7 +307,8 @@ class PasswordManager():
             self.__init__('old')  # use recursion to check log in details
 
         return None
-    
+
+
     def check_database_usernames(self, username):
         """
         Checks to see if name is available to the user.
