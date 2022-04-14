@@ -67,8 +67,9 @@ class TextArt(ColorPrint):
         Prints blank space to background but with color background for
         the length and color specified.
         """
-        space = ''
+        space = color + ' '
         for _ in range(length):
-            space += color('#')
+            space += color + ' '
             print(f'{space}\r', end='')
             time.sleep(0.02)
+        print(self.reset_bg)

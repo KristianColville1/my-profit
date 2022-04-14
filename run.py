@@ -182,12 +182,12 @@ def open_selection_menu(validated_user):
     )
     print(
         COLOR.yellow_fore(
-            '\t\t\n\nHit [ q ] + Enter for > Set up user profile'
+            '\n\n\t\tHit [ q ] + Enter for > Set up user profile'
         )
     )
     print(
         COLOR.yellow_fore(
-            '\t\t\n\nHit [ a ] + Enter for > Setting up products'
+            '\t\tHit [ a ] + Enter for > Setting up products'
         )
     )
     print(
@@ -259,8 +259,8 @@ def set_up_profile(validated_user):
     Sets up a logged in users profile and returns to the selection menu.
     """
     clear_console()
-    print('Lets check to see if you have a profile first.')
-    LOADING.color_background(50, COLOR.cyan_bg)
+    print('\n\n\n\n\nLets check to see if you have a profile first.')
+    LOADING.color_background(50, COLOR.purple_back)
     open_selection_menu(validated_user)
 
 def set_up_products_for(validated_user):
