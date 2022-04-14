@@ -31,6 +31,9 @@ class DataManager():
         if self.check_details_database(self.username) is None:
             self.user = User()
             self.add_details_to_database(self.username, self.user.user_details)
+        else:
+            print('Mongo is annoying me')
+            time.sleep(6)
 
     def check_details_database(self, username):
         """
