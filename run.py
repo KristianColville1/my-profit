@@ -75,18 +75,17 @@ def open_login_portal():
         if result == 'b':
             pull_up_data_protection()
             open_login_portal()  # uses recursion until valid login input
+        return login
     except ValueError:
         open_login_portal()  # uses recursion until valid login input
     except TypeError:
         open_login_portal()  # uses recursion until valid login input
-    return login
 
 
 def login_user():
     """
     When called it pulls up the log in screen for the user.
     """
-    # TODO: create log in code for user and return user
     print('\n\n')
     LOADING.money_loading('\t\tOpening login now')
     clear_console()
@@ -323,6 +322,10 @@ def main():
 
     # once user has either created an account or returned
     # they will have to log in
+    # brings the user to all the available options and its the last call
+    # in the main function.
+    # user can navigate back to the selection menu from all of the available
+    # options
     open_selection_menu(validated_user)
 
 
