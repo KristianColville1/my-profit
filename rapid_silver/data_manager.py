@@ -21,7 +21,7 @@ class DataManager():
     """
 
     mongo_link = os.environ.get('MONGOLINK')
-    _cluster = MongoClient(mongo_link)
+    _cluster = MongoClient(f'{mongo_link}')
     _database = _cluster['RapidSilver']
     _user_details_collection = _database['users_details']
 
