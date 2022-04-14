@@ -346,7 +346,7 @@ Object Orientated programming was used throughout the project. The CLI applicati
 | Found an interesting bug when logging in after creating an account, it acknowledges the user is logged in but doesn't progress. I checked three times with the same data input and on the third try it works as intended | Checked the issue after some time and found that the recursion was one line above it's intended position. Issue resolved with relief |
 | On testing routes and handling user errors I found that if a user enters wrong information that my handling of ValueError in password_manager is being used but not being raised effectively to be caught with the right intention | Issue resolved and error caught properly after indenting the intended code |
 | Getting an AttributeError calling the users name from password manager object, I have not specified it as a private member but it is behaving as such | The username object was out of scope for the intended goal, I created an instance attribute and when password manager finishes main purpose it assigns the users name to it |
-| After installing the Rich module, the terminal is reporting error and not loading terminal | 2 |
+| After installing the Rich module, the terminal is reporting error and not loading terminal | Debugged and couldn't identify the issue so removed the virtual environment and reset it and the list of requirements for Heroku and it solved the issue |
 | 1 | 2 |
 | 1 | 2 |
 
