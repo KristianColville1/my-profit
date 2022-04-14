@@ -270,7 +270,7 @@ def set_up_profile(validated_user):
     clear_console()
     print('\n\n\n\n\nLets check to see if you have a profile first.')
     LOADING.hash_loading('Checking for user profile')
-    DataManager(validated_user.get_username())  # opens the data manager
+    DataManager(validated_user.get_user_name())  # opens the data manager
     open_selection_menu(validated_user)
 
 
