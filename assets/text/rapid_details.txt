@@ -1,7 +1,7 @@
 Rapid Silver is business utility tool that allows you to be more productive.
 
+    > Set up user profile
     > Setting up products
-    > Setting up  a mailing list
     > Setting up employee lists
     > Storing inventory/ updating inventory
     > Analyzing inventory data
