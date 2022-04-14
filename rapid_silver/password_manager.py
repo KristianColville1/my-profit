@@ -179,7 +179,7 @@ class PasswordManager():
         password_two = getpass('Enter your password again to confirm: ')
 
         if password_one == password_two:
-            password = password_one
+            pass
         else:
             print(color.red_fore('PASSWORDS NOT MATCHING, try again.'))
             time.sleep(2)
@@ -229,6 +229,7 @@ class PasswordManager():
         """
         Logs the user into Rapid Silver.
         """
+        clear_console()
         try:
             file = open('assets/text/logging_in.txt', encoding='utf8')
             message = file.read()
@@ -240,8 +241,9 @@ class PasswordManager():
             print(
                 color.red_fore('Welcome user')
             )
+
         try:
-            clear_console()
+
             self._username = input(color.blue_fore(
                 'Enter your username here: '
                 ))
