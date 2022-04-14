@@ -243,11 +243,10 @@ class PasswordManager():
             )
 
         try:
-
-            self._username = input(color.blue_fore(
+            self.username = input(color.blue_fore(
                 'Enter your username here: '
                 ))
-            post = self._collection.find_one({"_id": f"{self._username}"})
+            post = self._collection.find_one({"_id": f"{self.username}"})
 
             print(color.cyan_fore(
                 '\n\t**Your password input is hidden**'
@@ -263,6 +262,7 @@ class PasswordManager():
                 raise ValueError(
                     'Sorry username or passord incorrect'
                 )
+
         except ValueError as error:
             # Message is the same if username or password is incorrect
             print(f'INVALID: {error}..')
