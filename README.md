@@ -320,7 +320,7 @@ Object Orientated programming was used throughout the project. The CLI applicati
 | Set mongo link as config var but not letting me create new accounts | Found the issue, unfortunately a typo was inserted into the environment variables name on Heroku, link was fixed |
 | Type error being caught on account creation when user enters valid input, stuck on loop in menu | Converted the users input to a string and this resolved the issue |
 | Bug found when user enters password incorrectly and then tries again, its not flowing properly after recursion | Found missing variable declarations and reassigned variables to password_one for checking and validation |
-| Found an interesting bug when logging in after creating an account, it acknowledges the user is logged in but doesn't progress. I checked three times with the same data input and on the third try it works as intended. | **Investigating** |
+| Found an interesting bug when logging in after creating an account, it acknowledges the user is logged in but doesn't progress. I checked three times with the same data input and on the third try it works as intended. | Checked the issue after some time and found that the recursion was one line above it's intended position. Issue resolved with relief. |
 | 1 | 2 |
 
 [Back to Top](#table-of-contents)
