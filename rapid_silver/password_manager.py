@@ -212,6 +212,8 @@ class PasswordManager():
         """
         try:
             self.user_mongo_dict['_id'] = self.username
+            print(self.username)
+            time.sleep(10)
             self._password = bytes(
                 self._password, 'utf-8')  # convert password to bytes
             salt = bcrypt.gensalt()
