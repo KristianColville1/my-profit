@@ -19,7 +19,7 @@ class Company():
         self.name = name
         self.years_active = years_active
         self.num_employees = num_employees
-    
-    
+
+
     def return_structures(self):
         """"""

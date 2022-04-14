@@ -61,12 +61,9 @@ class PasswordManager():
                 'Hit [ e ] + Enter to create a username'))
             print(color.purple_fore(
                 'Hit [ d ] + Enter to auto assign a username to yourself'))
-            result = input(color.green_fore('\nEnter here: '))
+            result = str(input(color.green_fore('\nEnter here: ')))
 
             print(color.cyan_fore('/nChecking username now'))
-            loader.color_background(40, color.blue_back)
-            print(color.reset_bg)
-
             if result in ('D', 'd'):
                 self.username = self._generate_username()
 
