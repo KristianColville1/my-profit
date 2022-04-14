@@ -76,6 +76,8 @@ def open_login_portal():
             open_login_portal()  # uses recursion until valid login input
     except ValueError:
         open_login_portal()  # uses recursion until valid login input
+    except TypeError:
+        open_login_portal()  # uses recursion until valid login input
     return login
 
 
@@ -88,7 +90,7 @@ def login_user():
     LOADING.money_loading('\t\tOpening login now')
     clear_console()
     to_login = PasswordManager('old')  # runs route for new user
-    return to_login 
+    return to_login
 
 
 def create_account():
@@ -100,6 +102,7 @@ def create_account():
     clear_console()
     to_login = PasswordManager('new')  # runs route for new user
     return to_login
+
 
 def pull_up_data_protection():
     """
@@ -120,7 +123,8 @@ def pull_up_data_protection():
         print('We are GDPR compliant')
 
     input(COLOR.red_fore('\t\tHit enter to go back to log in portal'))
-    
+
+
 def load_details():
     """
     At the beginning of the program this describes the purpose of the CLI
@@ -159,7 +163,70 @@ def get_options():
         print('\n\n' + COLOR.yellow_fore(option_screen) + '\n\n')
     except IOError:
         print(COLOR.yellow_fore('\t\t\tOptions\n\n\n\n'))
-    # TODO: add options here for user
+
+    try:
+        file = open('assets/text/rapid_details.txt', encoding='utf8')
+        messages = file.read()
+        file.close()
+        print(
+            COLOR.green_fore(messages)
+        )
+    except IOError:
+        print('Reading options failed.. Trying again.')
+        time.sleep(1.5)
+        get_options()
+
+
+def open_selection_menu(validated_user):
+    """
+    Once a user is logged in and validated the main route menu
+    is shown and available options are displayed to the user.
+    """
+    clear_console()
+    user = validated_user
+
+    get_options()
+    print(
+        COLOR.red_fore(
+            '\t\tRapid Silver is business utility tool for the following:'
+        )
+    )
+    print(
+        COLOR.yellow_fore(
+            '\t\tHit [ a ] + Enter for > Setting up products'
+        )
+    )
+    print(
+        COLOR.yellow_fore(
+            '\t\tHit [ s ] + Enter for > Setting up  a mailing list'
+        )
+    )
+    print(
+        COLOR.yellow_fore(
+            '\t\tHit [ d ] + Enter for > Setting up employee lists'
+        )
+    )
+    print(
+        COLOR.yellow_fore(
+            '\t\tHit [ f ] + Enter for > Storing inventory/ updating inventory'
+        )
+    )
+    print(
+        COLOR.yellow_fore(
+            '\t\tHit [ g ] + Enter for > Analyzing inventory data'
+        )
+    )
+    print(
+        COLOR.yellow_fore(
+            '\t\tHit [ f ] + Enter for > Information on data protection'
+        )
+    )
+    print(
+        COLOR.yellow_fore(
+            '\t\tHit [ g ] + Enter for > How data is stored and protected'
+        )
+    )
+
 
 def main():
     """
@@ -175,15 +242,16 @@ def main():
     print(COLOR.red_fore(welcome_msg()))
     input(COLOR.cyan_fore('\n\n\n\t\t\t<Press enter to continue to log in>'))
 
+    load_details()
     clear_console()
     LOADING.star_loading('Opening login portal now')
     # gets or sets up a user profile
-    login_portal = open_login_portal()
+    validated_user = open_login_portal()
     clear_console()
-    if login_portal.logged_in is True:
-        print('Successfully got new route')
-        print(login_portal.username)
-        time.sleep(5)
+
+    # once user has either created an account or returned
+    # they will have to log in
+    open_selection_menu(validated_user)
 
 
 main()
