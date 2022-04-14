@@ -103,8 +103,7 @@ class PasswordManager():
                         print('\n\nPlease try again!')
                         time.sleep(2.5)
                         self._set_username()  # if name taken use recursion
-                    else:
-                        self.username = username_input
+                    self.username = username_input
                 except ValueError as error:
                     error = color.red_fore(error)
                     print(error)
@@ -123,7 +122,6 @@ class PasswordManager():
             time.sleep(3)
             self._set_username()
 
-        user = self.username
         return self.username
 
     def _generate_username(self):
