@@ -62,9 +62,9 @@ The goals of this project include:
 
 ### User Goals
 
-- To be able store and access accounts for users of various types
+- To be able store and access an account within Rapid Silver
 - Log in or create an account
-- Update, check and monitor products in order to forecast future events
+- Add some form of data and manipulate it for specific needs
 
 ### Site Owners Goals
 
@@ -162,10 +162,36 @@ The structure of the terminal application was designed to be easily navigated an
 
 ### Frameworks, Libraries & Tools
 
-- Coolors to get some colors for the HTML in the website
-- Chrome Developer Tools for checking and debugging the site in the browser
-- Font Awesome for the footer icons 
+- [Coolors](https://coolors.co/) to get palette colors for the website
+- [Balsamiq](https://balsamiq.com/) used for creating wireframes for the terminal application
+- [Chrome Developer Tools](https://developer.chrome.com/docs/devtools/) for checking and debugging the site in the browser
+- [Font Awesome](https://fontawesome.com/) for the footer icons
+- [Grammarly](https://app.grammarly.com/) for grammar and spell checking
+- [Git](https://git-scm.com/) for version control with [VSCode](https://code.visualstudio.com/) to push commits to [GitHub](https://github.com/)
+- [GitHub](https://github.com/) as a remote repository solution for project development
+- [Google Fonts](https://fonts.google.com/) for the button and heading within the website hosting the terminal application
+- [Heroku](https://dashboard.heroku.com) as a deployment solution and hosting the website containing the application
+- [Jigsaw W3 Validator](https://jigsaw.w3.org/css-validator/) for validating CSS code 
+- [JShint](https://jshint.com/) for validating JavaScript code
+- [Lighthouse](https://developers.google.com/web/tools/lighthouse) used inside [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) for testing the website hosting the terminal application
+- [MongoDB](https://www.mongodb.com/) as a database solution for storing the users passwords
+- [PEP8](http://pep8online.com/) for validating python code
+- [Ubuntu](https://ubuntu.com/) as the operating system on the local machine
+- [VSCode](https://code.visualstudio.com/) as a local repository
+- [WC3 Validator](https://validator.w3.org/) for validating HTML code
+
 ### Python Packages Used
+
+- [Colorama](https://pypi.org/project/colorama/) used for adding color to terminal
+- [Bcrypt](https://pypi.org/project/bcrypt/) used to salt and hash passwords for new accounts and checking credentials for returning users
+- [Better Profanity](https://pypi.org/project/better-profanity/) used in the user class to avoid profanity being entered
+- [Getpass](https://docs.python.org/3/library/getpass.html) to hide the users password on the terminal for the user
+- [OS](https://docs.python.org/3/library/os.html) used for manipulating and storing environment variables
+- [Pymongo](https://pypi.org/project/pymongo/) for accessing the Mongo Database and storing users passwords
+- [Random](https://docs.python.org/3/library/random.html) used for calculating random numbers and selecting random choices in the various classes
+- [Sys] used to for accessing the system and exiting the program within the selection menu for the user
+- [Time](https://docs.python.org/3/library/time.html) used throughout for adding delays between text on terminal and for the loading animations
+
 
 [Back to Top](#table-of-contents)
 ## Logic
@@ -181,16 +207,13 @@ The structure of the terminal application was designed to be easily navigated an
 ## Data Model
 
 ### Class Overview
-Object Orientated programming was used throughout the project. The CLI application consists of 5 classes and 3 subclasses.
+Object Orientated programming was used throughout the project. The CLI application consists of 4 classes and 1 subclasses.
 
 - User
-    - RapidUser
-    - Employee
 - PasswordManager
+- DataManager
 - ColorPrint
-    - TextPrint
-- Company
-- Product
+    - TextArt
 
 ### Database Overview
 
