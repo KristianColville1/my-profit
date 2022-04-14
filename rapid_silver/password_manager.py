@@ -269,7 +269,7 @@ class PasswordManager():
             self._log_in_user()
         except TypeError:
             # Message is the same if username or password is incorrect
-            print(f'INVALID: {error}..')
+            print('INVALID: Sorry username or passord incorrect')
             time.sleep(3)
             self._log_in_user()
 

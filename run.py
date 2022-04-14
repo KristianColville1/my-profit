@@ -10,7 +10,6 @@ import sys
 import time
 from console import clear_console
 from rapid_silver.password_manager import PasswordManager
-from rapid_silver.user import User
 from rapid_silver.text_art import TextArt
 
 
@@ -140,7 +139,7 @@ def load_details():
         file = open('assets/text/rapid_details.txt', encoding='utf8')
         details = file.read()
         print(COLOR.yellow_fore(details))
-        input('\n\n\nHit enter to continue')
+        input('\n\n\n\t\t\t\tHit enter to continue')
     except IOError:
         print(COLOR.red_fore("""
         \n\nOops.. fetching details failed, trying again."""))
