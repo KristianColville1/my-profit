@@ -74,6 +74,7 @@ def open_login_portal():
             return login
         if result == 'b':
             pull_up_data_protection()
+            input(COLOR.red_fore('\t\tHit enter to go back to log in portal'))
             open_login_portal()  # uses recursion until valid login input
         return login
     except ValueError:
@@ -114,15 +115,15 @@ def pull_up_data_protection():
         file = open('assets/text/data_protection.txt', encoding='utf8')
         data_protection = file.read()
         file.close()
-        print(COLOR.purple_back(
-            COLOR.yellow_fore(data_protection)
-        ))
+        print(
+            COLOR.cyan_fore(data_protection)
+        )
         print(COLOR.reset_bg)
     except IOError:
         print("ERROR: reading dataprotection failed..")
         print('We are GDPR compliant')
 
-    input(COLOR.red_fore('\t\tHit enter to go back to log in portal'))
+
 
 
 def load_details():
@@ -238,19 +239,23 @@ def open_selection_menu(validated_user):
         open_selection_menu(validated_user)  # recursion until valid
 
     if result == 'q':
-        set_up_profile(validated_user)
+        set_up_profile(user)
     elif result == 'a':
-        set_up_products_for(validated_user)
+        set_up_products_for(user)
     if result == 'd':
-        set_up_employee_for(validated_user)
+        set_up_employee_for(user)
     elif result == 'f':
-        store_update_stock_for(validated_user)
+        store_update_stock_for(user)
     elif result == 'g':
-        check_inventory_for(validated_user)
+        check_inventory_for(user)
     elif result == 'h':
-        open_data_protection_for(validated_user)
+        pull_up_data_protection()
+        input(COLOR.red_fore('\t\tHit enter to go back to selection menu'))
+        open_selection_menu(validated_user)  # recursive call to back to menu
     elif result == 'i':
         explain_data_storage_to(validated_user)
+        input(COLOR.yellow_fore('\t\tHit enter to go back to selection menu'))
+        open_selection_menu(validated_user)  # recursive call to back to menu
 
 
 def set_up_profile(validated_user):
@@ -286,17 +291,26 @@ def check_inventory_for(validated_user):
     """
     open_selection_menu(validated_user)
 
-def open_data_protection_for(validated_user):
-    """
-    Sets up a logged in users profile and returns to the selection menu.
-    """
-    open_selection_menu(validated_user)
 
 def explain_data_storage_to(validated_user):
     """
     Sets up a logged in users profile and returns to the selection menu.
     """
-    open_selection_menu(validated_user)
+    try:
+        file = open('assets/text/data_storage.txt', encoding='utf8')
+        data_notice = file.read()
+        file.close()
+        print(
+            COLOR.red_fore(
+                data_notice
+            )
+        )
+    except IOError:
+        print('Oops an error has occurred')
+        time.sleep(2)
+        print('Fetching files again.')
+        print('Please wait')
+        open_selection_menu(validated_user)
 
 
 def main():
