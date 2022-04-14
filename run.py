@@ -17,7 +17,6 @@ from rapid_silver.text_art import TextArt
 # class instances
 COLOR = TextArt()
 LOADING = COLOR  # used for loading animations
-USER = User()
 
 # global variables
 INVALID = False
@@ -123,8 +122,6 @@ def pull_up_data_protection():
     except IOError:
         print("ERROR: reading dataprotection failed..")
         print('We are GDPR compliant')
-
-
 
 
 def load_details():
@@ -273,7 +270,10 @@ def set_up_profile(validated_user):
     """
     clear_console()
     print('\n\n\n\n\nLets check to see if you have a profile first.')
-    LOADING.color_background(50, COLOR.purple_back)
+    LOADING.hash_loading('Checking for user profile')
+    user = validated_user
+    print(user.username)
+    time.sleep(10)
     open_selection_menu(validated_user)
 
 
@@ -281,6 +281,9 @@ def set_up_products_for(validated_user):
     """
     Sets up structure for products for the user.
     """
+    clear_console()
+    print('\n\n\n\n\nLets check to see if you have a profile first.')
+    LOADING.hash_loading('Checking database now')
     open_selection_menu(validated_user)
 
 
@@ -288,6 +291,9 @@ def set_up_employee_for(validated_user):
     """
     Sets up a logged in users profile and returns to the selection menu.
     """
+    clear_console()
+    print('\n\n\n\n\nLets check to see if you have a profile first.')
+    LOADING.hash_loading('Checking database now')
     open_selection_menu(validated_user)
 
 
