@@ -1,0 +1,21 @@
+                     ________          __                       
+                     \______ \ _____ _/  |______                
+                      |    |  \\__  \\   __\__  \               
+                      |    `   \/ __ \|  |  / __ \_             
+                     /_______  (____  /__| (____  /             
+                             \/     \/          \/              
+              _________ __                                      
+             /   _____//  |_  ________________     ____   ____  
+             \_____  \\   __\/  _ \_  __ \__  \   / ___\_/ __ \ 
+             /        \|  | (  <_> )  | \// __ \_/ /_/  >  ___/ 
+            /_______  /|__|  \____/|__|  (____  /\___  / \___  >
+                    \/                        \//_____/      \/ 
+                    
+                Your personal information is stored in MongoDb.
+                We use MongoDb Atlas which is cloud storage.
+Data you set up for manipulation is stored separately within google sheets.
+
+                    Having issues with your data storage? 
+
+                    Please contact rapid.silver.educate@gmail.com
+                    or Alternatively ring (020-911-5512)
