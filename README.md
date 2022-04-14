@@ -344,7 +344,9 @@ Object Orientated programming was used throughout the project. The CLI applicati
 | Type error being caught on account creation when user enters valid input, stuck on loop in menu | Converted the users input to a string and this resolved the issue |
 | Bug found when user enters password incorrectly and then tries again, its not flowing properly after recursion | Found missing variable declarations and reassigned variables to password_one for checking and validation |
 | Found an interesting bug when logging in after creating an account, it acknowledges the user is logged in but doesn't progress. I checked three times with the same data input and on the third try it works as intended | Checked the issue after some time and found that the recursion was one line above it's intended position. Issue resolved with relief |
-| On testing routes and handling user errors I found that if a user enters wrong information that my handling of ValueError in password_manager is being used but not being raised effectively to be caught with the right intention | 2 |
+| On testing routes and handling user errors I found that if a user enters wrong information that my handling of ValueError in password_manager is being used but not being raised effectively to be caught with the right intention | Issue resolved and error caught properly after indenting the intended code |
+| Getting an AttributeError calling the users name from passwordmanager object, I have not specified it as a private member but it is behaving as such | 2 |
+| 1 | 2 |
 | 1 | 2 |
 | 1 | 2 |
 
