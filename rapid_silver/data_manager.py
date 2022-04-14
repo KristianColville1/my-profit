@@ -5,8 +5,6 @@ Manages user data for a given user profile.
 import os
 import time
 from pymongo import MongoClient
-from rich.table import Table
-from rich.console import Console
 from console import clear_console
 from rapid_silver.text_art import TextArt
 from rapid_silver.user import User
@@ -67,16 +65,5 @@ class DataManager():
         print('Welcome back ', self.username)
 
         print('Here are the details we have for you')
-        table = Table(title='User Details')
-        table.add_column("Type", style="yellow")
-        table.add_column("Details", style="cyan")
-        dict_details = self._user_details_collection.find_one({"_id": self.username})
 
-        for key, value in dict_details.items():
-            table.add_row(key, value)
-    
-        console = Console()
-        console.print(table)
-        
-        time.sleep(10)
         
