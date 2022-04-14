@@ -32,12 +32,12 @@ class PasswordManager():
         "_id": "",
         "password": "",
     }
+
     mongo_link = os.environ.get('MONGOLINK')
     _cluster = MongoClient(f"{mongo_link}")
     _database = _cluster['RapidSilver']
     _collection = _database['users']
     logged_in = False
-
 
     def __init__(self, account_type):
         # decides which route to take for the account type
@@ -48,7 +48,6 @@ class PasswordManager():
             self._log_in_user()
         elif account_type == 'old':
             self._log_in_user()
-
 
     def _set_username(self):
         """
@@ -94,7 +93,8 @@ class PasswordManager():
                     if validation is False:
                         raise ValueError(
                             'You must include at least one number')
-                    name_checker = self.check_database_usernames(username_input)
+                    name_checker = self.check_database_usernames(
+                        username_input)
                     if name_checker is not None:
                         print(color.red_fore(
                             '\n\nUsername is already taken'))
@@ -122,7 +122,6 @@ class PasswordManager():
             self._set_username()
 
         return self.username
-
 
     def _generate_username(self):
         """
@@ -153,7 +152,6 @@ class PasswordManager():
             time.sleep(2)
             self._generate_username()
         return username
-
 
     def _set_user_password(self):
         """
@@ -202,7 +200,6 @@ class PasswordManager():
 
         return password_one
 
-
     def _save_user_credentials(self):
         """
         Saves a new users hashed password to a Mongo Database so
@@ -226,7 +223,6 @@ class PasswordManager():
         except TimeoutError:
             print('Issues contacting database.. please wait')
             self._save_user_credentials()
-
 
     def _log_in_user(self):
         """
@@ -269,7 +265,12 @@ class PasswordManager():
         except ValueError as error:
             # Message is the same if username or password is incorrect
             print(f'INVALID: {error}..')
-            time.sleep(2)
+            time.sleep(3)
+            self._log_in_user()
+        except TypeError:
+            # Message is the same if username or password is incorrect
+            print(f'INVALID: {error}..')
+            time.sleep(3)
             self._log_in_user()
 
     def _check_characters_valid_in(self, to_check, input_type):
@@ -314,11 +315,10 @@ class PasswordManager():
 
         return None
 
-
     def check_database_usernames(self, username):
         """
         Checks to see if name is available to the user.
         """
-        result = self._collection.find_one({"_id":username})
+        result = self._collection.find_one({"_id": username})
         time.sleep(1)
         return result
