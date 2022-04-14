@@ -182,7 +182,7 @@ class PasswordManager():
             self._set_user_password()
 
         checker = True  # checker is true until proven invalid
-        for char in password:
+        for char in password_one:
             if char not in self.alphabet and char not in self.special_chars:
                 if char not in self.character_dict['a']:
                     checker = False

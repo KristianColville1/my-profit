@@ -319,7 +319,7 @@ Object Orientated programming was used throughout the project. The CLI applicati
 | User not able to log into rapid silver | Discovered the issue was with the encoding for the password |
 | Set mongo link as config var but not letting me create new accounts | Found the issue, unfortunately a typo was inserted into the environment variables name on Heroku, link was fixed |
 | Type error being caught on account creation when user enters valid input, stuck on loop in menu | 2 |
-| 1 | 2 |
+| Bug found when user enters password incorrectly and then tries again, its not flowing properly after recursion | 2 |
 | 1 | 2 |
 | 1 | 2 |
 
