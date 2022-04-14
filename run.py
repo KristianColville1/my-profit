@@ -6,6 +6,7 @@ create mailing lists, send emails, create an organization structure,
 design employee spread sheets
 etc.
 """
+import sys
 import time
 from console import clear_console
 from rapid_silver.password_manager import PasswordManager
@@ -177,49 +178,54 @@ def open_selection_menu(validated_user):
     get_options()
     print(
         COLOR.red_fore(
-            '\t\tRapid Silver is business utility tool for the following:'
+            '\tAvailable options:'
         )
     )
     print(
         COLOR.yellow_fore(
-            '\n\n\t\tHit [ q ] + Enter for > Set up user profile'
+            '\n\tHit [ q ] + Enter for > Set up user profile'
         )
     )
     print(
         COLOR.yellow_fore(
-            '\t\tHit [ a ] + Enter for > Setting up products'
+            '\tHit [ a ] + Enter for > Setting up products'
         )
     )
     print(
         COLOR.yellow_fore(
-            '\t\tHit [ d ] + Enter for > Setting up employee lists'
+            '\tHit [ d ] + Enter for > Setting up employee lists'
         )
     )
     print(
         COLOR.yellow_fore(
-            '\t\tHit [ f ] + Enter for > Storing inventory/ updating inventory'
+            '\tHit [ f ] + Enter for > Storing inventory/ updating inventory'
         )
     )
     print(
         COLOR.yellow_fore(
-            '\t\tHit [ g ] + Enter for > Analyzing inventory data'
+            '\tHit [ g ] + Enter for > Analyzing inventory data'
         )
     )
     print(
         COLOR.yellow_fore(
-            '\t\tHit [ h ] + Enter for > Information on data protection'
+            '\tHit [ h ] + Enter for > Information on data protection'
         )
     )
     print(
         COLOR.yellow_fore(
-            '\t\tHit [ i ] + Enter for > How data is stored and protected'
+            '\tHit [ i ] + Enter for > How data is stored and protected'
+        )
+    )
+    print(
+        COLOR.cyan_fore(
+            '\tHit [ e ] + Enter for > Logging out and closing Rapid Silver'
         )
     )
     try:
         result = input(
-            COLOR.green_fore('\nEnter here: ')
+            COLOR.green_fore('\n\t\tEnter here: ')
         )
-        if result not in ('q', 'a', 'd', 'f', 'g', 'h', 'i'):
+        if result not in ('q', 'a', 'd', 'f', 'g', 'h', 'i', 'e'):
             raise ValueError(
                 'INVALID INPUT. Try again.'
             )
@@ -242,7 +248,7 @@ def open_selection_menu(validated_user):
         set_up_profile(user)
     elif result == 'a':
         set_up_products_for(user)
-    if result == 'd':
+    elif result == 'd':
         set_up_employee_for(user)
     elif result == 'f':
         store_update_stock_for(user)
@@ -253,9 +259,12 @@ def open_selection_menu(validated_user):
         input(COLOR.red_fore('\t\tHit enter to go back to selection menu'))
         open_selection_menu(validated_user)  # recursive call to back to menu
     elif result == 'i':
+        clear_console()
         explain_data_storage_to(validated_user)
         input(COLOR.yellow_fore('\t\tHit enter to go back to selection menu'))
         open_selection_menu(validated_user)  # recursive call to back to menu
+    elif result == 'e':
+        sys.exit()
 
 
 def set_up_profile(validated_user):
@@ -267,11 +276,13 @@ def set_up_profile(validated_user):
     LOADING.color_background(50, COLOR.purple_back)
     open_selection_menu(validated_user)
 
+
 def set_up_products_for(validated_user):
     """
     Sets up structure for products for the user.
     """
     open_selection_menu(validated_user)
+
 
 def set_up_employee_for(validated_user):
     """
@@ -279,11 +290,13 @@ def set_up_employee_for(validated_user):
     """
     open_selection_menu(validated_user)
 
+
 def store_update_stock_for(validated_user):
     """
     Sets up a logged in users profile and returns to the selection menu.
     """
     open_selection_menu(validated_user)
+
 
 def check_inventory_for(validated_user):
     """
