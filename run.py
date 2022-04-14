@@ -10,6 +10,7 @@ import sys
 import time
 from console import clear_console
 from rapid_silver.password_manager import PasswordManager
+from rapid_silver.data_manager import DataManager
 from rapid_silver.text_art import TextArt
 
 
@@ -271,9 +272,10 @@ def set_up_profile(validated_user):
     print('\n\n\n\n\nLets check to see if you have a profile first.')
     LOADING.hash_loading('Checking for user profile')
     user = validated_user
-    
+    data = DataManager(user.username)  # opens the data manager
+
     time.sleep(10)
-    open_selection_menu(validated_user)
+    open_selection_menu(user)
 
 
 def set_up_products_for(validated_user):

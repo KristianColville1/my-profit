@@ -37,7 +37,7 @@ class DataManager():
 
     def check_user_details(self):
         """
-        Checks to see if name is available to the user.
+        Checks to see if user details already exists and returns the result.
         """
         result = self._user_details_collection.find_one({"_id": self.username})
         time.sleep(1)
