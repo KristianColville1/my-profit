@@ -16,11 +16,16 @@ class User():
     """
 
     def __init__(self):
-        self.first_name = None
-        self.last_name = None
-        self.email = None
-        self.company_name = None
-        self.details = None
+        self.first_name = self.set_first_name()
+        self.last_name = self.set_last_name()
+        self.email = self.set_email()
+        self.company_name = self.set_company_name()
+        self.user_details = {
+            "First Name": self.first_name,
+            "Last Name": self.last_name,
+            "Email": self.email,
+            "Company": self.company_name
+        }
 
     def set_first_name(self):
         """Gets and validates the users first name"""
