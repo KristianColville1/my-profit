@@ -13,7 +13,6 @@ from rapid_silver.password_manager import PasswordManager
 from rapid_silver.data_manager import DataManager
 from rapid_silver.text_art import TextArt
 
-
 # class instances
 COLOR = TextArt()
 LOADING = COLOR  # used for loading animations
@@ -67,16 +66,15 @@ def open_login_portal():
             clear_console()
             open_login_portal()
         if result == 'e':
-            login = login_user()
-            return login
+            user = login_user()
+            return user
         if result == 'd':
-            login = create_account()
-            return login
+            user = create_account()
+            return user
         if result == 'b':
             pull_up_data_protection()
             input(COLOR.red_fore('\t\tHit Enter to go back to log in portal'))
             open_login_portal()  # uses recursion until valid login input
-        return login
     except ValueError:
         open_login_portal()  # uses recursion until valid login input
     except TypeError:
@@ -261,6 +259,7 @@ def open_selection_menu(validated_user):
         input(COLOR.yellow_fore('\t\tHit enter to go back to selection menu'))
         open_selection_menu(validated_user)  # recursive call to back to menu
     elif result == 'e':
+        clear_console()
         sys.exit()
 
 
@@ -271,9 +270,8 @@ def set_up_profile(validated_user):
     clear_console()
     print('\n\n\n\n\nLets check to see if you have a profile first.')
     LOADING.hash_loading('Checking for user profile')
-    user = validated_user
-    data = DataManager(user._username)  # opens the data manager
-    open_selection_menu(user)
+    DataManager(validated_user.get_username())  # opens the data manager
+    open_selection_menu(validated_user)
 
 
 def set_up_products_for(validated_user):

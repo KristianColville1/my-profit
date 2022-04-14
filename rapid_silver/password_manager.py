@@ -322,3 +322,9 @@ class PasswordManager():
         result = self._collection.find_one({"_id": username})
         time.sleep(1)
         return result
+
+    def get_user_name(self):
+        """
+        Returns the users username.
+        """
+        return self.username
