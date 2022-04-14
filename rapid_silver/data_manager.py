@@ -28,18 +28,18 @@ class DataManager():
     def __init__(self, user_id):
         self.username = user_id
 
-        if self.check_details_database(self.username) is None:
+        if self.check_user_details() is None:
             self.user = User()
             self.add_details_to_database(self.username, self.user.user_details)
         else:
             print('Mongo is annoying me')
             time.sleep(6)
 
-    def check_details_database(self, username):
+    def check_user_details(self):
         """
         Checks to see if name is available to the user.
         """
-        result = self._user_details_collection.find_one({"_id": username})
+        result = self._user_details_collection.find_one({"_id": self.username})
         time.sleep(1)
         return result
 
