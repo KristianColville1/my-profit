@@ -101,8 +101,8 @@ class PasswordManager():
                         print('\n\nPlease try again!')
                         time.sleep(2.5)
                         self._set_username()  # if name taken use recursion
-
-                    self.username = username_input
+                    else:
+                        self.username = username_input
                 except ValueError as error:
                     error = color.red_fore(error)
                     print(error)
@@ -266,20 +266,21 @@ class PasswordManager():
         except ValueError as error:
             # Message is the same if username or password is incorrect
             print(f'INVALID: {error}..')
-            time.sleep(5)
+            time.sleep(2)
             self._log_in_user()
-        print(color.purple_fore(
-            'You are now logged in'))
-
 
     def _check_characters_valid_in(self, to_check, input_type):
+        """
+        Checks all the characters in the input type to see if any return
+        false. Returns false if the input type contains symbols specified
+        in the variables at the top of PasswordManager class.
+        """
         result = True
         if to_check == 'username':
             for char in input_type:
                 if char in self.special_chars:
                     return False
         return result
-
 
     def _check_user_password_matches(self, post, user_pass_input):
         """
@@ -316,4 +317,5 @@ class PasswordManager():
         Checks to see if name is available to the user.
         """
         result = self._collection.find_one({"_id":username})
+        time.sleep(1)
         return result
