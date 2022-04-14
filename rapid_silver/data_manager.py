@@ -2,6 +2,11 @@
 Data manager hold the DataManager Class for Rapid Silver.
 Manages user data for a given user profile.
 """
+import bcrypt
+from pymongo import MongoClient
+from console import clear_console
+from rapid_silver.text_art import TextArt
+
 
 class DataManager():
     """
@@ -11,3 +16,9 @@ class DataManager():
     """
     def __init__(self, user_id):
         self.user = user_id
+        self.data_profile = None
+    
+    
+    def _check_for_user_profile(self, profile):
+        """
+        """
