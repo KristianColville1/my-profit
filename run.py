@@ -73,7 +73,7 @@ def open_login_portal():
             return login
         if result == 'b':
             pull_up_data_protection()
-            input(COLOR.red_fore('\t\tHit enter to go back to log in portal'))
+            input(COLOR.red_fore('\t\tHit Enter to go back to log in portal'))
             open_login_portal()  # uses recursion until valid login input
         return login
     except ValueError:
@@ -271,7 +271,7 @@ def set_up_profile(validated_user):
     print('\n\n\n\n\nLets check to see if you have a profile first.')
     LOADING.hash_loading('Checking for user profile')
     user = validated_user
-    print(user.username)
+    
     time.sleep(10)
     open_selection_menu(validated_user)
 
