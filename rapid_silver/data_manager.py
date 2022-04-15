@@ -27,7 +27,7 @@ class DataManager():
     _database = _cluster['RapidSilver']
     _user_details_collection = _database['users_details']
 
-    def __init__(self, user_id):
+    def __init__(self, user_id, the_route):
         self.username = user_id
         self.results = self.check_user_details()
         if self.results is None:
@@ -35,7 +35,6 @@ class DataManager():
             self.add_details_to_database(self.username, self.user.user_details)
         else:
             self.print_welcome_back()
-
 
     def check_user_details(self):
         """
@@ -80,3 +79,27 @@ class DataManager():
 
         console = Console()
         console.print(table)
+
+        print(
+            color.green_fore(
+                '\n\n\t\tHit [ y ] + Enter to change your details'))
+        print(
+            color.green_fore(
+                '\t\tHit [ n ] + Enter to return to options menu'))
+        result = input('\nEnter selection here: ')
+
+        if result in ('Y', 'y'):
+            self.update_profile(user_profile)
+        elif result in ('N', 'n'):
+            pass  #  heads back to the selection menu from here
+        else:
+            print(
+                color.red_fore(
+                    'INVALID INPUT. Please select a valid option'))
+            time.sleep(2)
+            self.print_welcome_back()  # uses recursion until input valid
+
+    def update_profile(self, user_profile):
+        """
+        Takes a profile and updates that document on the Mongo Database.
+        """
