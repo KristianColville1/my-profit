@@ -1,5 +1,5 @@
 """Holds the print class for Rapid Silver"""
-from colorama import Fore, Back
+from colorama import Fore
 
 
 class ColorPrint:

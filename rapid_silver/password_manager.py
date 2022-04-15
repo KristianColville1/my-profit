@@ -139,7 +139,7 @@ class PasswordManager():
             username += arr[random.randrange(len(arr))]
 
         loader.star_loading('Generating username now..')
-        print(color.red_back(
+        print(color.red_fore(
             '\n\nPlease make note of your generated username for logging in'))
         print(color.green_fore(
             f'\n\nUSERNAME: {username}'))
@@ -222,7 +222,7 @@ class PasswordManager():
             post = new_user
             self._collection.insert_one(post)
             loader.hash_loading('Storing user credentials')
-        except Exception:
+        except TimeoutError:
             print('Issues contacting database.. please wait')
             time.sleep(5)
             self._save_user_credentials()
