@@ -133,11 +133,9 @@ class DataManager():
         Checks for existing to do list and if theres none there creates one
         for the user.
         """
-        empty_dict = {}
         clear_console()
         to_do_list = self._to_do_collection.find_one({"_id": self.username})
         if to_do_list is None:
-            empty_dict["_id"] = self.username
             print(
                 color.red_fore(
                     'There are no to do lists matching our records for you'))
@@ -158,7 +156,8 @@ class DataManager():
                     to_move_on = str(input(
                         color.yellow_fore(
                             'To create another task hit [ y ] + Enter : ')))
-                    empty_dict[key] = value
+                    self._to_do_collection.update_one(
+                            {"_id": self.username}, {"$set": {key: value}})
                     if to_move_on in ('Y', 'y'):
                         pass
                     else:
@@ -167,7 +166,6 @@ class DataManager():
                     pass
                 except TypeError:
                     pass
-            self._to_do_collection.insert_one(empty_dict)
         # after a list is either found or made, print it to the terminal
         # calls to get the document again so both routes are
         # accounted for and joined back here
@@ -224,7 +222,7 @@ class DataManager():
         clear_console()
         self.print_todo_list()
 
-        print('If you would like to empty your to do list')
+        print('\n\n\nIf you would like to empty your to do list')
         print("Please enter 'empty list' below")
         print('Just hit Enter otherwise ')
         result = input(color.cyan_fore('Enter here please'))
