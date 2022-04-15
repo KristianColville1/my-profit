@@ -199,7 +199,7 @@ The structure of the terminal application was designed to be easily navigated an
 ### Initial Flow
 ![Initial Flowchart](assets/images/flowcharts/rapid-silver.drawio.png)
 ### Python Logic
-![Python Logic one](assets/images/flowcharts/python-logic.png)
+![Python Logic](assets/images/flowcharts/rapid-silver-python-flow.png)
 
 [Back to Top](#table-of-contents)
 ## Features
