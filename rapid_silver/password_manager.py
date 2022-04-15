@@ -217,7 +217,6 @@ class PasswordManager():
             print('Testing 2')
             time.sleep(2)
             print('\n\nAccessing database now')
-            loader.color_background(60, loader.cyan_back)
             time.sleep(2)
             self._password = bytes(
                 self._password, 'utf-8')  # convert password to bytes
