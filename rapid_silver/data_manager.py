@@ -153,11 +153,11 @@ class DataManager():
                     value = str(input(
                         color.yellow_fore(
                             '\nEnter your task here:')))
-                    to_move_on = input(
+                    to_move_on = str(input(
                         color.green_fore(
-                            'To create another task hit [ y ] + Enter : ')
-                    )
-                    if to_move_on not in ('Y', 'n'):
+                            'To create another task hit [ y ] + Enter : ')))
+
+                    if to_move_on not in ('Y', 'y'):
                         break
                     empty_dict[key] = value
                 except ValueError:
@@ -165,13 +165,16 @@ class DataManager():
                 except TypeError:
                     pass
             self._to_do_collection.insert_one(empty_dict)
-        else:
-            table = Table()
-            table.add_column('Name', style='Magenta')
-            table.add_column('Task', style='yellow')
+        # after a list is either found or made, print it to the terminal
+        # calls to get the document again so both routes are
+        # accounted for and joined back here
+        to_do_list = self._to_do_collection.find_one({"_id": self.username})
+        table = Table()
+        table.add_column('Name', style='Magenta')
+        table.add_column('Task', style='yellow')
 
-            for key, value in to_do_list.items():
-                table.add_row(str(key), str(value))
+        for key, value in to_do_list.items():
+            table.add_row(str(key), str(value))
 
-            console = Console()
-            console.print(table)
+        console = Console()
+        console.print(table)
