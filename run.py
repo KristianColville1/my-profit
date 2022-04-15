@@ -116,7 +116,6 @@ def pull_up_data_protection():
         print(
             COLOR.cyan_fore(data_protection)
         )
-        print(COLOR.reset_bg)
     except IOError:
         print("ERROR: reading dataprotection failed..")
         print('We are GDPR compliant')
@@ -188,16 +187,6 @@ def open_selection_menu(validated_user):
     )
     print(
         COLOR.yellow_fore(
-            '\tHit [ a ] + Enter for > Setting up products'
-        )
-    )
-    print(
-        COLOR.yellow_fore(
-            '\tHit [ d ] + Enter for > Setting up employee lists'
-        )
-    )
-    print(
-        COLOR.yellow_fore(
             '\tHit [ f ] + Enter for > Storing inventory/ updating inventory'
         )
     )
@@ -220,7 +209,7 @@ def open_selection_menu(validated_user):
         result = input(
             COLOR.green_fore('\n\t\tEnter here: ')
         )
-        if result not in ('q', 'w', 'a', 'd', 'f', 'h', 'i', 'e'):
+        if result not in ('q', 'w', 'f', 'h', 'i', 'e'):
             raise ValueError(
                 'INVALID INPUT. Try again.'
             )
@@ -230,12 +219,12 @@ def open_selection_menu(validated_user):
             )
     except ValueError as error:
         print(
-            COLOR.red_back(f'{error}')
+            COLOR.red_fore(f'{error}')
         )
         open_selection_menu(validated_user)  # recursion until valid
     except TypeError as error:
         print(
-            COLOR.red_back(f'{error}')
+            COLOR.red_fore(f'{error}')
         )
         open_selection_menu(validated_user)  # recursion until valid
 
@@ -243,10 +232,6 @@ def open_selection_menu(validated_user):
         set_up_profile(user)
     elif result == 'w':
         set_up_to_do_list(user)
-    elif result == 'a':
-        set_up_products_for(user)
-    elif result == 'd':
-        set_up_employee_for(user)
     elif result == 'f':
         store_update_stock_for(user)
     elif result == 'h':
@@ -286,34 +271,7 @@ def set_up_to_do_list(validated_user):
     open_selection_menu(validated_user)
 
 
-def set_up_products_for(validated_user):
-    """
-    Sets up structure for products for the user.
-    """
-    clear_console()
-    print('\n\n\n\n\nLets check to see if you have a profile first.')
-    LOADING.hash_loading('Checking database now')
-    open_selection_menu(validated_user)
-
-
-def set_up_employee_for(validated_user):
-    """
-    Sets up a logged in users profile and returns to the selection menu.
-    """
-    clear_console()
-    print('\n\n\n\n\nLets check to see if you have a profile first.')
-    LOADING.hash_loading('Checking database now')
-    open_selection_menu(validated_user)
-
-
 def store_update_stock_for(validated_user):
-    """
-    Sets up a logged in users profile and returns to the selection menu.
-    """
-    open_selection_menu(validated_user)
-
-
-def check_inventory_for(validated_user):
     """
     Sets up a logged in users profile and returns to the selection menu.
     """

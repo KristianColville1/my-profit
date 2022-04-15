@@ -232,7 +232,7 @@ class DataManager():
 
         print('\n\n\nIf you would like to empty your to do list')
         print("Please enter 'empty list' below")
-        print('Just hit Enter otherwise ')
+        print('Hit Enter otherwise ')
         result = input(color.cyan_fore('Enter here please'))
         if result == 'empty list':
             self._to_do_collection.delete_one({"_id": self.username})
