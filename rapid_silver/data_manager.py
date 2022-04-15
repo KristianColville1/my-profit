@@ -153,18 +153,21 @@ class DataManager():
                     value = str(input(
                         color.yellow_fore(
                             '\nEnter your task here:')))
+                    print('\nTo leave just hit enter\n')
                     to_move_on = str(input(
                         color.green_fore(
                             'To create another task hit [ y ] + Enter : ')))
 
-                    if to_move_on not in ('Y', 'y'):
+                    if to_move_on in ('Y', 'y'):
+                        empty_dict[key] = value
+                    else:
                         break
-                    empty_dict[key] = value
+                    
                 except ValueError:
                     pass
                 except TypeError:
                     pass
-            self._to_do_collection.insert_one(empty_dict)
+                self._to_do_collection.insert_one(empty_dict)
         # after a list is either found or made, print it to the terminal
         # calls to get the document again so both routes are
         # accounted for and joined back here
@@ -218,26 +221,25 @@ class DataManager():
         """
         Clears or makes amendments to a to do list for a user.
         """
-        to_do_list = self._to_do_collection.find_one({"_id": self.username})
-        the_update = {}
         clear_console()
         self.print_todo_list()
 
-        print('\n\n\n')
-        print(color.yellow_fore(
-            'To update a selection enter the name of the task'
-        ))
-        print(color.yellow_fore(
-            'To exit updating list hit [ x ] + Enter'
-        ))
         while True:
-            result = input(
-                color.cyan_fore(
-                    '\nEnter here: ')
-            )
-            if result in ('x', 'X'):
+            
+            task_name = input(
+                color.yellow_fore('Enter the name of task you wish to update: '))
+            the_task = input(
+                color.yellow_fore('Now begin writing your task here: '))
+            
+            self._to_do_collection.update_one({"_id": self.username}, {task_name: the_task})
+            print('\n\nTo exit hit [ n ] + Enter ')
+            print('\nEnter [ y ] to update another task ')
+            result = input('Enter here please: ')
+            if result in ('n', 'N'):
                 break
-            if to_do_list[result] is not None:
-                to_do_list[result] = input('Update the task here: ')
-            self.clear_update_to_do_list()
+            else:
+                self.clear_update_to_do_list()  # prints again and asks
+        
+        
+        
             
