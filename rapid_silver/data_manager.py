@@ -76,7 +76,7 @@ class DataManager():
         table.add_column('Details', style='yellow')
 
         for key, value in user_profile.items():
-            table.add_row(key, value)
+            table.add_row(str(key), str(value))
 
         console = Console()
         console.print(table)
