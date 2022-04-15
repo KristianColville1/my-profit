@@ -144,7 +144,7 @@ class DataManager():
                 try:
                     print(color.red_fore(
                         '\nTo leave just hit [ n ] + Enter\n'))
-                    result = input('Enter here: ')
+                    result = input(color.red_fore('Enter here: '))
                     if result in ('n', 'N'):
                         break
                     key = str(input(
@@ -246,7 +246,7 @@ class DataManager():
                     {"_id": self.username}, {"$set": {task_name: the_task}})
                 print('\n\nTo exit hit [ n ] + Enter ')
                 print('\nEnter [ y ] to update another task ')
-                result = input('Enter here please: ')
+                result = input(color.red_fore('Enter here please: '))
                 if result in ('n', 'N'):
                     break
                 self.clear_update_to_do_list()  # prints again and asks
@@ -315,16 +315,16 @@ class DataManager():
             console.print(table)
 
         print(color.red_fore(
-            "\nWould you like to update your to do list?"
+            "\nWould you like to update your inventory?"
         ))
         print(
-            "Hit [ y ] + enter to update your to do list: "
+            "Hit [ y ] + enter to update your inventory: "
         )
 
         result = input(color.yellow_fore(
             'Enter your choice here, hit enter to skip: '
         ))
-        color.dot_loading('Updating to do list now')
+        color.money_loading('Updating inventory now')
         if result in ('y', 'Y'):
             self.clear_update_inventory()
         else:
