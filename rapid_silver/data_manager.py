@@ -134,8 +134,10 @@ class DataManager():
         for the user.
         """
         clear_console()
-        to_do_list = self._to_do_collection.find_one({"_id": self.username})
+        to_do_list = self._to_do_collection.find_one({"_id": self.username})  
         if to_do_list is None:
+            # creates a to do list if none exists
+            self._to_do_collection.insert_one({'_id': self.username})
             print(
                 color.red_fore(
                     'There are no to do lists matching our records for you'))
@@ -145,7 +147,10 @@ class DataManager():
             while True:
                 try:
                     print(color.red_fore(
-                        '\nTo leave just hit enter\n'))
+                        '\nTo leave just hit [ n ] + Enter\n'))
+                    result = input('Enter here: ')
+                    if result in ('n', 'N'):
+                        break
                     key = str(input(
                         color.purple_fore(
                             "\n\nEnter a name for the task here: ")))
@@ -156,7 +161,9 @@ class DataManager():
                     to_move_on = str(input(
                         color.yellow_fore(
                             'To create another task hit [ y ] + Enter : ')))
-                    self._to_do_collection.update_one(
+
+                    if len(key) > 0 and len(value) > 0:
+                        self._to_do_collection.update_one(
                             {"_id": self.username}, {"$set": {key: value}})
                     if to_move_on in ('Y', 'y'):
                         pass
@@ -174,13 +181,14 @@ class DataManager():
         table.add_column('Name', style='Magenta')
         table.add_column('Task', style='yellow')
 
-        for key, value in to_do_list.items():
-            # hides the id and username
-            if key != '_id':
-                table.add_row(str(key), str(value))
+        if to_do_list is not None:
+            for key, value in to_do_list.items():
+                # hides the id and username
+                if key != '_id':
+                    table.add_row(str(key), str(value))
 
-        console = Console()
-        console.print(table)
+            console = Console()
+            console.print(table)
 
         print(color.red_fore(
             "\nWould you like to update your to do list?"
