@@ -175,14 +175,13 @@ class DataManager():
 
         for key, value in to_do_list.items():
             # hides the id and username
-            if key == '_id':
-                pass
-            table.add_row(str(key), str(value))
+            if key != '_id':
+                table.add_row(str(key), str(value))
 
         console = Console()
         console.print(table)
 
-        print(color.blue_fore(
+        print(color.red_fore(
             "\nWould you like to update your to do list?"
         ))
         print(
@@ -192,11 +191,11 @@ class DataManager():
         result = color.green_fore(
             'Enter your choice here, hit enter to skip: '
         )
-        color.dot_loading('Updating selections now')
-        if result not in ('y', 'Y'):
-            pass
-        else:
+        color.dot_loading('\n\nUpdating selections now')
+        if result in ('y', 'Y'):
             self.clear_update_to_do_list()
+        else:
+            pass
 
     def clear_update_to_do_list(self):
         """
@@ -218,7 +217,7 @@ class DataManager():
             self._to_do_collection.delete_one({"_id": self.username})
         if result in ('N', 'n'):
             for key, value in to_do_list.items():
-                if key is not "_id":
+                if key != "_id":
                     print(f"Update {key} task hit [ y ] + Enter to amend")
                     print("Hit [ n ] + Enter to skip")
                     result = input(color.green_fore('\n\nEnter here: '))

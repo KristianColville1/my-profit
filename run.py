@@ -282,7 +282,6 @@ def set_up_to_do_list(validated_user):
     clear_console()
     LOADING.hash_loading('Checking for to do list now')
     DataManager(validated_user.username, 'to_do')  # opens the data manager
-    input("To move on hit enter")
     time.sleep(2)
     open_selection_menu(validated_user)
 
