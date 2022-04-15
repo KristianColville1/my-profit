@@ -201,18 +201,20 @@ class DataManager():
         """
         Clears or makes amendments to a to do list for a user.
         """
-        new_to_do = {"_id": self.username}
+        new_to_do = {}
         clear_console()
         to_do_list = self._to_do_collection.find_one({"_id": self.username})
         print('\n\n\n\n')
-        result = input(color.purple_fore(
-            'Do you want to clear or update your to do list?'))
+
         print(color.yellow_fore(
             'Hit [ y ] + Enter to clear your entire task list and start over '
         ))
         print(color.yellow_fore(
             'Hit [ n ] + Enter to amend individual tasks '
         ))
+        result = input(
+            'Do you want to clear or update your to do list?')
+
         if result in ('y', 'Y'):
             self._to_do_collection.delete_one({"_id": self.username})
         if result in ('N', 'n'):
@@ -228,4 +230,5 @@ class DataManager():
                         ))
                     if result in ('N', 'n'):
                         new_key[key] = value
+        self._to_do_collection.update_one({"_id": self.username}, new_to_do)
         self.open_to_do_list()
