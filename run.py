@@ -280,8 +280,8 @@ def set_up_to_do_list(validated_user):
     The user can set up or update their to do list.
     """
     clear_console()
-    LOADING.hash_loading('\n\nChecking for to do list now')
-    DataManager(validated_user.username, 'to-do')  # opens the data manager
+    LOADING.hash_loading('Checking for to do list now')
+    DataManager(validated_user.username, 'to_do')  # opens the data manager
     time.sleep(2)
     open_selection_menu(validated_user)
 
