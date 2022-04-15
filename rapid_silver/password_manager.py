@@ -210,20 +210,14 @@ class PasswordManager():
         the security of the data.
         """
         try:
-            print('Testing 1')
-            time.sleep(2)
             new_user = {}
             new_user["_id"] = self.username
-            print('Testing 2')
-            time.sleep(2)
             print('\n\nAccessing database now')
             time.sleep(2)
             self._password = bytes(
                 self._password, 'utf-8')  # convert password to bytes
             salt = bcrypt.gensalt()
             hashed = bcrypt.hashpw(self._password, salt)
-            print('Testing 3')
-            time.sleep(2)
             new_user['password'] = f'{salt}:{hashed}'
             post = new_user
             self._collection.insert_one(post)

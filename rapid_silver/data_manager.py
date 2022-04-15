@@ -197,38 +197,47 @@ class DataManager():
         else:
             pass
 
+    def print_todo_list(self):
+        """
+        Prints the to do list to the terminal to view.
+        """
+        to_do_list = self._to_do_collection.find_one({"_id": self.username})
+        table = Table()
+        table.add_column('Name', style='Magenta')
+        table.add_column('Task', style='yellow')
+
+        for key, value in to_do_list.items():
+            # hides the id and username
+            if key != '_id':
+                table.add_row(str(key), str(value))
+
+        console = Console()
+        console.print(table)
+
     def clear_update_to_do_list(self):
         """
         Clears or makes amendments to a to do list for a user.
         """
-        new_to_do = {}
-        clear_console()
         to_do_list = self._to_do_collection.find_one({"_id": self.username})
-        print('\n\n\n\n')
+        the_update = {}
+        clear_console()
+        self.print_todo_list()
 
+        print('\n\n\n')
         print(color.yellow_fore(
-            'Hit [ y ] + Enter to clear your entire task list and start over '
+            'To update a selection enter the name of the task'
         ))
         print(color.yellow_fore(
-            'Hit [ n ] + Enter to amend individual tasks '
+            'To exit updating list hit [ x ] + Enter'
         ))
-        result = input(
-            'Do you want to clear or update your to do list?')
-
-        if result in ('y', 'Y'):
-            self._to_do_collection.delete_one({"_id": self.username})
-        if result in ('N', 'n'):
-            for key, value in to_do_list.items():
-                if key != "_id":
-                    print(f"Update {key} task hit [ y ] + Enter to amend")
-                    print("Hit [ n ] + Enter to skip")
-                    result = input(color.green_fore('\n\nEnter here: '))
-                    if result in ('Y', 'y'):
-                        new_key = input('\nEnter the name of the task here: ')
-                        new_to_do[new_key] = input(color.yellow_fore(
-                            "Enter your task here: "
-                        ))
-                    if result in ('N', 'n'):
-                        new_key[key] = value
-        self._to_do_collection.update_one({"_id": self.username}, new_to_do)
-        self.open_to_do_list()
+        while True:
+            result = input(
+                color.cyan_fore(
+                    '\nEnter here: ')
+            )
+            if result in ('x', 'X'):
+                break
+            if to_do_list[result] is not None:
+                to_do_list[result] = input('Update the task here: ')
+            self.clear_update_to_do_list()
+            
