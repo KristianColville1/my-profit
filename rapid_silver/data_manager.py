@@ -147,22 +147,23 @@ class DataManager():
             )
             while True:
                 try:
+                    print(color.red_fore(
+                        '\nTo leave just hit enter\n'))
                     key = str(input(
                         color.purple_fore(
                             "\n\nEnter a name for the task here: ")))
                     value = str(input(
                         color.yellow_fore(
                             '\nEnter your task here:')))
-                    print('\nTo leave just hit enter\n')
-                    to_move_on = str(input(
-                        color.green_fore(
-                            'To create another task hit [ y ] + Enter : ')))
 
+                    to_move_on = str(input(
+                        color.yellow_fore(
+                            'To create another task hit [ y ] + Enter : ')))
+                    empty_dict[key] = value
                     if to_move_on in ('Y', 'y'):
-                        empty_dict[key] = value
+                        pass
                     else:
                         break
-                    
                 except ValueError:
                     pass
                 except TypeError:
@@ -225,13 +226,12 @@ class DataManager():
         self.print_todo_list()
 
         while True:
-            
             task_name = input(
                 color.yellow_fore('Enter the name of task you wish to update: '))
             the_task = input(
                 color.yellow_fore('Now begin writing your task here: '))
-            
-            self._to_do_collection.update_one({"_id": self.username}, {task_name: the_task})
+
+            self._to_do_collection.update_one({"_id": self.username}, { "$set": {task_name: the_task}})
             print('\n\nTo exit hit [ n ] + Enter ')
             print('\nEnter [ y ] to update another task ')
             result = input('Enter here please: ')
@@ -239,7 +239,3 @@ class DataManager():
                 break
             else:
                 self.clear_update_to_do_list()  # prints again and asks
-        
-        
-        
-            
