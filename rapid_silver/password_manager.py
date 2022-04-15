@@ -58,13 +58,13 @@ class PasswordManager():
             clear_console()
             for _ in range(8):
                 print('\n')
-            print(color.purple_fore(
-                'Hit [ e ] + Enter to create a username'))
-            print(color.purple_fore(
-                'Hit [ d ] + Enter to auto assign a username to yourself'))
-            result = str(input(color.green_fore('\nEnter here: ')))
+            print(color.cyan_fore(
+                '\t\tHit [ e ] + Enter to create a username'))
+            print(color.cyan_fore(
+                '\t\tHit [ d ] + Enter to auto assign a username to yourself'))
+            result = str(input(color.green_fore('\n\t\tEnter here: ')))
 
-            print(color.cyan_fore('/nChecking username now'))
+            print(color.yellow_fore('/nChecking username now'))
             if result in ('D', 'd'):
                 self.username = self._generate_username()
 
@@ -74,7 +74,7 @@ class PasswordManager():
                 try:
 
                     advice = color.yellow_fore('Please include (A-Z & a-z)')
-                    advice += color.cyan_fore('and at least 1 number')
+                    advice += color.cyan_fore(' and at least 1 number')
                     print(advice)
                     username_input = input('Please enter a username: ')
 
