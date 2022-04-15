@@ -132,5 +132,48 @@ class DataManager():
     def open_to_do_list(self, username):
         """
         A user of Rapid Silver can create and update a to do list.
+        Checks for existing to do list and if theres none there creates one
+        for the user.
         """
-        
+        empty_dict = {}
+        clear_console()
+        to_do_list = self._to_do_collection.find_one({"_id": self.username})
+        if to_do_list is None:
+            empty_dict["_id"] = self.username
+            print(
+                color.red_fore('There are no to do lists matching our records for you'))
+            print(
+                color.yellow_fore('\n Lets make one now.')
+            )
+            while True:
+                try:
+                    key = input(
+                        color.purple_fore(
+                            "\n\nEnter a name for the task here: "))
+                    value = input(
+                        color.yellow_fore(
+                            '\nEnter your task here:'))
+                    to_move_on = input(
+                        color.green_fore(
+                            'To create another task hit [ y ] + Enter : ')
+                    )
+                    if to_move_on not in ('Y', 'n'):
+                        break
+                    empty_dict[key] = value
+                except ValueError:
+                    pass
+                except TypeError:
+                    pass
+            self._to_do_collection.insert_one(empty_dict)
+        else:
+            table = Table()
+            table.add_column('Name', style='Magenta')
+            table.add_column('Task', style='yellow')
+
+            for key, value in to_do_list.items():
+                table.add_row(str(key), str(value))
+
+            console = Console()
+            console.print(table)
+            
+            
