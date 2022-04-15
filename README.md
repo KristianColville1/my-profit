@@ -189,6 +189,7 @@ The structure of the terminal application was designed to be easily navigated an
 - [OS](https://docs.python.org/3/library/os.html) used for manipulating and storing environment variables
 - [Pymongo](https://pypi.org/project/pymongo/) for accessing the Mongo Database and storing users passwords
 - [Random](https://docs.python.org/3/library/random.html) used for calculating random numbers and selecting random choices in the various classes
+- [Rich](https://rich.readthedocs.io/en/stable/introduction.html) used for creating tables to display user data for the profile, to do list and the users inventory
 - [Sys] used to for accessing the system and exiting the program within the selection menu for the user
 - [Time](https://docs.python.org/3/library/time.html) used throughout for adding delays between text on terminal and for the loading animations
 

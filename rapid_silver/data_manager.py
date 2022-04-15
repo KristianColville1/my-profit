@@ -188,10 +188,10 @@ class DataManager():
             "Hit [ y ] + enter to update your to do list: "
         )
 
-        result = color.green_fore(
+        result = input(color.green_fore(
             'Enter your choice here, hit enter to skip: '
-        )
-        color.dot_loading('\n\nUpdating selections now')
+        ))
+        color.dot_loading('Gathering your todo list now')
         if result in ('y', 'Y'):
             self.clear_update_to_do_list()
         else:
