@@ -104,7 +104,7 @@ class DataManager():
         result = input('\nEnter selection here: ')
 
         if result in ('Y', 'y'):
-            self.update_profile()
+            self.update_profile(self.username, self.user.user_details)
         elif result in ('N', 'n'):
             pass  #  heads back to the selection menu from here
         else:
@@ -114,12 +114,20 @@ class DataManager():
             time.sleep(2)
             self.print_welcome_back()  # uses recursion until input valid
 
-    def update_profile(self):
+    def update_profile(self, user_id, dict_of_user_details):
         """
         Takes a profile and updates that document on the Mongo Database.
         """
         self.user = User()
-        self.add_details_to_database(self.username, self.user.user_details)
+        details_to_send = {}
+        details_to_send["_id"] = str(user_id)
+
+        for key, value in dict_of_user_details.items():
+            details_to_send[key] = value
+
+        post = details_to_send
+        self._user_details_collection.update(user_id, post)
+        self.print_welcome_back()
 
     def open_to_do_list(self, username):
         """
