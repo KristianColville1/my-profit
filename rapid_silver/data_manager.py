@@ -306,8 +306,8 @@ class DataManager():
         # accounted for and joined back here
         inventory = self._inventory_collection.find_one({"_id": self.username})
         table = Table()
-        table.add_column('Item', style='blue')
-        table.add_column('Task', style='yellow')
+        table.add_column('Type', style='blue')
+        table.add_column('Details', style='yellow')
 
         if inventory is not None:
             for key, value in inventory.items():
@@ -340,8 +340,8 @@ class DataManager():
         """
         inventory = self._inventory_collection.find_one({"_id": self.username})
         table = Table()
-        table.add_column('Item', style='blue')
-        table.add_column('Amount', style='yellow')
+        table.add_column('Type', style='blue')
+        table.add_column('Details', style='yellow')
 
         for key, value in inventory.items():
             # hides the id and username
