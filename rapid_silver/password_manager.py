@@ -29,8 +29,6 @@ class PasswordManager():
     alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
     special_chars = ['!', '@', '#', '$', '%', '&', '*']
 
-
-
     mongo_link = os.environ.get('MONGOLINK')
     _cluster = MongoClient(f'{mongo_link}')
     _database = _cluster['RapidSilver']
@@ -40,9 +38,8 @@ class PasswordManager():
         self.username = None
         self._password = None
         self.user_mongo_dict = {
-        "_id": "",
-        "password": "",
-        }
+            "_id": "",
+            "password": ""}
         # decides which route to take for the account type
         if account_type == 'new':
             self.username = self._set_username()

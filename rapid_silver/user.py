@@ -97,7 +97,7 @@ class User():
             clear_console()
             print(color.red_fore(f'{error}'))
             self.set_email()
-          # wrapped in string as not showing otherwise
+        # wrapped in string as not showing otherwise
         return self.email
 
     def set_company_name(self):
