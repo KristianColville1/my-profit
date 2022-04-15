@@ -33,13 +33,14 @@ class DataManager():
     def __init__(self, user_id, the_route):
         self.username = user_id
         self.results = self.check_user_details()
-        if self.results is None:
-            self.user = User()
-            self.add_details_to_database(self.username, self.user.user_details)
-        else:
-            self.print_welcome_back()
 
-        if the_route == 'to_do':
+        if the_route == 'profile':
+            if self.results is None:
+                self.user = User()
+                self.add_details_to_database(
+                    self.username, self.user.user_details)
+                self.print_welcome_back()
+        elif the_route == 'to_do':
             self.open_to_do_list(self.username)
         elif the_route == 'products':
             pass
