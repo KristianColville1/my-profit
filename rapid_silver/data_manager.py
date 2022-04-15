@@ -31,7 +31,6 @@ class DataManager():
     _employees_collection = _database['inventory']
 
     def __init__(self, user_id, the_route):
-        self.user = None
         self.username = user_id
         self.results = self.check_user_details()
         if self.results is None:
@@ -119,15 +118,15 @@ class DataManager():
         """
         Takes a profile and updates that document on the Mongo Database.
         """
-        self.user = User()
-        details_to_send = {}
+        user = User()  # creates a new user object
+        details_to_send = user.user_details  # gets the details
         details_to_send["_id"] = str(user_id)
 
         for key, value in dict_of_user_details.items():
             details_to_send[key] = value
 
         post = details_to_send
-        self._user_details_collection.update(user_id, post)
+        self._user_details_collection.update(user_id, post)  # updates database
         self.print_welcome_back()
 
     def open_to_do_list(self, username):
