@@ -130,14 +130,15 @@ class User():
         """
         clear_console()
         for_recursion = caller
-        result = input(color.purple_fore(f'\nIs {user_input} correct? y/n'))
+        print('\n\n\n\n\n')
+        result = input(color.cyan_fore(f"\n\tIs '{user_input}' correct? y/n: "))
         if result in ('y', 'Y'):
-            print(color.green_fore('\nThank you'))
-            time.sleep(0.7)
+            print(color.yellow_fore('\nSaving'))
+            loading.hash_loading('Saving')
             clear_console()
             return None
         if result in ('n', 'N'):
-            print(color.yellow_fore('\nOkay try again'))
+            print(color.green_fore('\nOkay try again'))
             time.sleep(0.7)
             clear_console()
             for_recursion()
