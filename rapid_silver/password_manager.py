@@ -64,7 +64,7 @@ class PasswordManager():
                 '\t\tHit [ d ] + Enter to auto assign a username to yourself'))
             result = str(input(color.green_fore('\n\t\tEnter here: ')))
 
-            print(color.yellow_fore('/nChecking username now'))
+            print(color.yellow_fore('\nChecking username now'))
             if result in ('D', 'd'):
                 self.username = self._generate_username()
 
