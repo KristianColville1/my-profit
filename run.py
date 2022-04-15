@@ -183,6 +183,11 @@ def open_selection_menu(validated_user):
     )
     print(
         COLOR.yellow_fore(
+            '\tHit [ w ] + Enter for > To do list'
+        )
+    )
+    print(
+        COLOR.yellow_fore(
             '\tHit [ a ] + Enter for > Setting up products'
         )
     )
@@ -194,11 +199,6 @@ def open_selection_menu(validated_user):
     print(
         COLOR.yellow_fore(
             '\tHit [ f ] + Enter for > Storing inventory/ updating inventory'
-        )
-    )
-    print(
-        COLOR.yellow_fore(
-            '\tHit [ g ] + Enter for > Analyzing inventory data'
         )
     )
     print(
@@ -220,7 +220,7 @@ def open_selection_menu(validated_user):
         result = input(
             COLOR.green_fore('\n\t\tEnter here: ')
         )
-        if result not in ('q', 'a', 'd', 'f', 'g', 'h', 'i', 'e'):
+        if result not in ('q', 'w', 'a', 'd', 'f', 'h', 'i', 'e'):
             raise ValueError(
                 'INVALID INPUT. Try again.'
             )
@@ -241,14 +241,14 @@ def open_selection_menu(validated_user):
 
     if result == 'q':
         set_up_profile(user)
+    elif result == 'w':
+        set_up_to_do_list(user)
     elif result == 'a':
         set_up_products_for(user)
     elif result == 'd':
         set_up_employee_for(user)
     elif result == 'f':
         store_update_stock_for(user)
-    elif result == 'g':
-        check_inventory_for(user)
     elif result == 'h':
         pull_up_data_protection()
         input(COLOR.red_fore('\t\tHit enter to go back to selection menu'))
@@ -271,6 +271,17 @@ def set_up_profile(validated_user):
     print('\n\n\n\n\nLets check to see if you have a profile first.')
     LOADING.hash_loading('Checking for user profile')
     DataManager(validated_user.username, 'profile')  # opens the data manager
+    time.sleep(2)
+    open_selection_menu(validated_user)
+
+
+def set_up_to_do_list(validated_user):
+    """
+    The user can set up or update their to do list.
+    """
+    clear_console()
+    LOADING.hash_loading('\n\nChecking for to do list now')
+    DataManager(validated_user.username, 'to-do')  # opens the data manager
     time.sleep(2)
     open_selection_menu(validated_user)
 

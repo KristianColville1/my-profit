@@ -26,6 +26,9 @@ class DataManager():
     _cluster = MongoClient(f'{mongo_link}')
     _database = _cluster['RapidSilver']
     _user_details_collection = _database['users_details']
+    _to_do_collection = _database['to_do_lists']
+    _products_collection = _database['products']
+    _employees_collection = _database['inventory']
 
     def __init__(self, user_id, the_route):
         self.username = user_id
@@ -35,6 +38,18 @@ class DataManager():
             self.add_details_to_database(self.username, self.user.user_details)
         else:
             self.print_welcome_back()
+
+        if the_route == 'to_do_list':
+            self.open_to_do_list(self.username)
+        elif the_route == 'to_do_list':
+            pass
+        elif the_route == 'products':
+            pass
+        elif the_route == 'employee':
+            pass
+        elif the_route == 'inventory':
+            pass
+
 
     def check_user_details(self):
         """
@@ -89,7 +104,7 @@ class DataManager():
         result = input('\nEnter selection here: ')
 
         if result in ('Y', 'y'):
-            self.update_profile(user_profile)
+            self.update_profile()
         elif result in ('N', 'n'):
             pass  #  heads back to the selection menu from here
         else:
@@ -99,7 +114,15 @@ class DataManager():
             time.sleep(2)
             self.print_welcome_back()  # uses recursion until input valid
 
-    def update_profile(self, user_profile):
+    def update_profile(self):
         """
         Takes a profile and updates that document on the Mongo Database.
         """
+        self.user = User()
+        self.add_details_to_database(self.username, self.user.user_details)
+
+    def open_to_do_list(self, username):
+        """
+        A user of Rapid Silver can create and update a to do list.
+        """
+        
