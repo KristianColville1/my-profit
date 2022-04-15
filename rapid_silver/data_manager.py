@@ -49,6 +49,10 @@ class DataManager():
         Checks to see if user details already exists and returns the result.
         """
         result = self._user_details_collection.find_one({"_id": self.username})
+        if result is None:
+            print(color.red_fore(
+                '\n\nNo profile found, create one instead\n\n'
+            ))
         time.sleep(1)
         return result
 
