@@ -65,5 +65,6 @@ class DataManager():
         print('Welcome back ', self.username)
 
         print('Here are the details we have for you')
+        time.sleep(20)
 
         
