@@ -3,7 +3,6 @@ import os
 import time
 import random
 from getpass import getpass
-from types import new_class
 import bcrypt
 from pymongo import MongoClient
 from console import clear_console
@@ -211,8 +210,12 @@ class PasswordManager():
         the security of the data.
         """
         try:
+            print('Testing 1')
+            time.sleep(2)
             new_user = {}
-            new_user["_id": self.username]
+            new_user["_id"] = self.username
+            print('Testing 2')
+            time.sleep(2)
             print('\n\nAccessing database now')
             loader.color_background(60, loader.cyan_back)
             time.sleep(2)
@@ -220,6 +223,8 @@ class PasswordManager():
                 self._password, 'utf-8')  # convert password to bytes
             salt = bcrypt.gensalt()
             hashed = bcrypt.hashpw(self._password, salt)
+            print('Testing 3')
+            time.sleep(2)
             new_user['password'] = f'{salt}:{hashed}'
             post = new_user
             self._collection.insert_one(post)
