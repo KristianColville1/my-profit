@@ -31,6 +31,7 @@ class DataManager():
     _employees_collection = _database['inventory']
 
     def __init__(self, user_id, the_route):
+        self.user = None
         self.username = user_id
         self.results = self.check_user_details()
         if self.results is None:
