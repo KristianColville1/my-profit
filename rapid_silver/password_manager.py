@@ -28,10 +28,7 @@ class PasswordManager():
     character_keys = ['a', 'b']
     alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
     special_chars = ['!', '@', '#', '$', '%', '&', '*']
-    user_mongo_dict = {
-        "_id": "",
-        "password": "",
-    }
+
 
 
     mongo_link = os.environ.get('MONGOLINK')
@@ -42,6 +39,10 @@ class PasswordManager():
     def __init__(self, account_type):
         self.username = None
         self._password = None
+        self.user_mongo_dict = {
+        "_id": "",
+        "password": "",
+        }
         # decides which route to take for the account type
         if account_type == 'new':
             self.username = self._set_username()
@@ -221,8 +222,9 @@ class PasswordManager():
             post = self.user_mongo_dict
             self._collection.insert_one(post)
             loader.hash_loading('Storing user credentials')
-        except TimeoutError:
+        except Exception:
             print('Issues contacting database.. please wait')
+            time.sleep(5)
             self._save_user_credentials()
 
     def _log_in_user(self):
