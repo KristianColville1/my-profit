@@ -41,7 +41,7 @@ class DataManager():
                     self.username, self.user.user_details)
                 self.print_welcome_back()
         elif the_route == 'to_do':
-            self.open_to_do_list(self.username)
+            self.open_to_do_list()
         elif the_route == 'products':
             pass
         elif the_route == 'employee':
@@ -128,7 +128,7 @@ class DataManager():
         self._user_details_collection.update(user_id, post)  # updates database
         self.print_welcome_back()
 
-    def open_to_do_list(self, username):
+    def open_to_do_list(self):
         """
         A user of Rapid Silver can create and update a to do list.
         Checks for existing to do list and if theres none there creates one
@@ -174,7 +174,59 @@ class DataManager():
         table.add_column('Task', style='yellow')
 
         for key, value in to_do_list.items():
+            # hides the id and username
+            if key == '_id':
+                pass
             table.add_row(str(key), str(value))
 
         console = Console()
         console.print(table)
+
+        print(color.blue_fore(
+            "\nWould you like to update your to do list?"
+        ))
+        print(
+            "Hit [ y ] + enter to update your to do list: "
+        )
+
+        result = color.green_fore(
+            'Enter your choice here, hit enter to skip: '
+        )
+        color.dot_loading('Updating selections now')
+        if result not in ('y', 'Y'):
+            pass
+        else:
+            self.clear_update_to_do_list()
+
+    def clear_update_to_do_list(self):
+        """
+        Clears or makes amendments to a to do list for a user.
+        """
+        new_to_do = {"_id": self.username}
+        clear_console()
+        to_do_list = self._to_do_collection.find_one({"_id": self.username})
+        print('\n\n\n\n')
+        result = input(color.purple_fore(
+            'Do you want to clear or update your to do list?'))
+        print(color.yellow_fore(
+            'Hit [ y ] + Enter to clear your entire task list and start over '
+        ))
+        print(color.yellow_fore(
+            'Hit [ n ] + Enter to amend individual tasks '
+        ))
+        if result in ('y', 'Y'):
+            self._to_do_collection.delete_one({"_id": self.username})
+        if result in ('N', 'n'):
+            for key, value in to_do_list.items():
+                if key is not "_id":
+                    print(f"Update {key} task hit [ y ] + Enter to amend")
+                    print("Hit [ n ] + Enter to skip")
+                    result = input(color.green_fore('\n\nEnter here: '))
+                    if result in ('Y', 'y'):
+                        new_key = input('\nEnter the name of the task here: ')
+                        new_to_do[new_key] = input(color.yellow_fore(
+                            "Enter your task here: "
+                        ))
+                    if result in ('N', 'n'):
+                        new_key[key] = value
+        self.open_to_do_list()

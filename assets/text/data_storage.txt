@@ -13,9 +13,8 @@
                     
                 Your personal information is stored in MongoDb.
                 We use MongoDb Atlas which is cloud storage.
-Data you set up for manipulation is stored separately within google sheets.
 
-                    Having issues with your data storage? 
+                    Having issues with your data? 
 
                     Please contact rapid.silver.educate@gmail.com
                     or Alternatively ring (020-911-5512)
