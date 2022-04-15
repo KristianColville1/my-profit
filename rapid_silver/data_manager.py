@@ -147,12 +147,12 @@ class DataManager():
             )
             while True:
                 try:
-                    key = input(
+                    key = str(input(
                         color.purple_fore(
-                            "\n\nEnter a name for the task here: "))
-                    value = input(
+                            "\n\nEnter a name for the task here: ")))
+                    value = str(input(
                         color.yellow_fore(
-                            '\nEnter your task here:'))
+                            '\nEnter your task here:')))
                     to_move_on = input(
                         color.green_fore(
                             'To create another task hit [ y ] + Enter : ')
