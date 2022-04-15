@@ -39,17 +39,14 @@ class DataManager():
         else:
             self.print_welcome_back()
 
-        if the_route == 'to_do_list':
+        if the_route == 'to_do':
             self.open_to_do_list(self.username)
-        elif the_route == 'to_do_list':
-            pass
         elif the_route == 'products':
             pass
         elif the_route == 'employee':
             pass
         elif the_route == 'inventory':
             pass
-
 
     def check_user_details(self):
         """
@@ -106,7 +103,8 @@ class DataManager():
         if result in ('Y', 'y'):
             self.update_profile(self.username, self.user.user_details)
         elif result in ('N', 'n'):
-            pass  #  heads back to the selection menu from here
+            # heads back to the selection menu from here
+            pass
         else:
             print(
                 color.red_fore(
@@ -141,7 +139,8 @@ class DataManager():
         if to_do_list is None:
             empty_dict["_id"] = self.username
             print(
-                color.red_fore('There are no to do lists matching our records for you'))
+                color.red_fore(
+                    'There are no to do lists matching our records for you'))
             print(
                 color.yellow_fore('\n Lets make one now.')
             )
@@ -175,5 +174,3 @@ class DataManager():
 
             console = Console()
             console.print(table)
-            
-            
