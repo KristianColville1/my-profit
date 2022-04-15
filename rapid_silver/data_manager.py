@@ -27,8 +27,7 @@ class DataManager():
     _database = _cluster['RapidSilver']
     _user_details_collection = _database['users_details']
     _to_do_collection = _database['to_do_lists']
-    _products_collection = _database['products']
-    _employees_collection = _database['inventory']
+    _inventory_collection = _database['inventory']
 
     def __init__(self, user_id, the_route):
         self.username = user_id
@@ -168,7 +167,7 @@ class DataManager():
                     pass
                 except TypeError:
                     pass
-                self._to_do_collection.insert_one(empty_dict)
+            self._to_do_collection.insert_one(empty_dict)
         # after a list is either found or made, print it to the terminal
         # calls to get the document again so both routes are
         # accounted for and joined back here
@@ -192,10 +191,10 @@ class DataManager():
             "Hit [ y ] + enter to update your to do list: "
         )
 
-        result = input(color.green_fore(
+        result = input(color.yellow_fore(
             'Enter your choice here, hit enter to skip: '
         ))
-        color.dot_loading('Gathering your todo list now')
+        color.dot_loading('Updating to do list now')
         if result in ('y', 'Y'):
             self.clear_update_to_do_list()
         else:
@@ -225,17 +224,27 @@ class DataManager():
         clear_console()
         self.print_todo_list()
 
-        while True:
-            task_name = input(
-                color.yellow_fore('Enter the name of task you wish to update: '))
-            the_task = input(
-                color.yellow_fore('Now begin writing your task here: '))
+        print('If you would like to empty your to do list')
+        print("Please enter 'empty list' below")
+        print('Just hit Enter otherwise ')
+        result = input(color.cyan_fore('Enter here please'))
+        if result == 'empty list':
+            self._to_do_collection.delete_one({"_id": self.username})
+        else:
+            while True:
+                clear_console()
+                self.print_todo_list()
+                task_name = input(
+                    color.yellow_fore(
+                        'Enter the name of task you wish to update: '))
+                the_task = input(
+                    color.yellow_fore('Now begin writing your task here: '))
 
-            self._to_do_collection.update_one({"_id": self.username}, { "$set": {task_name: the_task}})
-            print('\n\nTo exit hit [ n ] + Enter ')
-            print('\nEnter [ y ] to update another task ')
-            result = input('Enter here please: ')
-            if result in ('n', 'N'):
-                break
-            else:
+                self._to_do_collection.update_one(
+                    {"_id": self.username}, {"$set": {task_name: the_task}})
+                print('\n\nTo exit hit [ n ] + Enter ')
+                print('\nEnter [ y ] to update another task ')
+                result = input('Enter here please: ')
+                if result in ('n', 'N'):
+                    break
                 self.clear_update_to_do_list()  # prints again and asks
