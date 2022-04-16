@@ -136,11 +136,8 @@ The structure of the terminal application was designed to be easily navigated an
     - Coming back to the main route in the main route menu which can be navigated seamlessly to and from the various options within
 
 - From the main menu for the different selections the user has options for:
-    - Setting up products
-    - Setting up mailing lists
-    - Setting up employee lists
+    - Setting up to do list
     - Storing inventory/ updating inventory
-    - Analyzing inventory data
     - Information on data protection
     - How data is stored and protected
 
