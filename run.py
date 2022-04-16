@@ -252,11 +252,14 @@ def set_up_profile(validated_user):
     """
     Sets up a logged in users profile and returns to the selection menu.
     """
-    clear_console()
-    print('\n\n\n\n\nLets check to see if you have a profile first.')
-    LOADING.star_loading('Checking for user profile')
-    DataManager(validated_user.username, 'profile')  # opens the data manager
-    time.sleep(2)
+    try:
+        clear_console()
+        print('\n\n\n\n\nLets check to see if you have a profile first.')
+        LOADING.star_loading('Checking for user profile')
+        DataManager(validated_user.username, 'profile')  # opens the data manager
+        time.sleep(2)
+    except AttributeError:
+        set_up_profile(validated_user)
     open_selection_menu(validated_user)
 
 
@@ -264,10 +267,14 @@ def set_up_to_do_list(validated_user):
     """
     The user can set up or update their to do list.
     """
-    clear_console()
-    LOADING.hash_loading('Checking for to do list now')
-    DataManager(validated_user.username, 'to_do')  # opens the data manager
-    time.sleep(2)
+    try:
+        clear_console()
+        LOADING.hash_loading('Checking for to do list now')
+        DataManager(validated_user.username, 'to_do')  # opens the data manager
+        time.sleep(2)
+    except AttributeError:
+        set_up_to_do_list(validated_user)
+
     open_selection_menu(validated_user)
 
 
@@ -275,10 +282,13 @@ def store_update_stock_for(validated_user):
     """
     Sets up a logged in users profile and returns to the selection menu.
     """
-    clear_console()
-    LOADING.money_loading('Checking your inventory now')
-    DataManager(validated_user.username, 'inventory')  # opens the data manager
-    time.sleep(2)
+    try:
+        clear_console()
+        LOADING.money_loading('Checking your inventory now')
+        DataManager(validated_user.username, 'inventory')  # opens the data manager
+        time.sleep(2)
+    except AttributeError:
+        store_update_stock_for(validated_user)
     open_selection_menu(validated_user)
 
 
