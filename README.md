@@ -37,7 +37,6 @@ Developer: Kristian Colville
     * [Python validation](#python-validation)
         * [PEP8 validation](#pep8-validation)
         * [Linters](#Linters)
-    * [LightHouse](#lighthouse)
 * [Bugs](#bugs)
 * [Development & Deployment](#deployment--deployment)
     * [Version Control](#version-control)
@@ -536,7 +535,6 @@ There are no errors on PEP8 validation of python code, any errors have been fixe
 #### Linters
 
 [Pylint](https://pypi.org/project/pylint/) was used as a linter within VSCode and enabled globally and there are no errors in any of the files within the workspace
-### LightHouse
 
 [Back to Top](#table-of-contents)
 ## Bugs
