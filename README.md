@@ -273,12 +273,12 @@ This [CLI](https://en.wikipedia.org/wiki/Command-line_interface) application was
 <details>
 <summary>See screenshot</summary>
 
-![Account Creation two](assets/images/account-creation-one.png)
+![Account Creation two](assets/images/account-creation-one-a.png)
 </details>
 <details>
 <summary>See screenshot</summary>
 
-![Account Creation One](assets/images/account-creation-one.png)
+![Account Creation One](assets/images/account-creation-one-b.png)
 </details>
 <br>
 
@@ -290,7 +290,7 @@ This [CLI](https://en.wikipedia.org/wiki/Command-line_interface) application was
 
 - To securely store passwords in the database they would need to be [salted](https://en.wikipedia.org/wiki/Salt_(cryptography)) and [hashed](https://en.wikipedia.org/wiki/Cryptographic_hash_function) so the stronger the password the better for extra security
 
-[Go to MongoDB section for information on secure password storage](#mongodb)
+[Go to MongoDB section for information on secure password storage](#working-with-mongodb)
 
 - The user is made of aware of very important information as its in red text color
 
@@ -298,7 +298,7 @@ This [CLI](https://en.wikipedia.org/wiki/Command-line_interface) application was
 
 - This acts as a form of security and assures the user that information inserted is hidden from other people who might see their log in credentials
 
-- Helping users as much as possible is another prompt to re-enter their password to validate matches, this is to avoid mistakes as it is easy to make them when you cant see the password on the screen
+- Helping users as much as possible is another prompt to re-enter their password to validate matches, this is to avoid mistakes as it is easy to make them when you can't see the password on the screen
 
 <details>
 <summary>See screenshot</summary>
@@ -310,6 +310,127 @@ This [CLI](https://en.wikipedia.org/wiki/Command-line_interface) application was
 <summary>See screenshot</summary>
 
 ![Password Creation Two](assets/images/password-creation-b.png)
+</details>
+<br>
+
+### Logging into Rapid Silver
+
+- Following the flow we find ourselves transported to the login screen which is also navigated to by choosing the first option on the login portal screen
+
+- If we have created an account we will get here automatically
+
+- To log in we simply enter our username and password
+
+- We are also made aware that our input for our password is hidden, this helps reassure users who might need that layer of security to protect their credentials
+
+<details>
+<summary>See screenshot</summary>
+
+![Logging in](assets/images/logging-in-a.png)
+</details>
+<details>
+<summary>See screenshot</summary>
+
+![Logging in](assets/images/logging-in-ab.png)
+</details>
+<details>
+<summary>See screenshot</summary>
+
+![Logging in](assets/images/logging-in-c.png)
+</details>
+<br>
+
+### The Main Menu of Navigation
+
+- To tie things together we have the main menu of navigation to which we get to by logging into Rapid Silver
+
+- We have ascii art again on the top of the screen informing the user of the intent of the screen they are on
+
+- We have 6 options available to us on this menu:
+    - We can set up a profile
+    - we can make/update our to do list
+    - We can store inventory/update inventory
+    - Go to the GDPR screen found on the login portal
+    - Go to our data storage for information and help
+
+#### Our Profile
+
+- We can create a profile with our details and update them if we need to keep track of anything
+
+<details>
+<summary>See screenshot</summary>
+
+![Profile](assets/images/profile-creation-one.png)
+</details>
+<details>
+<summary>See screenshot</summary>
+
+![Profile](assets/images/profile-creation-two.png)
+</details>
+
+
+#### The To Do List
+
+- This functionality provides a method of keeping track of our goals, achievements, anything specific to the wide spectrum of users who could use this resource
+
+- You can add, modify and clear your inventory
+- The best part is that your details are saved and you can access them by just being logged in.
+
+
+<details>
+<summary>See screenshot</summary>
+
+![To do list](assets/images/to-do-list-one.png)
+</details>
+<details>
+<summary>See screenshot</summary>
+
+![To do list](assets/images/to-do-list-two.png)
+</details>
+
+
+#### Our Inventory
+
+- Having this functionality could really help a lot of users to keep track of information about their inventories, customers, products. It's purpose could be adapted easily to different scenarios.
+
+- You can add, modify and clear your inventory
+
+- As mentioned above for the tasks the best part is that your details are saved and you can access them by just being logged in.
+
+- Only you the user can access your details unique to you. 
+
+<details>
+<summary>See screenshot</summary>
+
+![Inventory](assets/images/inventory.png)
+</details>
+
+#### Information on Data Protection
+
+- With this option the user is provided informative info on Rapid Silver and can be assured of the quality of the protection offered by Rapid Silver to them
+
+- There are well known data protection standards and these have been placed on the bottom as to inform that the program meets these standards for data protection and security
+
+- A user can quickly navigate back to the main menu from this position by hitting the 'Enter key' on their keyboard
+
+<details>
+<summary>See screenshot</summary>
+
+![Data Protection](assets/images/data-protection.png)
+</details>
+
+#### Data Storage
+
+- In order to be fully transparent and user friendly there is a data storage section that provides the user with contact details and general information as how the data is stored
+
+- To meet standards of openness and transparency this helps reassure users that this is a safe program to use and have their data stored in
+
+- A user can quickly navigate back to the main menu from this position by hitting the 'Enter key' on their keyboard
+
+<details>
+<summary>See screenshot</summary>
+
+![Data Storage](assets/images/data-storage.png)
 </details>
 <br>
 
