@@ -327,7 +327,7 @@ This [CLI](https://en.wikipedia.org/wiki/Command-line_interface) application was
 <details>
 <summary>See screenshot</summary>
 
-![Logging in](assets/images/logging-in-ab.png)
+![Logging in](assets/images/logging-in-b.png)
 </details>
 <details>
 <summary>See screenshot</summary>
