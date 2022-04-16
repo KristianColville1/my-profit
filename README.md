@@ -21,13 +21,12 @@ Developer: Kristian Colville
     * [Color Scheme](#color-scheme)
     * [Fonts](#color-scheme)
     * [Structure](#color-scheme)
-    * [Wireframes](#wireframes)
-* [Technologies & Tools](#technologies--tools)
-    * [Main Tech](#main-tech)
-    * [Python Packages Used](#python-packages-used)
 * [Logic](#logic)
     * [Initial Flow](#initial-flow)
     * [Python Logic](#python-logic)
+* [Technologies & Tools](#technologies--tools)
+    * [Main Tech](#main-tech)
+    * [Python Packages Used](#python-packages-used)
 * [Features](#features)
 * [Data Model](#data-model)
     * [Class Overview](#class-overview)
@@ -35,9 +34,6 @@ Developer: Kristian Colville
 * [Testing](#testing)
     * [Testing User Stories](#testing-user-stories)
 * [Validation](#validation)
-    * [HTML Validation](#html-validation)
-    * [CSS Validation](#css-validation)
-    * [JavaScript Validation](#javascript-validation)
     * [Python validation](#python-validation)
         * [PEP8 validation](#pep8-validation)
         * [Linters](#Linters)
@@ -46,7 +42,6 @@ Developer: Kristian Colville
 * [Development & Deployment](#deployment--deployment)
     * [Version Control](#version-control)
     * [Cloning this Repository](#cloning-this-repository)
-    * [Working with MongoDB](#working-with-mongodb)
     * [Heroku](#heroku)
 * [Credits](#credits)
 * [Acknowledgements](#acknowledgements)
@@ -150,9 +145,16 @@ The structure of the terminal application was designed to be easily navigated an
     - Information on data protection
     - How data is stored and protected
 
-### Wireframes
+[Back to Top](#table-of-contents)
+
+## Logic
+### Initial Flow
+![Initial Flowchart](assets/images/flowcharts/rapid-silver.drawio.png)
+### Python Logic
+![Python Logic](assets/images/flowcharts/rapid-silver-python-flow.png)
 
 [Back to Top](#table-of-contents)
+
 ## Technologies & Tools
 ### Languages Used
 
@@ -175,7 +177,7 @@ The structure of the terminal application was designed to be easily navigated an
 - [Jigsaw W3 Validator](https://jigsaw.w3.org/css-validator/) for validating CSS code 
 - [JShint](https://jshint.com/) for validating JavaScript code
 - [Lighthouse](https://developers.google.com/web/tools/lighthouse) used inside [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) for testing the website hosting the terminal application
-- [MongoDB](https://www.mongodb.com/) as a database solution for storing the users passwords
+- [MongoDB](https://www.mongodb.com/) as a database solution for storing the users passwords and various collections
 - [PEP8](http://pep8online.com/) for validating python code
 - [Ubuntu](https://ubuntu.com/) as the operating system on the local machine
 - [VSCode](https://code.visualstudio.com/) as a local repository
@@ -191,18 +193,12 @@ The structure of the terminal application was designed to be easily navigated an
 - [Pymongo](https://pypi.org/project/pymongo/) for accessing the Mongo Database and storing users passwords
 - [Random](https://docs.python.org/3/library/random.html) used for calculating random numbers and selecting random choices in the various classes
 - [Rich](https://rich.readthedocs.io/en/stable/introduction.html) used for creating tables to display user data for the profile, to do list and the users inventory
-- [Sys] used to for accessing the system and exiting the program within the selection menu for the user
+- [Sys](https://docs.python.org/3/library/sys.html) used for accessing the system and exiting the program within the selection menu for the user
 - [Time](https://docs.python.org/3/library/time.html) used throughout for adding delays between text on terminal and for the loading animations
 
 
 [Back to Top](#table-of-contents)
-## Logic
-### Initial Flow
-![Initial Flowchart](assets/images/flowcharts/rapid-silver.drawio.png)
-### Python Logic
-![Python Logic](assets/images/flowcharts/rapid-silver-python-flow.png)
 
-[Back to Top](#table-of-contents)
 ## Features
 
 This [CLI](https://en.wikipedia.org/wiki/Command-line_interface) application was forged using a powerful multi purpose programming language called [python](https://www.python.org/). The entire program consists of 10 distinct features as described below.
@@ -448,121 +444,97 @@ Object Orientated programming was used throughout the project. The CLI applicati
     - TextArt
 
 ### Database Overview
+As a database solution [MongoDB](https://www.mongodb.com/) was chosen to store user data provided.
+MongoDB is a document database.
 
+Used within is a database called RapidSilver.
+
+- It contains 4 clusters:
+    - inventory
+    - to_do_lists
+    - users
+    - users_details
 
 [Back to Top](#table-of-contents)
 ## Testing
 ### Testing User Stories
 
-
 1. As a new user I want to understand how to use this CLI application
 
 | Feature | Action | Expected Result | Actual Result |
 | --- | --- | --- | --- |
-| 1 | 2 | 3 | 4 |
-
-<details>
-<summary>See screenshot</summary>
-</details>
-<br>
+| Reminder menu, options menu | Informs user of intent and any help needed is shown along all routes | User can figure out how to use application all  | Works as expected |
 
 2. As a new user I want to create an account to store my personal information
 
 | Feature | Action | Expected Result | Actual Result |
 | --- | --- | --- | --- |
-| 1 | 2 | 3 | 4 |
-
-<details>
-<summary>See screenshot</summary>
-</details>
-<br>
+| Profile, to do list, inventory | create an account, create a profile, create a to do list and create an inventory | The user should be able to complete all of these and return to the options menu | Works as expected |
 
 3. As a new user I want to be able store and analyze some form of data
 
 | Feature | Action | Expected Result | Actual Result |
 | --- | --- | --- | --- |
-| 1 | 2 | 3 | 4 |
-
-<details>
-<summary>See screenshot</summary>
-</details>
-<br>
+| To do list, inventory | update to do list, clear to do list, update inventory and clear inventory | the user should be able to add to and from their to do lists and inventories | Works as expected |
 
 4. As a returning user I want to be able to log into the application
 
 | Feature | Action | Expected Result | Actual Result |
 | --- | --- | --- | --- |
-| 1 | 2 | 3 | 4 |
-
-<details>
-<summary>See screenshot</summary>
-</details>
-<br>
+| Login portal | log into Rapid Silver | enter username and password and gain access to the options menu | Works as expected |
 
 5. As a returning user I want to be able to update inventory/customers/products etc.
 
 | Feature | Action | Expected Result | Actual Result |
 | --- | --- | --- | --- |
-| 1 | 2 | 3 | 4 |
-
-<details>
-<summary>See screenshot</summary>
-</details>
-<br>
+| To do list, inventory list | update a to do list, update inventory | 3 | Works as expected |
 
 6. As a returning user I want to see available options
 
 | Feature | Action | Expected Result | Actual Result |
 | --- | --- | --- | --- |
-| 1 | 2 | 3 | 4 |
-
-<details>
-<summary>See screenshot</summary>
-</details>
-<br>
+| Options menu | navigate to the options menu | Start the application and log in, the options menu should open after logging in | Works as expected |
 
 7. As the owner I want my users data to be stored safely
 
 | Feature | Action | Expected Result | Actual Result |
 | --- | --- | --- | --- |
-| 1 | 2 | 3 | 4 |
-
-<details>
-<summary>See screenshot</summary>
-</details>
-<br>
+| Password protection, Database solution | Salt and hash passwords, do not display passwords on screen, restrict access to documents | passwords are encrypted with bcrypt and not displayed on screen, mongo access is limited to specific clusters | Works as expected |
 
 8. As the owner I want my users passwords uniquely encrypted in the database for extra protection
 
 | Feature | Action | Expected Result | Actual Result |
 | --- | --- | --- | --- |
-| 1 | 2 | 3 | 4 |
-
-<details>
-<summary>See screenshot</summary>
-</details>
-<br>
-
-9. As the owner I want users to see sample data and understand how to use the program
-
-| Feature | Action | Expected Result | Actual Result |
-| --- | --- | --- | --- |
-| 1 | 2 | 3 | 4 |
-
-<details>
-<summary>See screenshot</summary>
-</details>
-<br>
+| Password Encryption | Salt and hash passwords correctly, hide access to links and passwords | environment variables are used to store credentials to database, links are hidden and passwords are encrypted using bcrypt | Works as expected |
 
 [Back to Top](#table-of-contents)
 
 ## Validation
-### HTML Validation
-### CSS Validation
-### JavaScript Validation
+This project is displayed inside a website. The requirements did not include validation for the website only for python. Validation has been carried out on the template provided and no issues or problems are noted other than what was provided with the template from Code Institute. These errors are small and of no relevance to the goal of this project.
+
+I have added some HTML and CSS to the website to improve the appearance of the project. All code added has been validated with no errors.
+
+HTML: validated using [WC3 Validator](https://validator.w3.org/).
+CSS: validated using [Jigsaw W3 Validator](https://jigsaw.w3.org/css-validator/)
+
 ### Python validation
 #### PEP8 validation
+
+PEP8 was used to make sure conformity was met with python code written. I have tested all python files.
+
+- color.py
+- data_manager.py
+- password_manager.py
+- text_art.py
+- user.py
+- run.py
+- console.py
+
+There are no errors on PEP8 validation of python code, any errors have been fixed while in development.
+
 #### Linters
+
+[Pylint](https://pypi.org/project/pylint/) was used as a linter within VSCode and enabled globally and there are no errors in any of the files within the workspace
 ### LightHouse
 
 [Back to Top](#table-of-contents)
@@ -614,7 +586,6 @@ Instructions:
 
 You should have a local copy of the repository to use on your machine.
 
-### Working with MongoDB
 ### Heroku
 As a deployment solution I chose [Heroku](https://dashboard.heroku.com).
 

@@ -256,7 +256,8 @@ def set_up_profile(validated_user):
         clear_console()
         print('\n\n\n\n\nLets check to see if you have a profile first.')
         LOADING.star_loading('Checking for user profile')
-        DataManager(validated_user.username, 'profile')  # opens the data manager
+        DataManager(
+            validated_user.username, 'profile')  # opens the data manager
         time.sleep(2)
     except AttributeError:
         set_up_profile(validated_user)
@@ -285,7 +286,8 @@ def store_update_stock_for(validated_user):
     try:
         clear_console()
         LOADING.money_loading('Checking your inventory now')
-        DataManager(validated_user.username, 'inventory')  # opens the data manager
+        DataManager(
+            validated_user.username, 'inventory')  # opens the data manager
         time.sleep(2)
     except AttributeError:
         store_update_stock_for(validated_user)
