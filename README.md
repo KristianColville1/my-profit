@@ -487,7 +487,7 @@ Used within is a database called RapidSilver.
 
 | Feature | Action | Expected Result | Actual Result |
 | --- | --- | --- | --- |
-| To do list, inventory list | update a to do list, update inventory | 3 | Works as expected |
+| To do list, inventory list | update a to do list, update inventory | select options and update the various lists | Works as expected |
 
 6. As a returning user I want to see available options
 
@@ -515,6 +515,7 @@ This project is displayed inside a website. The requirements did not include val
 I have added some HTML and CSS to the website to improve the appearance of the project. All code added has been validated with no errors.
 
 HTML: validated using [WC3 Validator](https://validator.w3.org/).
+
 CSS: validated using [Jigsaw W3 Validator](https://jigsaw.w3.org/css-validator/)
 
 ### Python validation
