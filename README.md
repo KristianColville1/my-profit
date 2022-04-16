@@ -43,10 +43,11 @@ Developer: Kristian Colville
         * [Linters](#Linters)
     * [LightHouse](#lighthouse)
 * [Bugs](#bugs)
-* [Deployment](#deployment)
+* [Development & Deployment](#deployment--deployment)
     * [Version Control](#version-control)
-    * [Heroku](#heroku)
     * [Cloning this Repository](#cloning-this-repository)
+    * [Working with MongoDB](#working-with-mongodb)
+    * [Heroku](#heroku)
 * [Credits](#credits)
 * [Acknowledgements](#acknowledgements)
 
@@ -204,7 +205,116 @@ The structure of the terminal application was designed to be easily navigated an
 [Back to Top](#table-of-contents)
 ## Features
 
+This [CLI](https://en.wikipedia.org/wiki/Command-line_interface) application was forged using a powerful multi purpose programming language called [python](https://www.python.org/). The entire program consists of 10 distinct features as described below.
+
+### Welcome Screen
+
+- When the application is started we have a classic looking loading animation that brings us to the welcome screen. It's quick and simple looking but effectively used to draw in the user to what's next
+
+- On the welcome screen we have the name of the application in audacious ascii art. It's energetic and bold. The developer responsible for the application name is also present underneath in the same color
+
+- The user is prompted to press enter to continue to go to the next screen
+
+<details>
+<summary>See screenshot</summary>
+
+![Terminal Hero Image](assets/images/hero-terminal-image.png)
+</details>
+<br>
+
+### A Reminder to the user
+
+- To help the user immediately understand the application the next menu shows some of the options available to a logged in user
+
+- This provides intent to the user and a user can get an idea of what to expect further along into the program
+
+- Again your prompted to hit enter to move on with the program. This functionality provides quick navigation through the application and also provides an easy method of quickly handling input errors by a user
+
+<details>
+<summary>See screenshot</summary>
+
+![Reminder](assets/images/reminding-user.png)
+</details>
+<br>
+
+### The Login Portal
+
+- Seamlessly, with just two hits of the 'Enter' key you are brought straight through to the login portal
+
+- We have more ascii art at the top of the screen in big bold words telling us exactly where we are in the program
+
+- Within the listed options we have logging in as a returning user, an option for creating an account and even option for some information on how data is stored and protected
+
+- Starting from the bottom up with the information on how data is protected you can once again hit the 'Enter key' to return to login portal, this provides quick navigation back after reading
+
+- Next in a clear and easy to read format we have an option for creating an account by hitting the letter 'd' and hitting 'Enter'
+
+<details>
+<summary>See screenshot</summary>
+
+![Login Portal](assets/images/login-portal.png)
+</details>
+<br>
+
+### Account Creation
+#### Creating a Username
+
+- Following the flow of the program after hitting 'd' and 'Enter' we can create an account
+
+- We are given two options for creating a username
+
+- We can either create one ourselves or we can let Rapid Silver generate a username for us
+
+<details>
+<summary>See screenshot</summary>
+
+![Account Creation One](assets/images/account-creation-one.png)
+</details>
+<details>
+<summary>See screenshot</summary>
+
+![Account Creation two](assets/images/account-creation-one.png)
+</details>
+<details>
+<summary>See screenshot</summary>
+
+![Account Creation One](assets/images/account-creation-one.png)
+</details>
+<br>
+
+#### Creating a Password
+
+- All routes lead to Rome, creating a username yourself or generating one will bring you to the password creation screen
+
+- Here things are slightly more complicated. The user must enter a password that's strong. At least 10 characters long and it must contain a capital letter, a number and one of the special characters provided
+
+- To securely store passwords in the database they would need to be [salted](https://en.wikipedia.org/wiki/Salt_(cryptography)) and [hashed](https://en.wikipedia.org/wiki/Cryptographic_hash_function) so the stronger the password the better for extra security
+
+[Go to MongoDB section for information on secure password storage](#mongodb)
+
+- The user is made of aware of very important information as its in red text color
+
+- There is also an indented piece of information informing the user that for password protection the input is hidden
+
+- This acts as a form of security and assures the user that information inserted is hidden from other people who might see their log in credentials
+
+- Helping users as much as possible is another prompt to re-enter their password to validate matches, this is to avoid mistakes as it is easy to make them when you cant see the password on the screen
+
+<details>
+<summary>See screenshot</summary>
+
+![Password Creation One](assets/images/password-creation.png)
+</details>
+<br>
+<details>
+<summary>See screenshot</summary>
+
+![Password Creation Two](assets/images/password-creation-b.png)
+</details>
+<br>
+
 [Back to Top](#table-of-contents)
+
 ## Data Model
 
 ### Class Overview
@@ -352,7 +462,7 @@ Object Orientated programming was used throughout the project. The CLI applicati
 | Updating to do list missing last entry by the user when adding to the list and not updating new values when created | Using mongo methods for updating and deleting solved the issue and it's behaving as expected |
 
 [Back to Top](#table-of-contents)
-## Deployment
+## Development & Deployment
 ### Version Control
 I used [Visual Studio Code](https://code.visualstudio.com/) as a local repository and IDE & [GitHub](https://github.com/) as a remote repository.
 
@@ -367,6 +477,23 @@ I used [Visual Studio Code](https://code.visualstudio.com/) as a local repositor
     - git commit -m "Commit message: (i.e. Initial commit)" *Allows the developer to assign a specific concise statement to the commit*
     - git push *The final command sends the code to GitHub*
 
+### Cloning this Repository
+If you would like to clone this repository please follow the bellow steps.
+
+Instructions:
+
+1. Log into GitHub
+2. Navigate to the repository you want to clone
+3. Click on the green button labelled 'Code'
+4. Copy the URL under the HTTPS option
+5. Open an IDE of your choosing that has Git installed
+6. Open a new terminal window in your IDE
+7. Type this exactly: git clone the-URL-you-copied-from-GitHub
+8. Hit Enter
+
+You should have a local copy of the repository to use on your machine.
+
+### Working with MongoDB
 ### Heroku
 As a deployment solution I chose [Heroku](https://dashboard.heroku.com).
 
@@ -401,23 +528,8 @@ To deploy a project using Heroku follow these steps:
     - You can click the 'view' button
     - It will reveal your deployed app
     
-### Cloning this Repository
-If you would like to clone this repository please follow the bellow steps.
-
-Instructions:
-
-1. Log into GitHub
-2. Navigate to the repository you want to clone
-3. Click on the green button labelled 'Code'
-4. Copy the URL under the HTTPS option
-5. Open an IDE of your choosing that has Git installed
-6. Open a new terminal window in your IDE
-7. Type this exactly: git clone the-URL-you-copied-from-GitHub
-8. Hit Enter
-
-You should have a local copy of the repository to use on your machine.
-
 [Back to Top](#table-of-contents)
+
 ## Credits
 
 Function for clearing the console if an error occurs taken from [Delf Stack](https://www.delftstack.com/howto/python/python-clear-console/).
