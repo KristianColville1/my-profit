@@ -148,6 +148,8 @@ class DataManager():
                 try:
                     print(color.red_fore(
                         '\nTo leave just hit [ n ] + Enter\n'))
+                    print(color.red_fore(
+                        '\nTo continue hit enter'))
                     result = input(color.red_fore('Enter here: '))
                     if result in ('n', 'N'):
                         break
@@ -276,6 +278,8 @@ class DataManager():
                 try:
                     print(color.red_fore(
                         '\nTo leave just hit [ n ] + Enter\n'))
+                    print(color.red_fore(
+                        '\nTo continue hit enter'))
                     result = input('Enter here: ')
                     if result in ('n', 'N'):
                         break
